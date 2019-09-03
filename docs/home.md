@@ -1,12 +1,20 @@
-# GRISM XML Tutorial
+## GRISM XML Tutorial
 
 > GRISM XML is the standard markup language for SDN
 
-> With GRISM XML you can create your own Network.
+> With GRISM XML you can create your own Network Packet Broker.
 
 > GRISM XML is easy to learn - You will enjoy it!
 
+## Features
+
+- Easy to learn and use, simple to edit
+- User-Friendly
+- Easy to integrate with third-party software
+- Simple and lightweight
+
 ## Example
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <run>
