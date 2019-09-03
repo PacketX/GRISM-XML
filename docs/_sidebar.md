@@ -1,4 +1,4 @@
 <!-- docs/_sidebar.md -->
 
-* [Tutorial](/)
+* [Tutorial](/ "Grism XML")
 * [Guide](guide.md)
