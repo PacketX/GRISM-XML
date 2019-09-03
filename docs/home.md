@@ -13,7 +13,7 @@
 - Easy to integrate with third-party software
 - Simple and lightweight
 
-## Example
+## A Simple GRISM XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
