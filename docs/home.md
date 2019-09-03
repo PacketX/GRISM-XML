@@ -5,3 +5,22 @@
 > With GRISM XML you can create your own Network.
 
 > GRISM XML is easy to learn - You will enjoy it!
+
+## Example
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<run>
+<filter id="1" name="black IP list">
+  <or>
+    <find name="ip.addr" relation="==" content="92.53.120.155" />
+    <find name="ip.addr" relation="==" content="67.229.164.135" />
+    <find name="ip.addr" relation="==" content="159.203.92.222" />
+  </or>
+</filter>
+<chain>
+  <in>P0</in>
+  <fid>F1</fid>
+  <out>P1</out>
+</chain>
+</run>
+```
