@@ -1,4 +1,4 @@
-## GRISM XML Tutorial
+## Tutorial
 
 > GRISM XML is the standard markup language for SDN
 
