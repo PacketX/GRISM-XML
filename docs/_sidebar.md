@@ -1,4 +1,8 @@
 <!-- docs/_sidebar.md -->
 
 * [GRISM XML](/)
-* [Elements](elements.md)
+* [Element - run](run.md)
+* [Element - filter](filter.md)
+* [Element - output](output.md)
+* [Element - chain](chain.md)
+
