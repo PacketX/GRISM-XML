@@ -77,6 +77,7 @@ It has a start tag &lt;find&gt;
 | session.packet.nth | | | |
 | heartbeat.target.miss.nth | | | |
 | flowtable.matched.fid | | | |
+| flowtable.inport | | flow從哪一個實體介面進來 | flowtable.inport == P0 |
 
 ## Example
 ```xml
