@@ -6,4 +6,4 @@
 * [Element - find](find.md)
 * [Element - output](output.md)
 * [Element - chain](chain.md)
-
+* [Case Study](caseStudy.md)
