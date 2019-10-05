@@ -2,9 +2,6 @@
 Defines the Output. 
 It has a start tag &lt;output&gt; and an end tag &lt;/output&gt;.
 
-## Elements in Output
-&lt;port&gt;, &lt;Q&gt;, &lt;QinQ&gt;
-
 ## Attribute
 | Attribute | Description | Type | Default (* must have) |
 |---|---|---|---|
@@ -20,6 +17,8 @@ It has a start tag &lt;output&gt; and an end tag &lt;/output&gt;.
 </output>
 ```
 
+## Elements in Output
+&lt;port&gt;, &lt;Q&gt;, &lt;QinQ&gt;, &lt;stripping&gt;
 ### port
 Defines output port. 
 It has a start tag &lt;port&gt; and an end tag &lt;/port&gt;.
