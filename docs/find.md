@@ -13,45 +13,45 @@ It has a start tag &lt;find&gt;
 ### Attribute -name
 | name | type| Description | Example | 
 |---|---|---|---|
-| eth.addr | MAC address | MAC address | eth.addr == 12:34:56:78:9a:bc |
-| eth.src | MAC address | source MAC address | eth.src == 12:34:56:78:9a:bc |
-| eth.dst | MAC address | dest MAC address | eth.dst == 12:34:56:78:9a:bc |
-| eth.type | int(DEC) | EtherType | eth.type == 2048 (ipv4 0x0800) |
-| vlan.id | int(DEC) | vlan id | vlan.id == 5 |
-| vlan.l2.id | | | |
-| vlan.priority | | | |
-| ip | | | |
-| ip.addr | | | |
-| ip.src | | | |
-| ip.dst | | | |
-| ip.proto | | | |
-| ip.fragment | | | |
-| ip.dsfield | | | |
+| eth.addr | MAC address | Source or Destination MAC address | eth.addr == 12\:34\:56\:78\:9a\:bc |
+| eth.src | MAC address | Source MAC address | eth.src == 12\:34\:56\:78\:9a\:bc |
+| eth.dst | MAC address | Destination MAC address | eth.dst == 12\:34\:56\:78\:9a\:bc |
+| eth.type | Unsigned integer, 2 bytes | EtherType | eth.type == 2048 (ipv4 0x0800) |
+| vlan.id | Unsigned integer, 2 bytes | vlan id | vlan.id == 5 |
+| vlan.l2.id | Unsigned integer, 2 bytes | vlan layer 2 id | vlan.l2.id == 1 |
+| vlan.priority | Unsigned integer, 2 bytes | Priority | vlan.priority == 5 |
+| ip | | is IPv4 | ip == |
+| ip.addr | IPv4 address | Source or Destination Address | ip.addr == 8.8.8.8 |
+| ip.src | IPv4 address | Source Address | ip.src == 8.8.8.8 |
+| ip.dst | IPv4 address | Destination Address | ip.dst == 8.8.8.8 |
+| ip.proto | Unsigned integer, 1 byte | Protocol | ip.proto == 6 (TCP) |
+| ip.fragment | | is IPv4 Fragment | ip.fragment == |
+| ip.dsfield | Unsigned integer, 1 byte | Differentiated Services Field | ip.dsfield == 1 |
 | tunnel.outerlayer.ip.dsfield | | | |
 | tunnel.innerlayer1.ip.dsfield | | | |
 | tunnel.innerlayer2.ip.dsfield | | | |
-| ipv6 | | | |
-| ipv6.addr | | | |
-| ipv6.src | | | |
-| ipv6.dst | | | |
-| ipv6.nxt | | | |
-| tcp | | | |
-| tcp.port | | | |
-| tcp.srcport | | | |
-| tcp.dstport | | | |
-| tcp.flags.syn | | | |
-| tcp.flags.ack | | | |
-| tcp.flags.fin | | | |
-| tcp.flags.reset | | | |
-| udp | | | |
-| udp.port | | | |
-| udp.srcport | | | |
-| udp.dstport | | | |
-| sctp | | | |
-| sctp.port | | | |
-| sctp.srcport | | | |
-| sctp.dstport | | | |
-| 5-tuple | | | |
+| ipv6 | | is IPv6 | ipv6 == |
+| ipv6.addr | IPv6 address | Source or Destination Address | ipv6.addr == 2001\:0db8\:86a3\:08d3\:1319\:8a2e\:0370\:7344 |
+| ipv6.src | IPv6 address | Source Address | ipv6.src == 2001\:0db8\:86a3\:08d3\:1319\:8a2e\:0370\:7344 |
+| ipv6.dst | IPv6 address | Destination Address | ipv6.dst == 2001\:0db8\:86a3\:08d3\:1319\:8a2e\:0370\:7344 |
+| ipv6.nxt | Unsigned integer, 1 byte | Next Header | |
+| tcp | | is TCP | tcp == |
+| tcp.port | Unsigned integer, 2 bytes | Source or Destination Port | tcp.port == 443 |
+| tcp.srcport | Unsigned integer, 2 bytes | Source Port | tcp.srcport == 443 |
+| tcp.dstport | Unsigned integer, 2 bytes | Destination Port | tcp.dstport == 443 |
+| tcp.flags.syn | 0 or 1 | Syn | tcp.flags.syn == 1 |
+| tcp.flags.ack | 0 or 1 | Ack | tcp.flags.ack == 1 |
+| tcp.flags.fin | 0 or 1 | Fin | tcp.flags.fin == 1 |
+| tcp.flags.reset | 0 or 1 | Reset | tcp.flags.rst == 1 |
+| udp | | is UDP | udp == |
+| udp.port | Unsigned integer, 2 bytes | Source or Destination Port | udp.port == 53 |
+| udp.srcport | Unsigned integer, 2 bytes | Source Port | udp.srcport == 53 |
+| udp.dstport | Unsigned integer, 2 bytes | Destination Port | udp.dstport == 53 |
+| sctp | | is SCTP | sctp == |
+| sctp.port | Unsigned integer, 2 bytes | Source or Destination Port | sctp.port == 2906 |
+| sctp.srcport | Unsigned integer, 2 bytes | Source Port | sctp.srcport == 2906 |
+| sctp.dstport | Unsigned integer, 2 bytes | Destination Port | sctp.dstport == 2906 |
+| 5-tuple | 5 Tuple, - means don't care | Source IP Address, Destination IP Address, Source Port, Destination Port, Protocol | - 192.168.1.203 - 443 - |
 | gtp.cp | | | |
 | gtp.data | | | |
 | gtp.imsi | | | |
