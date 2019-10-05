@@ -13,11 +13,11 @@ It has a start tag &lt;find&gt;
 ### Attribute -name
 | name | type| Description | Example | 
 |---|---|---|---|
-| eth.addr | | | |
-| eth.src | | | |
-| eth.dst | | | |
-| eth.type | | | |
-| vlan.id | | | |
+| eth.addr | MAC address | MAC address | eth.addr == 12:34:56:78:9a:bc |
+| eth.src | MAC address | source MAC address | eth.src == 12:34:56:78:9a:bc |
+| eth.dst | MAC address | dest MAC address | eth.dst == 12:34:56:78:9a:bc |
+| eth.type | int(DEC) | EtherType | eth.type == 2048 (ipv4 0x0800) |
+| vlan.id | int(DEC) | vlan id | vlan.id == 5 |
 | vlan.l2.id | | | |
 | vlan.priority | | | |
 | ip | | | |
