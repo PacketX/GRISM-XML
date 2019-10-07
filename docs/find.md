@@ -68,7 +68,7 @@ It has a start tag &lt;find&gt;
 | dns.qry.name | Character string | DNS query name | dns.qry.name == google.com |
 | http | | is HTTP | http == |
 | http.request | | is HTTP request | http.request == |
-| http.request.method | GET,HEAD,POST,PUT,DELETE,TRACE,OPTIONS,CONNECT,PATCH | HTTP request method | http.request.method == GET |
+| http.request.method | GET,HEAD,POST,etc.| HTTP request method | http.request.method == GET |
 | http.request.url | url | HTTP request url | http.request.url == www.whitehollowtransport.com/current-elliott-c-89.html  |
 | ssl | | is SSL | ssl == |
 | ssl.handshake.type | 0 or 1 | SSL handshake type | ssl.handshake.type == 1 |
