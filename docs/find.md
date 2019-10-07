@@ -16,7 +16,7 @@ It has a start tag &lt;find&gt;
 | eth.addr | MAC address | Source or Destination MAC address | eth.addr == 12\:34\:56\:78\:9a\:bc |
 | eth.src | MAC address | Source MAC address | eth.src == 12\:34\:56\:78\:9a\:bc |
 | eth.dst | MAC address | Destination MAC address | eth.dst == 12\:34\:56\:78\:9a\:bc |
-| eth.type | Unsigned integer, 2 bytes | EtherType | eth.type == 2048 (ipv4 0x0800) |
+| eth.type | Unsigned integer, 2 bytes | EtherType | eth.type == 2048 (IPv4 0x0800) |
 | vlan.id | Unsigned integer, 2 bytes | vlan id | vlan.id == 5 |
 | vlan.l2.id | Unsigned integer, 2 bytes | vlan layer 2 id | vlan.l2.id == 1 |
 | vlan.priority | Unsigned integer, 2 bytes | Priority | vlan.priority == 5 |
@@ -57,27 +57,28 @@ It has a start tag &lt;find&gt;
 | gtp.imsi | | | |
 | gtp.imsi.teid_data | | | |
 | gtp.teid | | | |
-| gre | | | |
-| erspan.spanid | | | |
-| voip | | | |
-| voip.account | | | |
-| voip.from | | | |
-| voip.to | | | |
-| dns.a | | | |
-| dns.flags.response | | | |
-| dns.qry.name | | | |
-| http | | | |
-| http.request | | | |
-| http.request.method | | | |
-| ssl | | | |
-| ssl.handshake.type | | | |
-| quic.tag | | | |
-| regex | | | |
+| gre | | is GRE | gre == |
+| erspan.spanid | | ERSPAN id | erspan.spanid == 1|
+| voip | | is SIP or RTP | voip == |
+| voip.account | | | voip.account == 212@o.gentrice.net |
+| voip.from | | | voip.from == 212@o.gentrice.net |
+| voip.to | | | voip.to == 212@o.gentrice.net |
+| dns.a | IPv4 address | DNS type A ip addresses  | dns.a == 216.239.32.10 |
+| dns.flags.response | 0 or 1 | DNS Response | dns.flags.response == 1 |
+| dns.qry.name | Character string | DNS query name | dns.qry.name == google.com |
+| http | | is HTTP | http == |
+| http.request | | is HTTP request | http.request == |
+| http.request.method | GET,HEAD,POST,PUT,DELETE,TRACE,OPTIONS,CONNECT,PATCH | HTTP request method | http.request.method == GET |
+| http.request.url | url | HTTP request url | http.request.url == www.whitehollowtransport.com/current-elliott-c-89.html  |
+| ssl | | is SSL | ssl == |
+| ssl.handshake.type | 0 or 1 | SSL handshake type | ssl.handshake.type == 1 |
+| quic.tag | CHLO | QUIC tag | quic.tag == CHLO |
+| regex | | Regular Expression | regex == \{s\}\\\/\.\*Host: nlpqflkbvkdde\.eu |
 | grism.srcport | | | |
 | session.packet.nth | | | |
 | heartbeat.target.miss.nth | | | |
 | flowtable.matched.fid | | | |
-| flowtable.inport | | flow從哪一個實體介面進來 | flowtable.inport == P0 |
+| flowtable.inport | | which port flow comes | flowtable.inport == P0 |
 
 ## Example
 ```xml
