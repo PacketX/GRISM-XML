@@ -29,7 +29,7 @@ Defines output ports. It has a start tag &lt;out&gt; and an end tag &lt;/out&gt;
 | Attribute | Description | Type | Default \(\* must have) |
 |---|---|---|---|
 | type | duplicate or loadBalance | String | duplicate |
-| lbtype | Load Balance type, includes session, ethtype, iptype, smac, dmac, sip, dip, rr, 5thasht | String | session |
+| lbtype | Load Balance type, includes session, ethtype, iptype, smac, dmac, sip, dip, rr, 5thash | String | session |
 | failover | Load Balance fail over | yes/no | yes |
 | weight | Load Balance weight \(not support session\, rr type\) | String | 20,80 |
 
@@ -60,10 +60,12 @@ Defines filter id. It has a start tag &lt;fid&gt; and an end tag &lt;/fid&gt;.
 ```
 ### next
 Defines going next if packet match/not match filter. It has a next tag &lt;fid&gt; and an end tag &lt;/next&gt;.
+
 #### Attribute
-| Attribute | Description | Type | Default \(\* must have) |
+| Attribute | Description | Type | Default \(\* must have\) |
 |---|---|---|---|
 | type | match/notmatch | String | match |
+
 #### Example
 ```xml
   <next>
