@@ -26,8 +26,12 @@ Defines input ports. It has a start tag &lt;in&gt; and an end tag &lt;/in&gt;.
 Defines output ports. It has a start tag &lt;out&gt; and an end tag &lt;/out&gt;.
 
 #### Attribute
-| Attribute | Description | Type | Default (* must have) |
+| Attribute | Description | Type | Default \(\* must have) |
 |---|---|---|---|
+| type | duplicate or loadBalance | String | duplicate |
+| lbtype | Load Balance type, includes session, ethtype, iptype, smac, dmac, sip, dip, rr, 5thasht | String | session |
+| failover | Load Balance fail over | yes/no | yes |
+| weight | Load Balance weight \(not support session\, rr type\) | String | 20,80 |
 
 
 #### Example
