@@ -10,4 +10,4 @@
   
 - Case Study
 
-  - [inline 2in1out bypass SSL](caseStudy.md)
+  - [inline 2in1out bypass SSL](inline_2in1out_bypass_ssl.md)
