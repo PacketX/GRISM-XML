@@ -3,7 +3,7 @@ Defines the chain.
 It has a start tag &lt;chain&gt; and an end tag &lt;/chain&gt;.
 
 ## Attribute
-| Attribute | Description | Type | Default \(\* must have) |
+| Attribute | Description | Type | Default \(\* must have\) |
 |---|---|---|---|
 | id | Specifies a unique id for an element | Interger | \* |
 | name | Specifies a name for an element | String | |
@@ -26,7 +26,7 @@ Defines input ports. It has a start tag &lt;in&gt; and an end tag &lt;/in&gt;.
 Defines output ports. It has a start tag &lt;out&gt; and an end tag &lt;/out&gt;.
 
 #### Attribute
-| Attribute | Description | Type | Default \(\* must have) |
+| Attribute | Description | Type | Default \(\* must have\) |
 |---|---|---|---|
 | type | duplicate or loadBalance | String | duplicate |
 | lbtype | Load Balance type, includes session, ethtype, iptype, smac, dmac, sip, dip, rr, 5thash | String | session |
@@ -48,7 +48,7 @@ Defines output ports. It has a start tag &lt;out&gt; and an end tag &lt;/out&gt;
 ### fid
 Defines filter id. It has a start tag &lt;fid&gt; and an end tag &lt;/fid&gt;.
 #### Attribute
-| Attribute | Description | Type | Default \(\* must have) |
+| Attribute | Description | Type | Default \(\* must have\) |
 |---|---|---|---|
 | type | and/or | String | or |
 
@@ -77,6 +77,7 @@ Defines going next if packet match/not match filter. It has a next tag &lt;fid&g
     <out>P1</out>
   </next>
 ```
+
 ## Example
 ```xml
 <chain id="1">
