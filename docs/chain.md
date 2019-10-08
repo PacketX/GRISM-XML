@@ -3,9 +3,9 @@ Defines the chain.
 It has a start tag &lt;chain&gt; and an end tag &lt;/chain&gt;.
 
 ## Attribute
-| Attribute | Description | Type | Default (* must have) |
+| Attribute | Description | Type | Default \(\* must have) |
 |---|---|---|---|
-| id | Specifies a unique id for an element | Interger | * |
+| id | Specifies a unique id for an element | Interger | \* |
 | name | Specifies a name for an element | String | |
 | sessionUnique | one session one output | yes/no | no |
 | disable | disable chain  | yes/no | no |
@@ -48,7 +48,7 @@ Defines output ports. It has a start tag &lt;out&gt; and an end tag &lt;/out&gt;
 ### fid
 Defines filter id. It has a start tag &lt;fid&gt; and an end tag &lt;/fid&gt;.
 #### Attribute
-| Attribute | Description | Type | Default (* must have) |
+| Attribute | Description | Type | Default \(\* must have) |
 |---|---|---|---|
 | type | and/or | String | or |
 
@@ -61,7 +61,7 @@ Defines filter id. It has a start tag &lt;fid&gt; and an end tag &lt;/fid&gt;.
 ### next
 Defines going next if packet match/not match filter. It has a next tag &lt;fid&gt; and an end tag &lt;/next&gt;.
 #### Attribute
-| Attribute | Description | Type | Default (* must have) |
+| Attribute | Description | Type | Default \(\* must have) |
 |---|---|---|---|
 | type | match/notmatch | String | match |
 #### Example
