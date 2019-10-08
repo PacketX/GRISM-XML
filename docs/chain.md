@@ -13,6 +13,7 @@ It has a start tag &lt;chain&gt; and an end tag &lt;/chain&gt;.
 ## Elements in chain
 ### in
 Defines input ports. It has a start tag &lt;in&gt; and an end tag &lt;/in&gt;.
+
 #### Example
 ```xml
 <in>P0</in>
@@ -23,6 +24,7 @@ Defines input ports. It has a start tag &lt;in&gt; and an end tag &lt;/in&gt;.
 ```
 ### out
 Defines output ports. It has a start tag &lt;out&gt; and an end tag &lt;/out&gt;.
+
 #### Attribute
 | Attribute | Description | Type | Default (* must have) |
 |---|---|---|---|
@@ -30,6 +32,7 @@ Defines output ports. It has a start tag &lt;out&gt; and an end tag &lt;/out&gt;
 | lbtype | Load Balance type, includes session, ethtype, iptype, smac, dmac, sip, dip, rr, 5thasht | String | session |
 | failover | Load Balance fail over | yes/no | yes |
 | weight | Load Balance weight (not support session, rr type) | String | 20,80 |
+
 #### Example
 ```xml
 <out>P0</out>
@@ -40,6 +43,7 @@ Defines output ports. It has a start tag &lt;out&gt; and an end tag &lt;/out&gt;
 
 <out>O1,O2</out>
 ```
+
 ### fid
 Defines filter id. It has a start tag &lt;fid&gt; and an end tag &lt;/fid&gt;.
 #### Attribute
