@@ -25,6 +25,10 @@ Defines input ports. It has a start tag &lt;in&gt; and an end tag &lt;/in&gt;.
 ### out
 Defines output ports. It has a start tag &lt;out&gt; and an end tag &lt;/out&gt;.
 
+#### Attribute
+| Attribute | Description | Type | Default (* must have) |
+|---|---|---|---|
+| type | duplicate or loadBalance | String | duplicate |
 
 #### Example
 ```xml
