@@ -1,8 +1,9 @@
 <!-- docs/_sidebar.md -->
-
-* [GRISM XML](/)
 - Getting started
- - [Element - run](run.md)
+
+  - [Quick start](quickstart.md)
+  - [GRISM XML](/)
+  - [Element - run](run.md)
 * [Element - filter](filter.md)
 * [Element - find](find.md)
 * [Element - output](output.md)
