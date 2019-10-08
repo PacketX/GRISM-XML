@@ -46,7 +46,7 @@ Defines output ports. It has a start tag &lt;out&gt; and an end tag &lt;/out&gt;
 ```
 
 ### fid
-Defines filter id. It has a start tag &lt;fid&gt; and an end tag &lt;/fid&gt;.
+Defines packets pass through filter id. It has a start tag &lt;fid&gt; and an end tag &lt;/fid&gt;.
 #### Attribute
 | Attribute | Description | Type | Default \(\* must have\) |
 |---|---|---|---|
@@ -59,7 +59,7 @@ Defines filter id. It has a start tag &lt;fid&gt; and an end tag &lt;/fid&gt;.
   <fid type="or">F1,F2</fid>
 ```
 ### next
-Defines going next if packet match/not match filter. It has a next tag &lt;fid&gt; and an end tag &lt;/next&gt;.
+Defines going next if packet match/not match filter. It has a next tag &lt;next&gt; and an end tag &lt;/next&gt;.
 
 #### Attribute
 | Attribute | Description | Type | Default \(\* must have\) |
