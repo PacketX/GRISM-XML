@@ -51,7 +51,7 @@ It has a start tag &lt;find&gt;
 | sctp.port | Unsigned integer, 2 bytes | Source or Destination Port | sctp.port == 2906 |
 | sctp.srcport | Unsigned integer, 2 bytes | Source Port | sctp.srcport == 2906 |
 | sctp.dstport | Unsigned integer, 2 bytes | Destination Port | sctp.dstport == 2906 |
-| 5-tuple | 5 Tuple, - means don't care | Source IP Address, Destination IP Address, Source Port, Destination Port, Protocol | - 192.168.1.203 - 443 - |
+| 5-tuple | 5 Tuple, - means don't care | Source IP Address, Destination IP Address, Source Port, Destination Port, Protocol | 5-tuple == - 192.168.1.203 - 443 - |
 | gtp.cp | | | |
 | gtp.data | | | |
 | gtp.imsi | | | |
@@ -74,11 +74,11 @@ It has a start tag &lt;find&gt;
 | ssl.handshake.type | 0 or 1 | SSL handshake type | ssl.handshake.type == 1 |
 | quic.tag | CHLO | QUIC tag | quic.tag == CHLO |
 | regex | | Regular Expression | regex == \{s\}\\\/\.\*Host: nlpqflkbvkdde\.eu |
-| grism.srcport | | | |
-| session.packet.nth | | | |
-| heartbeat.target.miss.nth | | | |
-| flowtable.matched.fid | | | |
-| flowtable.inport | | which port flow comes | flowtable.inport == P0 |
+| grism.srcport | | packet comes from which port | grism.srcport == P0 |
+| session.packet.nth | | the nth packet in flow | session.packet.nth == 3 |
+| heartbeat.target.miss.nth | | heartbeat missed from nth target setting | heartbeat.target.miss.nth == 1 |
+| flowtable.matched.fid | | flow matched which filter id | flowtable.matched.fid == F1 |
+| flowtable.inport | | flow comes from which port | flowtable.inport == P0 |
 
 ## Example
 ```xml
