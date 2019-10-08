@@ -15,6 +15,7 @@
 <run>
     <filter id="1" name="1" sessionBase="yes">
         <or>
+	    <find name="ssl.handshake.type" relation="==" content="0" />
             <find name="ssl.handshake.type" relation="==" content="1" />
             <find name="quic.tag" relation="==" content="CHLO" />
         </or>
