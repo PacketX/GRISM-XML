@@ -10,4 +10,5 @@
   
 - Case Study
 
-  - [inline 2in1out bypass SSL](inline_2in1out_bypass_ssl.md)
+  - [inline bypass SSL 2in1out](inline_2in1out_bypass_ssl.md)
+  - [inline loadbalance 1in2out](inlineLB_1in2out.md)
