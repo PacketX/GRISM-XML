@@ -55,7 +55,6 @@ It has a start tag &lt;find&gt;
 | gtp.cp | | | |
 | gtp.data | | | |
 | gtp.imsi | | | |
-| gtp.imsi.teid_data | | | |
 | gtp.teid | | | |
 | gre | | is GRE | gre == |
 | erspan.spanid | | ERSPAN id | erspan.spanid == 1|
