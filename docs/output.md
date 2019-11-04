@@ -2,6 +2,10 @@
 Defines the Output. 
 It has a start tag &lt;output&gt; and an end tag &lt;/output&gt;.
 
+It can be used in &lt;out&gt;&lt;out&gt; replace default port like P0,P1,..etc.
+
+And output id=1 -> O1, refer to Example
+
 ## Attribute
 | Attribute | Description | Type | Default (* must have) |
 |---|---|---|---|
@@ -11,10 +15,16 @@ It has a start tag &lt;output&gt; and an end tag &lt;/output&gt;.
 
 ## Example
 ```xml
-<output id="1">
-  <port>P0</port>
-  <stripping>vlan</stripping>  
-</output>
+<run>
+  <output id="1">
+    <port>P0</port>
+    <stripping>vlan</stripping>
+  </output>
+  <chain id="1">
+    <in>P1</in>
+    <out>O1</out>
+  </chain>
+</run>
 ```
 
 ## Elements in Output
