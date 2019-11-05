@@ -32,4 +32,26 @@ find contents goes here..
 </run>
 ```
 
-
+## Example - Youtube(SSL+QUIC)
+```xml
+<filter id="1" name="1" sessionBase="yes">
+  <or>
+    <find name="ssl.handshake.type" relation="==" content="0" />
+    <find name="ssl.handshake.type" relation="==" content="1" />
+    <find name="quic.tag" relation="==" content="CHLO" />
+  </or>
+</filter>
+<filter id="2" name="2" sessionBase="yes">
+  <or>
+    <!-- youtube -->
+    <find name="regex" relation="==" content="{s}youtube\." />
+    <find name="regex" relation="==" content="{s}youtu\.be\." />
+    <find name="regex" relation="==" content="{s}yt3\.ggpht\.com" />
+    <find name="regex" relation="==" content="{s}\.googlevideo\.com" />
+    <find name="regex" relation="==" content="{s}\.ytimg\.com" />
+    <find name="regex" relation="==" content="{s}youtube\-nocookie\." />
+    <find name="regex" relation="==" content="{s}ggpht.com" />
+    <find name="regex" relation="==" content="{s}googleusercontent\.com" />
+  </or>
+</filter>
+```
