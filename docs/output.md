@@ -35,7 +35,9 @@ Defines output port(must have).
 It has a start tag &lt;port&gt; and an end tag &lt;/port&gt;.
 
 ```
- <port>P0</port>
+<output id="1">
+  <port>P0</port>
+</output>
 ```
 
 ### Q
@@ -43,14 +45,20 @@ Defines vlan tagging.
 It has a start tag &lt;Q&gt; and an end tag &lt;/Q&gt;.
 
 ```
- <Q>10</Q>
+<output id="1">
+  <port>P0</port>
+  <Q>10</Q>
+</output>
 ```
 
 ### QinQ
 Defines vlan layer 2 tagging. 
 It has a start tag &lt;QinQ&gt; and an end tag &lt;/QinQ&gt;.
 ```
- <QinQ>20</QinQ>
+<output id="1">
+  <port>P0</port>
+  <QinQ>20</QinQ>
+</output>
 ```
 
 ### stripping
@@ -68,7 +76,54 @@ It has a start tag &lt;stripping&gt; and an end tag &lt;/stripping&gt;.
 - grism
 
 ```
- <stripping>vlan</stripping>
+<output id="1">
+  <port>P0</port>
+  <stripping>vlan</stripping>
+</output>
+```
+
+### modify_srcip
+Defines modify source ip address
+It has a start tag &lt;modify_srcip&gt; and an end tag &lt;/modify_srcip&gt;.
+
+```
+<output id="1">
+  <port>P0</port>
+  <modify_srcip>10.1.1.0</modify_srcip>
+</output>
+```
+
+### modify_dstip
+Defines modify destination ip address
+It has a start tag &lt;modify_dstip&gt; and an end tag &lt;/modify_dstip&gt;.
+
+```
+<output id="1">
+  <port>P0</port>
+  <modify_dstip>10.1.1.0</modify_dstip>
+</output>
+```
+
+### modify_srcmac
+Defines modify source mac address
+It has a start tag &lt;modify_srcmac&gt; and an end tag &lt;/modify_srcmac&gt;.
+
+```
+<output id="1">
+  <port>P0</port>
+  <modify_srcmac>d8:fe:e3:a4:d3:78</modify_srcmac>
+</output>
+```
+
+### modify_dstmac
+Defines modify destination mac address
+It has a start tag &lt;modify_dstmac&gt; and an end tag &lt;/modify_dstmac&gt;.
+
+```
+<output id="1">
+  <port>P0</port>
+  <modify_dstmac>d8:fe:e3:a4:d3:78</modify_dstmac>
+</output>
 ```
 
 ### tagging
@@ -80,16 +135,21 @@ It has a start tag &lt;tagging&gt; and an end tag &lt;/tagging&gt;.
 - gtp
 - grism
 
-
 ```
- <stripping>vlan</stripping>
+<output id="1">
+  <port>P0</port>
+  <tagging>grism</taging>
+</output>
 ```
 
 ### maxlen
 Defines packet max length. 
 It has a start tag &lt;maxlen&gt; and an end tag &lt;/maxlen&gt;.
 ```
- <maxlen>64</maxlen>
+<output id="1">
+  <port>P0</port>
+  <maxlen>64</maxlen>
+</output>
 ```
 
 ### dir
@@ -101,8 +161,4 @@ It has a start tag &lt;dir&gt; and an end tag &lt;/dir&gt;.
  <dir>test</dir>
 </output>
 ```
-
-
-
-
 
