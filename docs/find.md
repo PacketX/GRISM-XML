@@ -27,9 +27,6 @@ It has a start tag &lt;find&gt;
 | ip.proto | Unsigned integer, 1 byte | Protocol | ip.proto == 6 (TCP) |
 | ip.fragment | | is IPv4 Fragment | ip.fragment == |
 | ip.dsfield | Unsigned integer, 1 byte | Differentiated Services Field | ip.dsfield == 1 |
-| tunnel.outerlayer.ip.dsfield | | | |
-| tunnel.innerlayer1.ip.dsfield | | | |
-| tunnel.innerlayer2.ip.dsfield | | | |
 | ipv6 | | is IPv6 | ipv6 == |
 | ipv6.addr | IPv6 address | Source or Destination Address | ipv6.addr == 2001\:0db8\:86a3\:08d3\:1319\:8a2e\:0370\:7344 |
 | ipv6.src | IPv6 address | Source Address | ipv6.src == 2001\:0db8\:86a3\:08d3\:1319\:8a2e\:0370\:7344 |
@@ -70,7 +67,7 @@ It has a start tag &lt;find&gt;
 | http.request.method | GET,HEAD,POST,etc.| HTTP request method | http.request.method == GET |
 | http.request.url | url | HTTP request url | http.request.url == www.whitehollowtransport.com/current-elliott-c-89.html  |
 | ssl | | is SSL | ssl == |
-| ssl.handshake.type | 0 or 1 | SSL handshake type | ssl.handshake.type == 1 |
+| ssl.handshake.type | 1 or 2 | SSL handshake type | ssl.handshake.type == 1 |
 | quic.tag | CHLO | QUIC tag | quic.tag == CHLO |
 | regex | | Regular Expression | regex == \{s\}\\\/\.\*Host: nlpqflkbvkdde\.eu |
 | grism.srcport | | packet comes from which port | grism.srcport == P0 |
