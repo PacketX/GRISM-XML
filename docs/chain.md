@@ -79,6 +79,39 @@ Defines going next if packet match/not match filter. It has a next tag &lt;next&
 ```
 
 ## Example
+```
+P0->F1->P1        
+```
+```xml
+<chain id="1">
+  <in>P0</in>
+  <fid>F1</fid>
+  <out>P1</out>
+</chain>
+```
+
+```
+P0->F1->F2->P1
+      !>P2
+```
+```xml
+<chain id="1">
+  <in>P0</in>
+  <fid>F1</fid>
+  <next>
+    <fid>F2</fid>
+    <out>P1</out> 
+  </next>
+  <next type="notmatch">
+    <out>P2</out>
+  <next>
+</chain>
+```
+
+```
+P0->F1->F2->P1
+          !>P2
+```
 ```xml
 <chain id="1">
   <in>P0</in>
