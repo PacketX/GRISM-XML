@@ -35,7 +35,7 @@ Part of Application filters, includes domain and ip address from NDPI
 		<find name="regex" relation="==" content="{s}\.gateway\.messenger\.live\.com" />
 	</or>
 </filter>
-<filter id="6" name="app ip filter" sessionBase="yes">
+<filter id="6" name="app ip filter" sessionBase="no">
 	<or>
 		<!-- webex -->
 		<find name="ip.addr" relation="==" content="25.192.0/24" />
