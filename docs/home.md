@@ -18,19 +18,18 @@
 First define Filter id=1 as black IP list.<br>
 Second define Chain id=1, Packet comes from P0, if matches filter id=1(F1), send to P1
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <run>
-<filter id="1" name="black IP list">
-  <or>
-    <find name="ip.addr" relation="==" content="92.53.120.155" />
-    <find name="ip.addr" relation="==" content="67.229.164.135" />
-    <find name="ip.addr" relation="==" content="159.203.92.222" />
-  </or>
-</filter>
-<chain id="1">
-  <in>P0</in>
-  <fid>F1</fid>
-  <out>P1</out>
-</chain>
+	<filter id="1" name="black IP list">
+		<or>
+			<find name="ip.addr" relation="==" content="92.53.120.155" />
+			<find name="ip.addr" relation="==" content="67.229.164.135" />
+			<find name="ip.addr" relation="==" content="159.203.92.222" />
+		</or>
+	</filter>
+	<chain id="1">
+		<in>P0</in>
+		<fid>F1</fid>
+		<out>P1</out>
+	</chain>
 </run>
 ```
