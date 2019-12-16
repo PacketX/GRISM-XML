@@ -133,6 +133,7 @@ It has a start tag &lt;tagging&gt; and an end tag &lt;/tagging&gt;.
 #### support type
 - timestamp 
 - gtp
+- gtp2
 - grism
 
 ```
@@ -153,7 +154,7 @@ It has a start tag &lt;maxlen&gt; and an end tag &lt;/maxlen&gt;.
 ```
 
 ### dir
-Defines output dir in Harddisk. 
+Defines output dir in Harddisk. Save packet to pcap files.
 It has a start tag &lt;dir&gt; and an end tag &lt;/dir&gt;.
 ```
 <output id="1">
