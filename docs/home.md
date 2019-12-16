@@ -15,7 +15,8 @@
 - Simple and lightweight
 
 ## A Simple GRISM XML
-
+First define Filter id=1 as black IP list.<br>
+Second define Chain id=1, Packet comes from P0, if matches filter id=1(F1), send to P1
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <run>
@@ -26,7 +27,7 @@
     <find name="ip.addr" relation="==" content="159.203.92.222" />
   </or>
 </filter>
-<chain>
+<chain id="1">
   <in>P0</in>
   <fid>F1</fid>
   <out>P1</out>
