@@ -62,6 +62,7 @@ It has a start tag &lt;find&gt;
 | dns.a | IPv4 address | DNS type A ip addresses  | dns.a == 216.239.32.10 |
 | dns.flags.response | 0 or 1 | DNS Response | dns.flags.response == 1 |
 | dns.qry.name | Character string | DNS query name | dns.qry.name == google.com |
+| dns.qry.name.resp.ip.addr | Character string | DNS query name response ip addr | dns.qry.name.resp.ip.addr == googlevideo.com |
 | http | | is HTTP | http == |
 | http.request | | is HTTP request | http.request == |
 | http.request.method | GET,HEAD,POST,etc.| HTTP request method | http.request.method == GET |
