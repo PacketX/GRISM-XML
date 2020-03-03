@@ -5,7 +5,7 @@ It has a start tag &lt;chain&gt; and an end tag &lt;/chain&gt;.
 ## Attribute
 | Attribute | Description | Type | Default \(\* must have\) |
 |---|---|---|---|
-| id | Specifies a unique id for an element | Interger | \* |
+| id | Specifies a unique id for an element | Interger | 0 |
 | name | Specifies a name for an element | String | |
 | sessionUnique | one session one output | yes/no | no |
 | disable | disable chain  | yes/no | no |
