@@ -21,7 +21,8 @@ It has a start tag &lt;action&gt; and an end tag &lt;/action&gt;.
 </run>
 ```
 
-## Elements in Action type input-packet-process
+## Elements in Action
+### input-packet-process type
 &lt;port&gt;, &lt;Q&gt;, &lt;QinQ&gt;, &lt;stripping&gt;, &lt;tagging&gt;, &lt;maxlen&gt;
 
 ### port
