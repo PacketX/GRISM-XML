@@ -10,24 +10,6 @@ Two main funcitons, "replay pcap files" and "traffic generator".
 | id | Specifies a unique id for an element | Interger |  |
 | type | Specifies a type for an element | String | replayPcap or traffic-gen |
 
-
-## Example (traffic-gen)
-```xml
-<run>
-  <input type="traffic-gen">
-        <port>P0</port>
-        <protocol>TCP</protocol>
-        <packet_size>1024</packet_size>
-        <speed>1000</speed>
-        <payload_text>abcdefg</payload_text>
-        <src_ip>10.1.0.99</src_ip>
-        <src_ip_min>10.1.0.0</src_ip_min>
-        <src_ip_max>10.1.0.99</src_ip_max>
-        <src_ip_inc>5</src_ip_inc>
-    </input>
-</run>
-```
-
 ## Elements in Input - replayPcap
 Before using this function, plesase upload pcap files to correct path.
 
