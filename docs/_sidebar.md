@@ -7,6 +7,7 @@
   - [Element - find](find.md)
   - [Element - output](output.md)
   - [Element - action](action.md)
+  - [Element - input](input.md)
   - [Element - chain](chain.md)
   
 - Case Study
