@@ -3,12 +3,12 @@ Defines the find.
 It has a start tag &lt;find&gt;
 
 ## Attribute
-| Attribute | Description | Type | Default (* must have) |
-|---|---|---|---|
-| id | Specifies a unique id for an element | Interger | |
-| name or (n) | refer to wireshark filter function, but less item | String | * |
-| relation (r) | Equal or Not equal | ==/!= | * |
-| content (c) | content of name, could be empty | String | * |
+| Attribute | Alternative | Description | Type | Default (* must have) |
+|---|---|---|---|---|
+| id | | Specifies a unique id for an element | Interger | |
+| name | n | refer to wireshark filter function, but less item | String | * |
+| relation | r | Equal or Not equal | ==/!= | * |
+| content | c | content of name, could be empty | String | * |
 
 ### Attribute -name
 | name | type| Description | Example | 
@@ -80,6 +80,9 @@ It has a start tag &lt;find&gt;
 ## Example
 ```xml
 <find id="1" name="ip.addr" relation="==" content="8.8.8.8" />
+```
+Or
+```xml
 <f n="ip.addr" r="==" c="8.8.8.8" />
 ```
 
