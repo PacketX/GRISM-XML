@@ -88,7 +88,7 @@ generate traffic
 ```
 
 ### port
-Defines output port<B>(must have)<B>.
+Defines output port<B>(must have)</B>.
 
 It has a start tag &lt;port&gt; and an end tag &lt;/port&gt;.
 ```
