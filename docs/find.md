@@ -1,6 +1,6 @@
 # Element - find (f)
 Defines the find. 
-It has a start tag &lt;find&gt;
+It has a start tag &lt;find&gt; or &lt;f&gt;
 
 ## Attribute
 | Attribute | Alternative | Description | Type | Default (* must have) |
