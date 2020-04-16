@@ -16,7 +16,7 @@
 
 ## A Simple GRISM XML
 First define filter id=1 aka <b>F1</b> as black IP list.<br>
-Second define chain, When packets come from P0, if matches filter id=1(F1), send to P1
+Second define chain, When packets come from P0, if matched F1, send to P1
 ```xml
 <run>
 	<filter id="1" name="black IP list">
