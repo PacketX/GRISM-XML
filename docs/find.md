@@ -69,6 +69,7 @@ It has a start tag &lt;find&gt; or &lt;f&gt;
 | http.request.url | url | HTTP request url | http.request.url == www.whitehollowtransport.com/current-elliott-c-89.html  |
 | ssl | | is SSL | ssl == |
 | ssl.handshake.type | 0 or 1 | SSL handshake type | ssl.handshake.type == 1 |
+| ssl.ja3_digest | | SSL ja3 digest | ssl.ja3_digest == 39e62db039deed96a9daf75dacdbd207 |
 | quic.tag | CHLO | QUIC tag | quic.tag == CHLO |
 | regex | | Regular Expression | regex == \{s\}\\\/\.\*Host: nlpqflkbvkdde\.eu |
 | grism.srcport | | packet comes from which port | grism.srcport == P0 |
