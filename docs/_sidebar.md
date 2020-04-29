@@ -17,5 +17,4 @@
   - [inline loadbalance 1in2out](inlineLB_1in2out.md)
   
 - Links
-  - [GITHUB](https://github.com/PacketX/gml)
   - [GRISM NEWS](https://packetx.github.io/gnews/)
