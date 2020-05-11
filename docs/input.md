@@ -71,18 +71,22 @@ generate traffic
         <src_ip_min>10.1.0.0</src_ip_min>
         <src_ip_max>10.1.0.99</src_ip_max>
         <src_ip_inc>5</src_ip_inc>
+        <src_ip_random>0</src_ip_random>
         <dest_ip>11.1.1.99</dest_ip>
         <dest_ip_min>11.1.1.0</dest_ip_min>
         <dest_ip_max>11.1.2.99</dest_ip_max>
         <dest_ip_inc>2</dest_ip_inc>
+        <dest_ip_random>0</dest_ip_random>
         <src_port>1234</src_port>
         <src_port_min>2</src_port_min>
         <src_port_max>9999</src_port_max>
-        <src_port_inc>111</src_port_inc>
+        <src_port_inc>1</src_port_inc>
+        <src_port_random>0</src_port_random>
         <dest_port>2222</dest_port>
         <dest_port_min>0</dest_port_min>
         <dest_port_max>65535</dest_port_max>
-        <dest_port_inc>222</dest_port_inc>
+        <dest_port_inc>1</dest_port_inc>
+        <dest_port_random>0</dest_port_random>
     </input>
 </run>
 ```
@@ -156,6 +160,14 @@ It has a start tag &lt;src_ip_inc&gt; and an end tag &lt;/src_ip_inc&gt;.
 <src_ip_inc>5</src_ip_inc>
 ```
 
+### src_ip_random
+Defines source ip random (0 or 1)
+
+It has a start tag &lt;src_ip_random&gt; and an end tag &lt;/src_ip_random&gt;.
+```
+<src_ip_random>1</src_ip_random>
+```
+
 ### src_port
 Defines source port
 
@@ -188,13 +200,25 @@ It has a start tag &lt;src_port_inc&gt; and an end tag &lt;/src_port_inc&gt;.
  <src_port_inc>10</src_port_inc>
 ```
 
+### src_port_random
+Defines random source port (0 or 1)
+
+It has a start tag &lt;src_port_random&gt; and an end tag &lt;/src_port_random&gt;.
+```
+ <src_port_random>1</src_port_random>
+```
+
+
+
 ### dest_ip
 ### dest_ip_min
 ### dest_ip_max
 ### dest_ip_inc
+### dest_ip_random
 ### dest_port
 ### dest_port_min
 ### dest_port_max
 ### dest_port_inc
+### dest_port_random
 
 please refer to src_ip and src_port
