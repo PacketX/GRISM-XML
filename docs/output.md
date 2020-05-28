@@ -28,7 +28,7 @@ And output id=1 -> O1, refer to Example
 ```
 
 ## Elements in Output
-&lt;port&gt;, &lt;Q&gt;, &lt;QinQ&gt;, &lt;stripping&gt;, &lt;tagging&gt;, &lt;maxlen&gt;, &lt;modify_srcip&gt;, &lt;modify_dstip&gt;, &lt;modify_srcmac&gt;, &lt;modify_dstmac&gt;, &lt;dir&gt;
+&lt;port&gt;, &lt;Q&gt;, &lt;QinQ&gt;, &lt;stripping&gt;, &lt;tagging&gt;, &lt;maxlen&gt;, &lt;modify_srcip&gt;, &lt;modify_dstip&gt;, &lt;modify_srcmac&gt;, &lt;modify_dstmac&gt;, &lt;dir&gt;, &lt;nvgre_dip&gt;
 
 ### port
 Defines output port(must have). 
@@ -161,5 +161,16 @@ It has a start tag &lt;dir&gt; and an end tag &lt;/dir&gt;.
  <port>H1</port>
  <dir>test</dir>
 </output>
+```
+
+### nvgre_dip
+Defines output to gre tunnel. must setting interface port ip addr first.
+It has a start tag &lt;nvgre_dip&gt; and an end tag &lt;/nvgre_dip&gt;.
+```
+<output id="1">
+  <port>P7</port>
+  <nvgre_dip>192.168.1.201</nvgre_dip>
+</output>
+
 ```
 
