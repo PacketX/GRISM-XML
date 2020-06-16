@@ -23,7 +23,6 @@ bypass Youtube
 		<find name="regex" relation="==" content="{s}\.googlevideo\.com" />
 		<find name="regex" relation="==" content="{s}\.ytimg\.com" />
 		<find name="regex" relation="==" content="{s}youtube\-nocookie\." />
-		
 	</or>
 </filter>
 <chain>
