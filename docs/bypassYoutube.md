@@ -1,8 +1,9 @@
 ## 描述:
-bypass Youtube
+bypass Youtube, include http, https and quic protocols
 
 ## xml
 ```xml
+<run>
 <filter id="5" sessionBase="no">
         <or>
             <find name="http.request" relation="==" content=""/>
@@ -33,4 +34,5 @@ bypass Youtube
         <out>P1</out>
     </next>
 </chain>
+</run>
 ```
