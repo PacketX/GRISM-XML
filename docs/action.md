@@ -25,7 +25,7 @@ It has a start tag &lt;action&gt; and an end tag &lt;/action&gt;.
 ### input-packet-process type
 &lt;port&gt;, &lt;Q&gt;, &lt;QinQ&gt;, &lt;stripping&gt;, &lt;tagging&gt;, &lt;maxlen&gt;
 
-### port
+### &lt;port&gt;
 Defines input port(must have). 
 It has a start tag &lt;port&gt; and an end tag &lt;/port&gt;.
 
@@ -35,7 +35,7 @@ It has a start tag &lt;port&gt; and an end tag &lt;/port&gt;.
 </action>
 ```
 
-### Q
+### &lt;Q&gt;
 Defines vlan tagging. 
 It has a start tag &lt;Q&gt; and an end tag &lt;/Q&gt;.
 
@@ -46,7 +46,7 @@ It has a start tag &lt;Q&gt; and an end tag &lt;/Q&gt;.
 </action>
 ```
 
-### QinQ
+### &lt;QinQ&gt;
 Defines vlan layer 2 tagging. 
 It has a start tag &lt;QinQ&gt; and an end tag &lt;/QinQ&gt;.
 ```
@@ -56,7 +56,7 @@ It has a start tag &lt;QinQ&gt; and an end tag &lt;/QinQ&gt;.
 </action>
 ```
 
-### stripping
+### &lt;stripping&gt;
 Defines stripping. 
 It has a start tag &lt;stripping&gt; and an end tag &lt;/stripping&gt;.
 
@@ -77,7 +77,7 @@ It has a start tag &lt;stripping&gt; and an end tag &lt;/stripping&gt;.
 </action>
 ```
 
-### tagging
+### &lt;tagging&gt;
 Defines tagging. 
 It has a start tag &lt;tagging&gt; and an end tag &lt;/tagging&gt;.
 
@@ -94,7 +94,7 @@ It has a start tag &lt;tagging&gt; and an end tag &lt;/tagging&gt;.
 </action>
 ```
 
-### maxlen
+### &lt;maxlen&gt;
 Defines packet max length. 
 It has a start tag &lt;maxlen&gt; and an end tag &lt;/maxlen&gt;.
 ```
