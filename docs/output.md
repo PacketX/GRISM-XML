@@ -20,7 +20,7 @@ And output id=1 -> O1, refer to Example
     <port>P0</port>
     <stripping>vlan</stripping>
   </output>
-  <chain id="1">
+  <chain>
     <in>P1</in>
     <out>O1</out>
   </chain>
@@ -30,7 +30,7 @@ And output id=1 -> O1, refer to Example
 ## Elements in Output
 &lt;port&gt;, &lt;Q&gt;, &lt;QinQ&gt;, &lt;stripping&gt;, &lt;tagging&gt;, &lt;maxlen&gt;, &lt;modify_srcip&gt;, &lt;modify_dstip&gt;, &lt;modify_srcmac&gt;, &lt;modify_dstmac&gt;, &lt;dir&gt;, &lt;nvgre_dip&gt;
 
-### port
+### &lt;port&gt;
 Defines output port(must have). 
 It has a start tag &lt;port&gt; and an end tag &lt;/port&gt;.
 
@@ -40,7 +40,7 @@ It has a start tag &lt;port&gt; and an end tag &lt;/port&gt;.
 </output>
 ```
 
-### Q
+### &lt;Q&gt;
 Defines vlan tagging. 
 It has a start tag &lt;Q&gt; and an end tag &lt;/Q&gt;.
 
@@ -51,7 +51,7 @@ It has a start tag &lt;Q&gt; and an end tag &lt;/Q&gt;.
 </output>
 ```
 
-### QinQ
+### &lt;QinQ&gt;
 Defines vlan layer 2 tagging. 
 It has a start tag &lt;QinQ&gt; and an end tag &lt;/QinQ&gt;.
 ```
@@ -61,7 +61,7 @@ It has a start tag &lt;QinQ&gt; and an end tag &lt;/QinQ&gt;.
 </output>
 ```
 
-### stripping
+### &lt;stripping&gt;
 Defines stripping. 
 It has a start tag &lt;stripping&gt; and an end tag &lt;/stripping&gt;.
 
@@ -82,7 +82,7 @@ It has a start tag &lt;stripping&gt; and an end tag &lt;/stripping&gt;.
 </output>
 ```
 
-### modify_srcip
+### &lt;modify_srcip&gt;
 Defines modify source ip address
 It has a start tag &lt;modify_srcip&gt; and an end tag &lt;/modify_srcip&gt;.
 
@@ -93,7 +93,7 @@ It has a start tag &lt;modify_srcip&gt; and an end tag &lt;/modify_srcip&gt;.
 </output>
 ```
 
-### modify_dstip
+### &lt;modify_dstip&gt;
 Defines modify destination ip address
 It has a start tag &lt;modify_dstip&gt; and an end tag &lt;/modify_dstip&gt;.
 
@@ -104,7 +104,7 @@ It has a start tag &lt;modify_dstip&gt; and an end tag &lt;/modify_dstip&gt;.
 </output>
 ```
 
-### modify_srcmac
+### &lt;modify_srcmac&gt;
 Defines modify source mac address
 It has a start tag &lt;modify_srcmac&gt; and an end tag &lt;/modify_srcmac&gt;.
 
@@ -115,7 +115,7 @@ It has a start tag &lt;modify_srcmac&gt; and an end tag &lt;/modify_srcmac&gt;.
 </output>
 ```
 
-### modify_dstmac
+### &lt;modify_dstmac&gt;
 Defines modify destination mac address
 It has a start tag &lt;modify_dstmac&gt; and an end tag &lt;/modify_dstmac&gt;.
 
@@ -126,7 +126,7 @@ It has a start tag &lt;modify_dstmac&gt; and an end tag &lt;/modify_dstmac&gt;.
 </output>
 ```
 
-### tagging
+### &lt;tagging&gt;
 Defines tagging. 
 It has a start tag &lt;tagging&gt; and an end tag &lt;/tagging&gt;.
 
@@ -143,7 +143,7 @@ It has a start tag &lt;tagging&gt; and an end tag &lt;/tagging&gt;.
 </output>
 ```
 
-### maxlen
+### &lt;maxlen&gt;
 Defines packet max length. 
 It has a start tag &lt;maxlen&gt; and an end tag &lt;/maxlen&gt;.
 ```
@@ -153,7 +153,7 @@ It has a start tag &lt;maxlen&gt; and an end tag &lt;/maxlen&gt;.
 </output>
 ```
 
-### dir
+### &lt;dir&gt;
 Defines output dir in Harddisk. Save packet to pcap files.
 It has a start tag &lt;dir&gt; and an end tag &lt;/dir&gt;.
 ```
@@ -163,7 +163,7 @@ It has a start tag &lt;dir&gt; and an end tag &lt;/dir&gt;.
 </output>
 ```
 
-### nvgre_dip
+### &lt;nvgre_dip&gt;
 Defines output to gre tunnel. must setting interface port ip addr first.
 It has a start tag &lt;nvgre_dip&gt; and an end tag &lt;/nvgre_dip&gt;.
 ```
@@ -173,4 +173,3 @@ It has a start tag &lt;nvgre_dip&gt; and an end tag &lt;/nvgre_dip&gt;.
 </output>
 
 ```
-
