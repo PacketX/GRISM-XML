@@ -13,6 +13,9 @@ It has a start tag &lt;or&gt; and an end tag &lt;/or&gt;.
 Defines all finds conjunct with and. 
 It has a start tag &lt;and&gt; and an end tag &lt;/and&gt;.
 
+### &lt;find&gt;
+Please refer to [Element - find](find.md)
+
 ## Attribute
 | Attribute | Description | Type | Default (* must have) |
 |---|---|---|---|
