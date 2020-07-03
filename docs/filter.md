@@ -5,11 +5,11 @@ It has a start tag &lt;filter&gt; and an end tag &lt;/filter&gt;.
 - start at &lt;or&gt;&lt;/or&gt;(default) or &lt;and&gt;&lt;/and&gt;
 - then put finds &lt;find/&gt; in here
 
-### or
+### &lt;or&gt;
 Defines all finds conjunct with or. 
 It has a start tag &lt;or&gt; and an end tag &lt;/or&gt;.
 
-### and
+### &lt;and&gt;
 Defines all finds conjunct with and. 
 It has a start tag &lt;and&gt; and an end tag &lt;/and&gt;.
 
@@ -27,41 +27,11 @@ It has a start tag &lt;and&gt; and an end tag &lt;/and&gt;.
 ```xml
 <filter id="1">
 <or>
+<!--	
 find contents goes here..
-ex.
+example
+-->
 	<find name="ip.addr" relation="==" content="8.8.8.8" />
 </or>
 </filter>
-```
-
-## Example - filter Youtube(SSL+QUIC) Stream
-```xml
-<run>
-	<filter id="1" name="1" sessionBase="no">
-		<or>
-			<find name="ssl.handshake.type" relation="==" content="0" />
-			<find name="ssl.handshake.type" relation="==" content="1" />
-			<find name="quic.tag" relation="==" content="CHLO" />
-		</or>
-	</filter>
-	<filter id="2" name="2" sessionBase="yes">
-		<or>
-			<!-- youtube -->
-			<find name="regex" relation="==" content="{s}upload\.youtube\.com"/>
-			<find name="regex" relation="==" content="{s}upload\.video\.google\.com"/>
-			<find name="regex" relation="==" content="{s}youtubei\.googleapis\.com"/>
-			<find name="regex" relation="==" content="{s}youtube\."/>
-			<find name="regex" relation="==" content="{s}youtu\.be\."/>
-			<find name="regex" relation="==" content="{s}yt3\.ggpht\.com"/>
-			<find name="regex" relation="==" content="{s}\.googlevideo\.com"/>
-			<find name="regex" relation="==" content="{s}\.ytimg\.com"/>
-			<find name="regex" relation="==" content="{s}youtube\-nocookie\."/>
-		</or>
-	</filter>
-	<chain id="1">
-		<in>P0</in>
-		<fid type="and">F1,F2</fid>
-		<out>P1</out>
-	</chain>
-</run>
 ```
