@@ -28,8 +28,10 @@ It has a start tag &lt;and&gt; and an end tag &lt;/and&gt;.
 <filter id="1">
 <or>
 find contents goes here..
+ex.
+	<find name="ip.addr" relation="==" content="8.8.8.8" />
 </or>
-</run>
+</filter>
 ```
 
 ## Example - filter Youtube(SSL+QUIC) Stream
