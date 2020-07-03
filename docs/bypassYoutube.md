@@ -1,5 +1,7 @@
 ## 描述:
-bypass Youtube, include http, https and quic protocols
+bypass Youtube
+
+include http, https and quic protocols
 
 ## xml
 ```xml
