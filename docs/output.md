@@ -175,7 +175,7 @@ It has a start tag &lt;nvgre_dip&gt; and an end tag &lt;/nvgre_dip&gt;.
 ```
 
 ### &lt;arp_reply_target_mac&gt;
-Defines output reply target mac address.
+Defines output reply arp target mac address.
 It has a start tag &lt;arp_reply_target_mac&gt; and an end tag &lt;/arp_reply_target_mac&gt;.
 ```
 <output id="1">
