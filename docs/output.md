@@ -28,7 +28,7 @@ And output id=1 -> O1, refer to Example
 ```
 
 ## Elements in Output
-&lt;port&gt;, &lt;Q&gt;, &lt;QinQ&gt;, &lt;stripping&gt;, &lt;tagging&gt;, &lt;maxlen&gt;, &lt;modify_srcip&gt;, &lt;modify_dstip&gt;, &lt;modify_srcmac&gt;, &lt;modify_dstmac&gt;, &lt;dir&gt;, &lt;nvgre_dip&gt;
+&lt;port&gt;, &lt;Q&gt;, &lt;QinQ&gt;, &lt;stripping&gt;, &lt;tagging&gt;, &lt;maxlen&gt;, &lt;modify_srcip&gt;, &lt;modify_dstip&gt;, &lt;modify_srcmac&gt;, &lt;modify_dstmac&gt;, &lt;dir&gt;, &lt;nvgre_dip&gt;, &lt;arp_reply_target_mac&gt;
 
 ### &lt;port&gt;
 Defines output port(must have). 
@@ -173,3 +173,14 @@ It has a start tag &lt;nvgre_dip&gt; and an end tag &lt;/nvgre_dip&gt;.
 </output>
 
 ```
+
+### &lt;arp_reply_target_mac&gt;
+Defines output reply target mac address.
+It has a start tag &lt;arp_reply_target_mac&gt; and an end tag &lt;/arp_reply_target_mac&gt;.
+```
+<output id="1">
+  <port>P0</port>
+  <arp_reply_target_mac>00:0f:bb:ef:8a:25</arp_reply_target_mac>
+</output>
+```
+
