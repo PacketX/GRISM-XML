@@ -71,6 +71,10 @@ It has a start tag &lt;find&gt; or &lt;f&gt;
 | ssl.handshake.type | 0 or 1 | SSL handshake type | ssl.handshake.type == 1 |
 | ssl.ja3_digest | | SSL ja3 digest | ssl.ja3_digest == 39e62db039deed96a9daf75dacdbd207 |
 | quic.tag | CHLO | QUIC tag | quic.tag == CHLO |
+| arp | | is ARP | arp ==  |
+| arp.request | | is ARP request | arp.request ==  |
+| arp.reply | | is ARP reply | arp.reply ==  |
+| arp.request.target.ip | IPv4 address | ARP target ip Address | arp.request.target.ip == 192.168.1.10 |
 | regex | | Regular Expression | regex == \{s\}\\\/\.\*Host: nlpqflkbvkdde\.eu |
 | grism.srcport | | packet comes from which port | grism.srcport == P0 |
 | session.packet.nth | | the nth packet in flow | session.packet.nth == 3 |
