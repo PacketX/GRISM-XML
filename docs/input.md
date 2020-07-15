@@ -208,9 +208,6 @@ It has a start tag &lt;src_port_random&gt; and an end tag &lt;/src_port_random&g
  <src_port_random>1</src_port_random>
 ```
 
-
-## destination ip and port, please refer to src_ip and src_port for xml syntax
-
 ### dest_ip
 Defines destination ip,default 10.0.0.99
 
@@ -241,3 +238,4 @@ Defines the number to increase destination port, default 0
 ### dest_port_random
 Defines random destination port (0 or 1), default 0
 
+//destination ip and port, please refer to src_ip and src_port for xml syntax
