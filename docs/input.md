@@ -130,7 +130,7 @@ It has a start tag &lt;payload_text&gt; and an end tag &lt;/payload_text&gt;.
 ```
 
 ### src_ip
-Defines source ip
+Defines source ip, default 10.0.1.99
 
 It has a start tag &lt;src_ip&gt; and an end tag &lt;/src_ip&gt;.
 ```
@@ -152,7 +152,7 @@ It has a start tag &lt;src_ip_max&gt; and an end tag &lt;/src_ip_max&gt;.
 ```
 <src_ip_max>10.1.0.99</src_ip_max>
 ```
-### src_ip_inc
+### src_ip_inc, default 0
 Defines the number to increase source ip 
 
 It has a start tag &lt;src_ip_inc&gt; and an end tag &lt;/src_ip_inc&gt;.
@@ -160,7 +160,7 @@ It has a start tag &lt;src_ip_inc&gt; and an end tag &lt;/src_ip_inc&gt;.
 <src_ip_inc>5</src_ip_inc>
 ```
 
-### src_ip_random
+### src_ip_random, default 0
 Defines source ip random (0 or 1)
 
 It has a start tag &lt;src_ip_random&gt; and an end tag &lt;/src_ip_random&gt;.
@@ -168,7 +168,7 @@ It has a start tag &lt;src_ip_random&gt; and an end tag &lt;/src_ip_random&gt;.
 <src_ip_random>1</src_ip_random>
 ```
 
-### src_port
+### src_port, default 5000
 Defines source port
 
 It has a start tag &lt;src_port&gt; and an end tag &lt;/src_port&gt;.
@@ -192,7 +192,7 @@ It has a start tag &lt;src_port_max&gt; and an end tag &lt;/src_port_max&gt;.
 <src_port_max>9999</src_port_max>
 ```
 
-### src_port_inc
+### src_port_inc, default 0
 Defines the number to increase source port
 
 It has a start tag &lt;src_port_inc&gt; and an end tag &lt;/src_port_inc&gt;.
@@ -200,7 +200,7 @@ It has a start tag &lt;src_port_inc&gt; and an end tag &lt;/src_port_inc&gt;.
  <src_port_inc>10</src_port_inc>
 ```
 
-### src_port_random
+### src_port_random, default 0
 Defines random source port (0 or 1)
 
 It has a start tag &lt;src_port_random&gt; and an end tag &lt;/src_port_random&gt;.
@@ -210,15 +210,15 @@ It has a start tag &lt;src_port_random&gt; and an end tag &lt;/src_port_random&g
 
 
 
-### dest_ip
+### dest_ip, default 10.0.0.99
 ### dest_ip_min
 ### dest_ip_max
-### dest_ip_inc
-### dest_ip_random
-### dest_port
+### dest_ip_inc, default 0
+### dest_ip_random, default 0
+### dest_port, default 5001
 ### dest_port_min
 ### dest_port_max
-### dest_port_inc
-### dest_port_random
+### dest_port_inc, default 0
+### dest_port_random, default 0
 
 please refer to src_ip and src_port
