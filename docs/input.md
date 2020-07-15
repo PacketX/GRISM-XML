@@ -152,24 +152,24 @@ It has a start tag &lt;src_ip_max&gt; and an end tag &lt;/src_ip_max&gt;.
 ```
 <src_ip_max>10.1.0.99</src_ip_max>
 ```
-### src_ip_inc, default 0
-Defines the number to increase source ip 
+### src_ip_inc
+Defines the number to increase source ip, default 0
 
 It has a start tag &lt;src_ip_inc&gt; and an end tag &lt;/src_ip_inc&gt;.
 ```
 <src_ip_inc>5</src_ip_inc>
 ```
 
-### src_ip_random, default 0
-Defines source ip random (0 or 1)
+### src_ip_random
+Defines source ip random (0 or 1), default 0
 
 It has a start tag &lt;src_ip_random&gt; and an end tag &lt;/src_ip_random&gt;.
 ```
 <src_ip_random>1</src_ip_random>
 ```
 
-### src_port, default 5000
-Defines source port
+### src_port
+Defines source port, default 5000
 
 It has a start tag &lt;src_port&gt; and an end tag &lt;/src_port&gt;.
 ```
@@ -192,16 +192,16 @@ It has a start tag &lt;src_port_max&gt; and an end tag &lt;/src_port_max&gt;.
 <src_port_max>9999</src_port_max>
 ```
 
-### src_port_inc, default 0
-Defines the number to increase source port
+### src_port_inc
+Defines the number to increase source port, default 0
 
 It has a start tag &lt;src_port_inc&gt; and an end tag &lt;/src_port_inc&gt;.
 ```
  <src_port_inc>10</src_port_inc>
 ```
 
-### src_port_random, default 0
-Defines random source port (0 or 1)
+### src_port_random
+Defines random source port (0 or 1), default 0
 
 It has a start tag &lt;src_port_random&gt; and an end tag &lt;/src_port_random&gt;.
 ```
@@ -209,16 +209,35 @@ It has a start tag &lt;src_port_random&gt; and an end tag &lt;/src_port_random&g
 ```
 
 
+## destination ip and port, please refer to src_ip and src_port for xml syntax
 
-### dest_ip, default 10.0.0.99
+### dest_ip
+Defines destination ip,default 10.0.0.99
+
 ### dest_ip_min
-### dest_ip_max
-### dest_ip_inc, default 0
-### dest_ip_random, default 0
-### dest_port, default 5001
-### dest_port_min
-### dest_port_max
-### dest_port_inc, default 0
-### dest_port_random, default 0
+Defines minimum destination ip
 
-please refer to src_ip and src_port
+### dest_ip_max
+Defines maximum destination ip
+
+### dest_ip_inc
+Defines the number to increase destination ip, default 0
+
+### dest_ip_random
+Defines destination ip random (0 or 1), default 0
+
+### dest_port
+Defines destination port, default 5001
+
+### dest_port_min
+Defines minimum destination port
+
+### dest_port_max
+Defines maximum destination port
+
+### dest_port_inc
+Defines the number to increase destination port, default 0
+
+### dest_port_random
+Defines random destination port (0 or 1), default 0
+
