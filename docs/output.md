@@ -12,6 +12,7 @@ And output id=1 -> O1, refer to Example
 | id | Specifies a unique id for an element | Interger | * |
 | name | Specifies a name for an element | String | |
 | mtu | Maximum Transmission Unit | Interger | 0(unlimited) |
+| stl | Second To Live | Interger | 0(unlimited) |
 
 ## Example
 ```xml
@@ -28,7 +29,7 @@ And output id=1 -> O1, refer to Example
 ```
 
 ## Elements in Output
-&lt;port&gt;, &lt;Q&gt;, &lt;QinQ&gt;, &lt;stripping&gt;, &lt;tagging&gt;, &lt;maxlen&gt;, &lt;modify_srcip&gt;, &lt;modify_dstip&gt;, &lt;modify_srcmac&gt;, &lt;modify_dstmac&gt;, &lt;dir&gt;, &lt;nvgre_dip&gt;, &lt;arp_reply_target_mac&gt;
+&lt;port&gt;, &lt;Q&gt;, &lt;QinQ&gt;, &lt;stripping&gt;, &lt;tagging&gt;, &lt;maxlen&gt;, &lt;modify_srcip&gt;, &lt;modify_dstip&gt;, &lt;modify_srcmac&gt;, &lt;modify_dstmac&gt;, &lt;dir&gt;, &lt;nvgre_dip&gt;, &lt;arp_reply_target_mac&gt;, &lt;dns_response_ipv4&gt;
 
 ### &lt;port&gt;
 Defines output port(must have). 
@@ -184,3 +185,70 @@ It has a start tag &lt;arp_reply_target_mac&gt; and an end tag &lt;/arp_reply_ta
 </output>
 ```
 
+Example for for inline (P6 <-> P7) reply target mac 02:00:00:00:00:00 when arp request ip 192.168.1.10
+```
+<run>
+    <filter id="1" sessionBase="no">
+    <or>
+         <find name="arp.request.target.ip" relation="" content="192.168.1.10" />
+    </or>
+    </filter>
+    <output id="1">
+        <port>P6</port>
+        <arp_reply_target_mac>02:00:00:00:00:00</arp_reply_target_mac>
+    </output>
+    <chain>
+        <in>P6</in>
+        <fid>F1</fid>
+        <out>O1</out>
+        <next type="notmatch">
+            <out>P7</out>
+        </next>
+    </chain>
+    <chain>
+        <in>P7</in>
+        <out>P6</out>
+    </chain>
+</run>
+```
+
+### &lt;dns_response_ipv4&gt;
+Defines output response IPv4 address when dns query domain.
+It has a start tag &lt;dns_response_ipv4&gt; and an end tag &lt;/dns_response_ipv4&gt;.
+```
+<output id="1">
+  <port>P0</port>
+  <dns_response_ipv4>192.168.1.150</dns_response_ipv4>
+</output>
+```
+
+Example for inline (P6 <-> P7) response ip 192.168.1.201 when dns query google.com
+```
+<run>
+    <filter id="1" sessionBase="no">
+    <or>
+        <find n="dns.qry.name" r="==" c="google.com" />
+        <find n="dns.qry.name" r="==" c="www.google.com" />
+        <find n="dns.qry.name" r="==" c="ssl.gstatic.com" />
+        <find n="dns.qry.name" r="==" c="www.gstatic.com" />
+        <find n="dns.qry.name" r="==" c="apis.google.com" />
+    </or>
+    </filter>
+    <output id="1">
+        <port>P6</port>
+        <dns_response_ipv4>192.168.1.201</dns_response_ipv4>
+    </output>
+    <chain>
+        <in>P6</in>
+        <fid>F1</fid>
+        <out>O1</out>
+        <next type="notmatch">
+            <out>P7</out>
+        </next>
+    </chain>
+    <chain>
+        <in>P7</in>
+        <out>P6</out>
+    </chain>
+</run>
+```
