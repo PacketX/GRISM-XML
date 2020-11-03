@@ -53,6 +53,7 @@ It has a start tag &lt;find&gt; or &lt;f&gt;
 | gtp.data | | | |
 | gtp.imsi | | | |
 | gtp.teid | | | |
+| ip.addr.related.gtp.imsi | | | ip.addr.related.gtp.imsi == 466100000001007 |
 | gre | | is GRE | gre == |
 | erspan.spanid | | ERSPAN id | erspan.spanid == 1|
 | voip | | is SIP or RTP | voip == |
@@ -68,6 +69,8 @@ It has a start tag &lt;find&gt; or &lt;f&gt;
 | http.request.method | GET,HEAD,POST,etc.| HTTP request method | http.request.method == GET |
 | http.request.url | url | HTTP request url | http.request.url == www.whitehollowtransport.com/current-elliott-c-89.html  |
 | ssl | | is SSL | ssl == |
+| ssl.server_name | Character string | SSL server_name | ssl.server_name == facebook.com |
+| ssl.server_name_public_suffix | Character string | SSL server_name public suffix | ssl.server_name_public_suffix == *.googlevideo.com |
 | ssl.handshake.type | 0 or 1 | SSL handshake type | ssl.handshake.type == 1 |
 | ssl.ja3_digest | | SSL ja3 digest | ssl.ja3_digest == 39e62db039deed96a9daf75dacdbd207 |
 | quic.tag | CHLO | QUIC tag | quic.tag == CHLO |
