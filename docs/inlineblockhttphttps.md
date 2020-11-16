@@ -58,12 +58,17 @@ inline P6<->P7 block HTTP url and HTTPS server name
 	</filter>
 	<filter id="2" sessionBase="no">
 		<or>
+			<find name="ssl.server_name_public_suffix" relation="==" content="*.googlevideo.com" />
+		</or>
+	</filter>
+	<filter id="3" sessionBase="no">
+		<or>
 			<find name="http.request.url" relation="==" content="yahoo.com/index.html"/>
 		</or>
 	</filter>
 	<chain>
 		<in>P6</in>
-		<fid type="or">F1,F2</fid>
+		<fid type="or">F1,F2,F3</fid>
 		<out>0</out>
 		<next type="notmatch">
 			<out>P7</out>
@@ -71,7 +76,7 @@ inline P6<->P7 block HTTP url and HTTPS server name
 	</chain>
 	<chain>
 		<in>P7</in>
-		<fid type="or">F1,F2</fid>
+		<fid type="or">F1,F2,F3</fid>
 		<out>0</out>
 		<next type="notmatch">
 			<out>P6</out>
