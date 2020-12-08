@@ -84,6 +84,7 @@ It has a start tag &lt;find&gt; or &lt;f&gt;
 | heartbeat.target.miss.nth | | heartbeat missed from nth target setting | heartbeat.target.miss.nth == 1 |
 | flowtable.matched.fid | | flow matched which filter id | flowtable.matched.fid == F1 |
 | flowtable.inport | | flow comes from which port | flowtable.inport == P0 |
+| 1 | Unsigned integer, 4 byte | true or false | 1 != 1 |
 
 ## Example
 ```xml
