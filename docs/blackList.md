@@ -1,4 +1,4 @@
-## 描述:
+## 描述
 IP/domain/url/ssl server_name黑名單阻擋/偵測範例
 
 ## 過濾條件 filter xml
