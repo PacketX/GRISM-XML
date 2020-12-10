@@ -11,6 +11,7 @@
   - [Element - chain](chain.md)
   
 - Case Study
+  - [IP/domain/url/ssl server_name Black List block/detect](blackList.md)
   - [Bypass Youtube](bypassYoutube.md)
   - [inline block http url and https server_name](inlineblockhttphttps.md)
   - [inline loadbalance 1in2out](inlineLB_1in2out.md)
