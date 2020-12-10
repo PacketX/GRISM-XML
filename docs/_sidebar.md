@@ -11,11 +11,14 @@
   - [Element - chain](chain.md)
   
 - Case Study
+  - [Mirror](Mirror.md)
+  - [Inline](Inline.md)
+  - [Load Balance](LoadBalance.md)
+  - [inline loadbalance 1in2out](inlineLB_1in2out.md)
+  - [inline bypass SSL 2in1out](inline_2in1out_bypass_ssl.md)
   - [IP/domain/url/ssl server_name Black List block/detect](blackList.md)
   - [Bypass Youtube](bypassYoutube.md)
   - [inline block http url and https server_name](inlineblockhttphttps.md)
-  - [inline loadbalance 1in2out](inlineLB_1in2out.md)
-  - [inline bypass SSL 2in1out](inline_2in1out_bypass_ssl.md)
   - [Application Filters](application_filters.md)
   
 - Links
