@@ -16,7 +16,7 @@ bypass HTTPS Youtube
 			<find name="ssl.server_name_public_suffix" relation="==" content="*.googlevideo.com" />
 			<find name="ssl.server_name_public_suffix" relation="==" content="*.googleapis.com" />
 			<find name="ssl.server_name_public_suffix" relation="==" content="*.youtube.com" />
-			<find name="ssl.server_name_public_suffix" relation="==" content="*.ytimg.com"" />
+			<find name="ssl.server_name_public_suffix" relation="==" content="*.ytimg.com" />
 		</or>
 	</filter>
 	<chain>
