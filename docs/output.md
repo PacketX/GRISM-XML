@@ -10,9 +10,11 @@ And output id=1 -> O1, refer to Example
 | Attribute | Description | Type | Default (* must have) |
 |---|---|---|---|
 | id | Specifies a unique id for an element | Interger | * |
+| type | output type | String | mix |
 | name | Specifies a name for an element | String | |
 | mtu | Maximum Transmission Unit | Interger | 0(unlimited) |
 | stl | Second To Live | Interger | 0(unlimited) |
+
 
 ## Example
 ```xml
@@ -252,3 +254,36 @@ Example for inline (P6 <-> P7) response ip 192.168.1.201 when dns query google.c
     </chain>
 </run>
 ```
+
+### type : httprequesthijack
+Defines output http request hijack (and redirect to safeweb).
+
+Example for inline (P6 <-> P7) redirect http request url www.httrack.com/ to https://safeweb.secure365.hinet.net/
+```
+<run>
+  <filter id="1" sessionBase="no">
+    <or>
+      <find name="http.request.url" relation="==" content="www.httrack.com/" />
+    </or>
+  </filter>
+  <output id="1" type="httprequesthijack">
+    <port>P6</port>
+    <redirect2safeweb>https://safeweb.secure365.hinet.net/</redirect2safeweb>
+  </output>
+  <chain>
+    <in>P6</in>
+    <fid>F1</fid>
+    <out>O1</out>
+    <next type="notmatch">
+      <out>P7</out>
+    </next>
+  </chain>
+  <chain>
+    <in>P7</in>
+    <out>P6</out>
+  </chain>
+</run>
+
+```
+
+
