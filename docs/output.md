@@ -215,7 +215,7 @@ Example for for inline (P6 <-> P7) reply target mac 02:00:00:00:00:00 when arp r
 ```
 
 ### &lt;dns_response_ipv4&gt;
-Defines output response IPv4 address when dns query domain.
+Defines output response IPv4 address when dns query domain (not support EDNS yet).
 It has a start tag &lt;dns_response_ipv4&gt; and an end tag &lt;/dns_response_ipv4&gt;.
 ```
 <output id="1">
