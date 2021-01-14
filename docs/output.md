@@ -258,16 +258,16 @@ Example for inline (P6 <-> P7) response ip 192.168.1.201 when dns query google.c
 ### type : httprequesthijack
 Defines output http request hijack (and redirect to safeweb).
 
-Example for inline (P6 <-> P7) redirect http request url www.httrack.com/ to https://safeweb.secure365.hinet.net/
+Example for inline (P6 <-> P7) redirect http request url www.com/ to https://safeweb.secure365.hinet.net/
 ```
 <run>
   <filter id="1" sessionBase="no">
     <or>
-      <find name="http.request.url" relation="==" content="www.httrack.com/" />
+      <find name="http.request.url" relation="==" content="www.com/" />
     </or>
   </filter>
   <output id="1" type="httprequesthijack">
-    <port>P6</port>
+    <port>P7</port>
     <redirect2safeweb>https://safeweb.secure365.hinet.net/</redirect2safeweb>
   </output>
   <chain>
