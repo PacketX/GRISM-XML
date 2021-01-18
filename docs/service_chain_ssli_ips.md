@@ -1,6 +1,6 @@
 ## 描述
 Service chain with SSLi(Array) and IPS(PA)
-
+```
                            WAN
                             |
                             |v102 
@@ -17,7 +17,7 @@ Service chain with SSLi(Array) and IPS(PA)
                              |v101
                              |
                             LAN
-                            
+```                            
 ## xml
 ```xml
 <run>
