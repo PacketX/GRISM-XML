@@ -18,6 +18,7 @@
   - [inline bypass SSL 2in1out](inline_2in1out_bypass_ssl.md)
   - [IP/domain/url/ssl server_name Black List block/detect](blackList.md)
   - [Bypass Youtube](bypassYoutube.md)
+  - [Service chain with SSLi and IPS](service_chain_ssli_ips.md)
   - [inline block http url and https server_name](inlineblockhttphttps.md)
   - [Mobile Edge Computing Termination](MECTerminate.md.md)
   
