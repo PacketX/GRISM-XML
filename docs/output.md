@@ -236,13 +236,20 @@ Example for inline (P6 <-> P7) response ip 192.168.1.201 when dns query google.c
         <find n="dns.qry.name" r="==" c="apis.google.com" />
     </or>
     </filter>
+    <!-- dns query type IPv4 and not EDNS -->
+    <filter id="2" sessionBase="no">
+    <or>
+        <find n="dns.qry.type" r="==" c="1" />
+        <find n="dns.count.add_rr" r="==" c="0" />
+    </or>
+    </filter>
     <output id="1">
         <port>P6</port>
         <dns_response_ipv4>192.168.1.201</dns_response_ipv4>
     </output>
     <chain>
         <in>P6</in>
-        <fid>F1</fid>
+        <fid type="and">F1,F2</fid>
         <out>O1</out>
         <next type="notmatch">
             <out>P7</out>
