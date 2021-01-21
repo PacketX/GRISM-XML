@@ -62,6 +62,8 @@ It has a start tag &lt;find&gt; or &lt;f&gt;
 | voip.to | | | voip.to == 212@o.gentrice.net |
 | dns.a | IPv4 address | DNS type A ip addresses  | dns.a == 216.239.32.10 |
 | dns.flags.response | 0 or 1 | DNS Response | dns.flags.response == 1 |
+| dns.count.add_rr | int | DNS additional records count | dns.count.add_rr == 1 |
+| dns.qry.type | int | DNS query type | dns.qry.type == 1 |
 | dns.qry.name | Character string | DNS query name | dns.qry.name == google.com |
 | dns.qry.name.resp.ip.addr | Character string | DNS query name response ip addr | dns.qry.name.resp.ip.addr == googlevideo.com |
 | http | | is HTTP | http == |
@@ -88,11 +90,21 @@ It has a start tag &lt;find&gt; or &lt;f&gt;
 
 ## Example
 ```xml
-<find id="1" name="ip.addr" relation="==" content="8.8.8.8" />
+<filter id="1">
+  <or>
+    <find id="1" name="ip.addr" relation="==" content="8.8.8.8" />
+    <find id="2" name="ip.addr" relation="==" content="2.2.2.2" />
+  </or>
+</filter>
 ```
 Or
 ```xml
-<f n="ip.addr" r="==" c="8.8.8.8" />
+<filter id="1">
+  <or>
+    <f n="ip.addr" r="==" c="8.8.8.8" />
+    <f n="ip.addr" r="==" c="2.2.2.2" />
+  </or>
+</filter>
 ```
 
 
