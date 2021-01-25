@@ -291,6 +291,23 @@ Example for inline (P6 <-> P7) redirect http request url www.com/ to https://saf
   </chain>
 </run>
 
+
 ```
+### type : udpencap
+Defines output pcap header+packet throught UDP encapsulation.
 
-
+Example
+```
+<run>
+  <output id="1" type="udpencap">
+    <port>P7</port>
+    <dip>192.168.1.201</dip>
+    <sport>3060</sport>
+    <dport>3060</dport>
+  </output>
+  <chain>
+    <in>P6</in>
+    <out>O1</out>
+  </chain>
+</run>
+```
