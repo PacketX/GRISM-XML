@@ -65,6 +65,7 @@ It has a start tag &lt;find&gt; or &lt;f&gt;
 | dns.count.add_rr | int | DNS additional records count | dns.count.add_rr == 1 |
 | dns.qry.type | int | DNS query type | dns.qry.type == 1 |
 | dns.qry.name | Character string | DNS query name | dns.qry.name == google.com |
+| dns.qry.name_public_suffix | Character string | DNS query name public suffix | dns.qry.name_public_suffix == *.googlevideo.com |
 | dns.qry.name.resp.ip.addr | Character string | DNS query name response ip addr | dns.qry.name.resp.ip.addr == googlevideo.com |
 | http | | is HTTP | http == |
 | http.request | | is HTTP request | http.request == |
