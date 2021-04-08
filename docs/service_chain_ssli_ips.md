@@ -3,18 +3,18 @@ Service chain with SSLi(Array) and IPS(PA)
 ```
                            WAN
                             |
-                            |v102 
+                            |P7 
                       ---------------          ----------
-                     |               |v106----|          |
+                     |               |P1----  |          |
   ---------          |               |        |          |
- |         |----v104 |               |v108----|          |
+ |         |----P5   |               |P3----  |          |
  |   IPS   |         |     GRISM     |        |   SSLi   |
- |         |----v103 |               |v107----|          |
+ |         |----P4   |               |P2----  |          |
   ---------          |               |        |          |
-                     |               |v105----|          |
+                     |               |P0----  |          |
                      |               |        |          |
                       ---------------          ----------
-                             |v101
+                             |P6
                              |
                             LAN
 ```                            
@@ -40,52 +40,52 @@ Service chain with SSLi(Array) and IPS(PA)
         </or>
     </filter>
     <chain>
-        <in>V101</in>
+        <in>P6</in>
         <fid type="and">F1,F3</fid>
-        <out>V105</out>
+        <out>P0</out>
         <next type="notmatch">
-            <out>V103</out>
+            <out>P4</out>
         </next>
     </chain>
     <chain>
-        <in>V102</in>
+        <in>P7</in>
         <fid type="and">F1,F3</fid>
-        <out>V106</out>
+        <out>P1</out>
         <next type="notmatch">
-            <out>V104</out>
+            <out>P5</out>
         </next>
     </chain>
     <chain>
-        <in>V103</in>
+        <in>P4</in>
         <fid type="and">F2,F3</fid>
-        <out>V107</out>
+        <out>P2</out>
         <next type="notmatch">
-            <out>V101</out>
+            <out>P6</out>
         </next>
     </chain>
     <chain>
-        <in>V104</in>
+        <in>P5</in>
         <fid type="and">F2,F3</fid>
-        <out>V108</out>
+        <out>P3</out>
         <next type="notmatch">
-            <out>V102</out>
+            <out>P7</out>
         </next>
     </chain>
     <chain>
-        <in>V105</in>
-        <out>V101</out>
+        <in>P0</in>
+        <out>P6</out>
     </chain>
     <chain>
-        <in>V106</in>
-        <out>V102</out>
+        <in>P1</in>
+        <out>P7</out>
     </chain>
     <chain>
-        <in>V107</in>
-        <out>V103</out>
+        <in>P2</in>
+        <out>P4</out>
     </chain>
     <chain>
-        <in>V108</in>
-        <out>V104</out>
+        <in>P3</in>
+        <out>P5</out>
     </chain>
 </run>
 ```
