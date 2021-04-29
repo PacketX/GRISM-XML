@@ -28,7 +28,7 @@
 ```
 
 ## Bypass Switch service chain (with heartbeat)
-assume heartbeat packet has been set sending from P4, and will be come back from P5
+assume heartbeat packet has been set to send to P4, and will be come back from P5
 ```xml
 <run>
   <filter id="1" sessionBase="no">
