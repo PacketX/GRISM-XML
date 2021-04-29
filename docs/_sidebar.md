@@ -14,13 +14,13 @@
   - [Mirror](Mirror.md)
   - [Inline](Inline.md)
   - [Load Balance](LoadBalance.md)
+  - [Bypass Switch (4 ports)](bypassSwitch.md)
+  - [Bypass Youtube](bypassYoutube.md)
+  - [IP/domain/url/ssl server_name Black List block/detect](blackList.md)
   - [inline loadbalance 1in2out](inlineLB_1in2out.md)
   - [inline bypass SSL 2in1out](inline_2in1out_bypass_ssl.md)
-  - [IP/domain/url/ssl server_name Black List block/detect](blackList.md)
-  - [Bypass Youtube](bypassYoutube.md)
   - [Service chain with SSLi and IPS](service_chain_ssli_ips.md)
   - [inline block http url and https server_name](inlineblockhttphttps.md)
   - [Mobile Edge Computing Termination](MECTerminate.md.md)
-  
 - Links
   - [GRISM NEWS](https://packetx.github.io/gnews/)
