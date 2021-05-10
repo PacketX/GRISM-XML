@@ -217,10 +217,16 @@ Example for for inline (P6 <-> P7) reply target mac 02:00:00:00:00:00 when arp r
 ### &lt;dns_response_ipv4&gt;
 Defines output response IPv4 address when dns query domain (not support EDNS yet).
 It has a start tag &lt;dns_response_ipv4&gt; and an end tag &lt;/dns_response_ipv4&gt;.
+
+#### dns_response_ipv4 Attribute
+| Attribute | Description | Type | Default (* must have) |
+|---|---|---|---|
+| noswapmac | do'nt swap mac address | yes or no | no |
+
 ```
 <output id="1">
   <port>P0</port>
-  <dns_response_ipv4>192.168.1.150</dns_response_ipv4>
+  <dns_response_ipv4 noswapmac="yes">192.168.1.150</dns_response_ipv4>
 </output>
 ```
 
@@ -265,6 +271,12 @@ Example for inline (P6 <-> P7) response ip 192.168.1.201 when dns query google.c
 ### type : httprequesthijack
 Defines output http request hijack (and redirect to safeweb).
 
+#### redirect2safeweb Attribute
+| Attribute | Description | Type | Default (* must have) |
+|---|---|---|---|
+| noswapmac | do'nt swap mac address | yes or no | no |
+| redirectPort | redirect to Port | port (ex.P7) |  |
+
 Example for inline (P6 <-> P7) redirect http request url www.com/ to https://safeweb.secure365.hinet.net/
 ```
 <run>
@@ -275,7 +287,7 @@ Example for inline (P6 <-> P7) redirect http request url www.com/ to https://saf
   </filter>
   <output id="1" type="httprequesthijack">
     <port>P7</port>
-    <redirect2safeweb>https://safeweb.secure365.hinet.net/</redirect2safeweb>
+    <redirect2safeweb noswapmac="yes" redirectPort="P7">>https://safeweb.secure365.hinet.net/</redirect2safeweb>
   </output>
   <chain>
     <in>P6</in>
