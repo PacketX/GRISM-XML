@@ -33,7 +33,7 @@ assume heartbeat packet has been set to send to P4, and will be come back from P
 <run>
   <filter id="1" sessionBase="no">
     <or>
-      <find name="heartbeat.target.miss.nth" relation="==" content="1" />
+      <find name="heartbeat.target.miss.nth" relation="==" content="0" />
     </or>
   </filter>
   <chain>
