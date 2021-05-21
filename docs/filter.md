@@ -23,18 +23,26 @@ Please refer to [Element - find](find.md)
 | name | Specifies a name for an element | String | |
 | sessionBase | If one packet in session match filter, the whole session will treat as match | yes/no | yes |
 | matchedlog |if match filter and syslog set, send log | yes/no | no |
-| maxPackets | only watch max packets in a session | Interger | 0(means no limit) |
+| maxPackets | only match first N packets in a session | Interger | 0(means no limit) |
 | masking | only for hfa regex condition, just masking, no filter function | yes/no | no |
 
 ## Example
+
+### only match first 5 packets in a session
 ```xml
-<filter id="1">
+<run>
+<filter id="1" maxPackets="10" >
 <or>
-<!--	
-find contents goes here..
-example
--->
-	<find name="ip.addr" relation="==" content="8.8.8.8" />
+	<find name="regex" relation="==" content="abcdefg" />
 </or>
 </filter>
+<chain>
+	<in>P0</in>
+	<fid>F1</fid>
+	<out>P1</out>
+	<next type="notmatch">
+		<out>P2</out>
+	</next>
+</chain>
+</run>
 ```
