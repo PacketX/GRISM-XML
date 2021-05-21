@@ -28,10 +28,10 @@ Please refer to [Element - find](find.md)
 
 ## Example
 
-### only match first 5 packets in a session
+### only match first 10 packets in a session
 ```xml
 <run>
-<filter id="1" maxPackets="10" >
+<filter id="1" maxPackets="10">
 <or>
 	<find name="regex" relation="==" content="abcdefg" />
 </or>
