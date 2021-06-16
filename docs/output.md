@@ -14,6 +14,7 @@ And output id=1 -> O1, refer to Example
 | name | Specifies a name for an element | String | |
 | mtu | Maximum Transmission Unit | Interger | 0(unlimited) |
 | stl | Second To Live | Interger | 0(unlimited) |
+| arp_dstip_mac | arp request for dstip mac | yes/no | no |
 
 
 ## Example
