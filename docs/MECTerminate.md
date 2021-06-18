@@ -1,5 +1,5 @@
 ## 描述
-4G/5G Mobile Edge Computing Termination Sample
+4G/5G Mobile Edge Computing Breakout Sample
 
 P5: Edge
 P6: Core
@@ -7,28 +7,34 @@ P7: eNB
 
 Functions
 1. keep inline connect between Core and eNB
-2. filter destination IP which need to be Terminate to Edge
+2. Set End User IP which need to be breakout to Edge Server
 3. stripping GTP header before packet send to Edge
 4. tagging GTP headaer when packet comes from Edge
-5. reply ARP when Edge request for termination IP
+5. reply ARP when Edge request for End User IP
 
 ## xml
 ```xml
 <run>
     <filter id="1" sessionBase="no">
         <or>
-            <find name="ip.dst" relation="==" content="10.239.0.0/24"/>
+            <find name="ip.src" relation="==" content="192.168.1.10"/>
+            <find name="ip.src" relation="==" content="192.168.1.11"/>
         </or>
     </filter>
     <filter id="2" sessionBase="no">
         <or>
-            <find name="arp.request.target.ip" relation="==" content="10.239.0.0/24"/>
+            <find name="arp.request.target.ip" relation="==" content="192.168.1.0/24"/>
         </or>
     </filter>
-    <output id="1">
+    <filter id="3" sessionBase="no">
+        <or>
+            <find name="ip.dst" relation="==" content="10.0.0.1"/>
+            <find name="ip.dst" relation="==" content="10.0.0.2"/>
+        </or>
+    </filter>
+    <output id="1" arp_dstip_mac="yes">
         <port>P5</port>
         <stripping>gtp</stripping>
-        <modify_dstmac>00:0c:29:d3:a4:56</modify_dstmac>
     </output>
     <output id="2">
         <port>P7</port>
@@ -44,7 +50,7 @@ Functions
     </chain>
     <chain>
         <in>P7</in>
-        <fid>F1</fid>
+        <fid type="and">F1,F3</fid>
         <out>O1</out>
         <next type="notmatch">
             <out>P6</out>
