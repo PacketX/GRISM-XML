@@ -2,8 +2,8 @@
 4G/5G Mobile Edge Computing Breakout Sample
 
 P5: Edge
-P6: Core
-P7: eNB
+P6: eNB
+P7: Core
 
 Functions
 1. keep inline connect between Core and eNB
@@ -37,7 +37,7 @@ Functions
         <stripping>gtp</stripping>
     </output>
     <output id="2">
-        <port>P7</port>
+        <port>P6</port>
         <tagging>gtp2</tagging>
     </output>
     <output id="3">
@@ -45,15 +45,15 @@ Functions
         <arp_reply_target_mac>02:01:00:00:00:00</arp_reply_target_mac>
     </output>
     <chain>
-        <in>P6</in>
-        <out>P7</out>
+        <in>P7</in>
+        <out>P6</out>
     </chain>
     <chain>
-        <in>P7</in>
+        <in>P6</in>
         <fid type="and">F1,F3</fid>
         <out>O1</out>
         <next type="notmatch">
-            <out>P6</out>
+            <out>P7</out>
         </next>
     </chain>
     <chain>
