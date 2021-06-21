@@ -273,3 +273,83 @@
     </chain>
 </run>
 ```
+
+## inline 2 in 2 out and bypass SSL
+```
+                    --------------- 
+  ---------        |               |
+ |         |----P5 |               | P7 ---- WAN1
+ |   IPS1  |       |               |
+ |         |----P4 |               | P6 ---- LAN1
+  ---------        |     GRISM     |
+  ---------        |               |
+ |         |----P3 |               | P1 ---- WAN2
+ |   IPS2  |       |               |
+ |         |----P2 |               | P0 ---- LAN2
+  ---------        |               |
+                    --------------- 
+```
+```xml
+<run>
+    <filter id="1" name="1" sessionBase="yes">
+        <or>
+            <find name="ssl.handshake.type" relation="==" content="0" />
+            <find name="ssl.handshake.type" relation="==" content="1" />
+            <find name="quic.tag" relation="==" content="CHLO" />
+        </or>
+    </filter>
+    <filter id="2" sessionBase="yes">
+        <or>
+            <find name="flowtable.matched.fid" relation="==" content="F1" />
+        </or>
+    </filter>
+    <chain sessionUnique="yes">
+        <in>P0</in>
+        <fid>F1</fid>
+        <out>P1</out>
+        <next type="notmatch">
+            <out>P2</out>
+        </next>
+    </chain>
+    <chain sessionUnique="yes">
+        <in>P1</in>
+        <fid>F2</fid>
+        <out>P0</out>
+        <next type="notmatch">
+            <out>P3</out>
+        </next>
+    </chain>
+    <chain>
+        <in>P2</in>
+        <out>P0</out>
+    </chain>
+    <chain>
+        <in>P3</in>
+        <out>P1</out>
+    </chain>
+    <chain sessionUnique="yes">
+        <in>P6</in>
+        <fid>F1</fid>
+        <out>P7</out>
+        <next type="notmatch">
+            <out>P4</out>
+        </next>
+    </chain>
+    <chain sessionUnique="yes">
+        <in>P7</in>
+        <fid>F2</fid>
+        <out>P6</out>
+        <next type="notmatch">
+            <out>P5</out>
+        </next>
+    </chain>
+    <chain>
+        <in>P4</in>
+        <out>P6</out>
+    </chain>
+    <chain>
+        <in>P5</in>
+        <out>P7</out>
+    </chain>
+</run>
+```
