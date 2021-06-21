@@ -13,9 +13,9 @@
 - Case Study
   - [Mirror](Mirror.md)
   - [Inline & Bypass](Inline.md)
-  - [Service Chain](service_chain_ssli_ips.md)
   - [Load Balance](LoadBalance.md)
-  - [IP/domain/url/ssl server_name Black List block/detect](blackList.md)
+  - [Service Chain](service_chain_ssli_ips.md)
+  - [Black List block/detect](blackList.md)
   - [inline bypass SSL 2in1out](inline_2in1out_bypass_ssl.md)
   - [Mobile Edge Computing Breakout](MECTerminate.md.md)
 - Links
