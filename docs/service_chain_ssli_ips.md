@@ -88,7 +88,7 @@
 </run>
 ```
 
-## Service Chain with Two SSLi(with heartbeat bypass) and IPS
+## Service Chain with Two SSLi and IPS (heatbeat enable)
 ```
                          WAN
                           |
@@ -133,27 +133,40 @@
 			<find name="heartbeat.target.miss.nth" relation="==" content="1"/>
 		</or>
 	</filter>
+	<filter id="101" sessionBase="no">
+		<or>
+			<find name="heartbeat.target.miss.nth" relation="==" content="2"/>
+		</or>
+	</filter>
 	<chain>
 		<in>P6</in>
-		<fid>F100</fid>
-		<out>P4</out>
+		<fid>F101</fid>
+		<out>P7</out>
 		<next type="notmatch">
-			<fid type="and">F1,F3</fid>
-			<out>P0</out>
+			<fid>F100</fid>
+			<out>P4</out>
 			<next type="notmatch">
-				<out>P4</out>
+				<fid type="and">F1,F3</fid>
+				<out>P0</out>
+				<next type="notmatch">
+					<out>P4</out>
+				</next>
 			</next>
 		</next>
 	</chain>
 	<chain>
 		<in>P7</in>
-		<fid>F100</fid>
-		<out>P5</out>
+		<fid>F101</fid>
+		<out>P6</out>
 		<next type="notmatch">
-			<fid type="and">F1,F3</fid>
-			<out>P1</out>
+			<fid>F100</fid>
+			<out>P5</out>
 			<next type="notmatch">
-				<out>P5</out>
+				<fid type="and">F1,F3</fid>
+				<out>P1</out>
+				<next type="notmatch">
+					<out>P5</out>
+				</next>
 			</next>
 		</next>
 	</chain>
