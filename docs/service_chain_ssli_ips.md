@@ -1,4 +1,5 @@
-## Service Chain with SSLi(Array) and IPS, with heatbeat enabled(setting on GRISM Web Console->Configuration->Heatbeat)
+## Service Chain with SSLi(Array) and IPS
+with heatbeat enabled(setting on GRISM Web Console->Configuration->Heatbeat)
 ```
                          WAN
                           |
@@ -123,7 +124,8 @@
 </run>
 ```
 
-## Service Chain with SSLi(A10) and IPS, with heatbeat enabled(setting on GRISM Web Console->Configuration->Heatbeat)
+## Service Chain with SSLi(A10) and IPS
+with heatbeat enabled(setting on GRISM Web Console->Configuration->Heatbeat)
 ```
                          WAN
                           |
