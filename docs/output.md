@@ -47,7 +47,7 @@ It has a start tag &lt;port&gt; and an end tag &lt;/port&gt;.
 ### &lt;gateway&gt;
 Defines gateway 
 It has a start tag &lt;gateway&gt; and an end tag &lt;/gateway&gt;.
-the ouptut will send arp request for gateway to get mac address, than use this mac to replace destination mac address on packet.
+The ouptut will send arp request to gateway for mac address, than use this mac to replace destination mac address on packet.
 
 ```
 <output id="1">
