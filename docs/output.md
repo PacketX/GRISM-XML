@@ -44,6 +44,18 @@ It has a start tag &lt;port&gt; and an end tag &lt;/port&gt;.
 </output>
 ```
 
+### &lt;gateway&gt;
+Defines gateway 
+It has a start tag &lt;gateway&gt; and an end tag &lt;/gateway&gt;.
+the ouptut will send arp request for gateway to get mac address, than use this mac to replace destination mac address on packet.
+
+```
+<output id="1">
+  <port>P0</port>
+  <gateway>192.168.1.1</gateway>
+</output>
+```
+
 ### &lt;Q&gt;
 Defines vlan tagging. 
 It has a start tag &lt;Q&gt; and an end tag &lt;/Q&gt;.
