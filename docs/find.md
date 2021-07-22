@@ -48,7 +48,7 @@ It has a start tag &lt;find&gt; or &lt;f&gt;
 | sctp.port | Unsigned integer, 2 bytes | Source or Destination Port | sctp.port == 2906 |
 | sctp.srcport | Unsigned integer, 2 bytes | Source Port | sctp.srcport == 2906 |
 | sctp.dstport | Unsigned integer, 2 bytes | Destination Port | sctp.dstport == 2906 |
-| 5-tuple | 5 Tuple, - means don't care | Source IP Address, Destination IP Address, Source Port, Destination Port, Protocol | 5-tuple == - 192.168.1.203 - 443 - |
+| 5-tuple | 5 Tuple, - means don't care | Source IP Address, Destination IP Address, Protocol, Source Port, Destination Port | 5-tuple == - 192.168.1.203 - - 443 |
 | gtp.cp | | | |
 | gtp.data | | | |
 | gtp.imsi | | | |
