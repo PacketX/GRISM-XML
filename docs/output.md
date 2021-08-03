@@ -170,8 +170,14 @@ It has a start tag &lt;maxlen&gt; and an end tag &lt;/maxlen&gt;.
 ```
 
 ### &lt;dir&gt;
-Defines output dir in Harddisk. Save packet to pcap files.
+Defines output dir in Hard disk. Save packet to pcap files.
 It has a start tag &lt;dir&gt; and an end tag &lt;/dir&gt;.
+
+| Attribute | Description | Type | Default (* must have) |
+|---|---|---|---|
+| timeout | timeout to next pcap file | seconds | 0 (No timeout) |
+| max_split_size | max pcap size | integer(bytes) | 104857600 (100M) |
+
 ```
 <output id="1">
  <port>H1</port>
