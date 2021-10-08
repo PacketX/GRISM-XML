@@ -102,6 +102,11 @@ It has a start tag &lt;stripping&gt; and an end tag &lt;/stripping&gt;.
 Defines modify source ip address
 It has a start tag &lt;modify_srcip&gt; and an end tag &lt;/modify_srcip&gt;.
 
+| Attribute | Description | Type | Default (* must have) |
+|---|---|---|---|
+| nat | NAT support, don't forget to set args->nat to true | yes/no | no |
+
+
 ```
 <output id="1">
   <port>P0</port>
