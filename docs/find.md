@@ -84,6 +84,7 @@ It has a start tag &lt;find&gt; or &lt;f&gt;
 | ftp | | is FTP | ftp ==  |
 | regex | | Regular Expression | regex == \{s\}\\\/\.\*Host: nlpqflkbvkdde\.eu |
 | grism.srcport | | packet comes from which port | grism.srcport == P0 |
+| grism.port.linkdown | | grism port link down | grism.port.linkdown == P0 |
 | session.packet.nth | | the nth packet in flow | session.packet.nth == 3 |
 | heartbeat.target.miss.nth | | heartbeat missed from nth target setting | heartbeat.target.miss.nth == 1 |
 | flowtable.matched.fid | | flow matched which filter id | flowtable.matched.fid == F1 |
