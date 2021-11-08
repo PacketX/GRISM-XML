@@ -50,6 +50,9 @@ Defines packets pass through filter id. It has a start tag &lt;fid&gt; and an en
   <fid>F1</fid>
 <!--if F1 or F2 -->
   <fid type="or">F1,F2</fid>
+
+<!--if F1 and not F2 -->
+  <fid type="and">F1,!F2</fid>
 ```
 ### &lt;next&gt;
 Defines going next if packet match/not match filter. It has a next tag &lt;next&gt; and an end tag &lt;/next&gt;.
