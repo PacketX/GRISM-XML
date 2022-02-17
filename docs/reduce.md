@@ -71,7 +71,10 @@
   <chain>
     <in>P0</in>
     <fid>F1,F2</fid>
-    <out>P1</out>
+    <out>0</out>
+    <next type="notmatch">
+      <out>P1</out>
+    </next>
   </chain>
 </run>
 ```
