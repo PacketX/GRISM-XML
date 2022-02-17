@@ -12,6 +12,7 @@
   
 - Case Study
   - [Mirror](Mirror.md)
+  - [Reduce](reduce.md)
   - [Inline & Bypass](Inline.md)
   - [Load Balance](LoadBalance.md)
   - [Service Chain](service_chain_ssli_ips.md)
