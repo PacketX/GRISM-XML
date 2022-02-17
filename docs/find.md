@@ -87,7 +87,7 @@ It has a start tag &lt;find&gt; or &lt;f&gt;
 | grism.port.linkdown | | grism port link down | grism.port.linkdown == P0 |
 | session.packet.nth | | the nth packet in flow | session.packet.nth == 3 |
 | heartbeat.target.miss.nth | | heartbeat missed from nth target setting | heartbeat.target.miss.nth == 1 |
-| heartbeat.target.miss.id | | heartbeat missed from target id | heartbeat.target.miss.id == 5 (recommend) |
+| heartbeat.target.miss.id | int | heartbeat missed from target id (recommend) | heartbeat.target.miss.id == 5 |
 | flowtable.matched.fid | | flow matched which filter id | flowtable.matched.fid == F1 |
 | flowtable.inport | | flow comes from which port | flowtable.inport == P0 |
 | 1 | Unsigned integer, 4 byte | true or false | 1 != 1 |
