@@ -103,4 +103,12 @@ It has a start tag &lt;maxlen&gt; and an end tag &lt;/maxlen&gt;.
   <maxlen>64</maxlen>
 </action>
 ```
+### linkpairs type
+If portA down, force portB down, and vice versa.
+```
+<action id="1" type="linkpairs">
+  <portA>P1</portA>
+  <portB>P2</portB>
+</action>
+```
 
