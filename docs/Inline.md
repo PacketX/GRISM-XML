@@ -353,3 +353,47 @@
     </chain>
 </run>
 ```
+## inline 2 LAN to 1 WAN
+```
+
+        WAN
+         |
+         |P7 
+  --------------- 
+ |               |
+ |               |
+ |     GRISM     |
+ |               |
+ |               |
+  --------------- 
+     |P5    |P6
+     |      |
+    LAN1   LAN2
+```
+```xml
+<run>
+    <filter id="1" name="1" sessionBase="yes">
+          <or>
+            <find name="flowtable.inport" relation="==" content="P5" />
+        </or>
+    </filter>
+    <filter id="2" sessionBase="yes">
+        <or>
+            <find name="flowtable.inport" relation="==" content="P6" />
+        </or>
+    </filter>
+    <chain>
+        <in>P5,P6</in>
+        <out>P7</out>
+    </chain>
+    <chain>
+        <in>P7</in>
+        <fid>F1</fid>
+        <out>P5</out>
+        <next type="notmatch">
+            <fid>F2</fid>
+            <out>P6</out>
+        </next>
+    </chain>
+</run>
+```
