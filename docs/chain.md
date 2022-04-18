@@ -21,6 +21,10 @@ Defines input ports. It has a start tag &lt;in&gt; and an end tag &lt;/in&gt;.
 ### &lt;out&gt;
 Defines output ports. It has a start tag &lt;out&gt; and an end tag &lt;/out&gt;.
 
+#### Predefined
+- 0: Drop
+- S: find destination by dst-mac address (like Switch port)
+
 #### Attribute
 | Attribute | Description | Type | Default \(\* must have\) |
 |---|---|---|---|
