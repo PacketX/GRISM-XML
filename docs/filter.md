@@ -24,6 +24,7 @@ Please refer to [Element - find](find.md)
 | sessionBase | If one packet in session match filter, the whole session will treat as match | yes/no | yes |
 | matchedlog | if match filter and syslog set, send log | yes/no | no |
 | blockifempty | block if no find in filter | yes/no | no |
+| tuple5_live_hashtable_size | set hash table size for tuple5 live use only | Interger | no |
 | maxPackets | only match first N packets in a session | Interger | 0(means no limit) |
 | masking | only for hfa regex condition, just masking, no filter function | yes/no | no |
 
