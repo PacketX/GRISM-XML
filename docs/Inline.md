@@ -26,7 +26,7 @@
     </chain>
 </run>
 ```
-## basic inline & bypass
+## basic inline & bypass with heartbeat
 ```
                          WAN
                           |
