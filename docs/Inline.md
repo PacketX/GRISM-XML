@@ -42,8 +42,9 @@
                            |
                           LAN
 ```
-```xml
 configSet.xml
+
+```xml
 <configSet reboot="no">
     <heartbeat>
         <enable>True</enable>
