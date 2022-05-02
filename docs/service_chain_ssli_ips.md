@@ -17,7 +17,42 @@ with heatbeat enabled(setting on GRISM Web Console->Configuration->Heatbeat)
                            |P6
                            |
                           LAN
-```                            
+```                     
+#### Config XML
+```xml
+<configSet reboot="no">
+    <heartbeat>
+        <enable>True</enable>
+        <frequency>500</frequency>
+        <maxAllowTimeouts>3</maxAllowTimeouts>
+        <target>
+            <enable>True</enable>
+            <sendPort>P0</sendPort>
+            <receivePort>P2</receivePort>
+            <packetData>000d48285134000d482851338137ffff0030000000004004eca2c6130102c61301010000000000000000000000000000000000000000000000000000</packetData>
+            <description>Array1</description>
+            <id>1</id>
+        </target>
+	    <target>
+            <enable>True</enable>
+            <sendPort>P1</sendPort>
+            <receivePort>P3</receivePort>
+            <packetData>000d48285134000d482851338137ffff0030000000004004eca2c6130102c61301010000000000000000000000000000000000000000000000000000</packetData>
+            <description>Array2</description>
+            <id>2</id>
+        </target>
+	    <target>
+            <enable>True</enable>
+            <sendPort>P4</sendPort>
+            <receivePort>P5</receivePort>
+            <packetData>000d48285134000d482851338137ffff0030000000004004eca2c6130102c61301010000000000000000000000000000000000000000000000000000</packetData>
+            <description>IPS</description>
+            <id>3</id>
+        </target>
+    </heartbeat>
+</configSet>
+```
+#### GRISM XML
 ```xml
 <run>
 	<filter id="1" sessionBase="no">
@@ -40,13 +75,13 @@ with heatbeat enabled(setting on GRISM Web Console->Configuration->Heatbeat)
 	</filter>
 	<filter id="100" sessionBase="no">
 		<or>
-			<find name="heartbeat.target.miss.nth" relation="==" content="0"/>
-			<find name="heartbeat.target.miss.nth" relation="==" content="1"/>
+			<find name="heartbeat.target.miss.id" relation="==" content="1"/>
+			<find name="heartbeat.target.miss.id" relation="==" content="2"/>
 		</or>
 	</filter>
 	<filter id="101" sessionBase="no">
 		<or>
-			<find name="heartbeat.target.miss.nth" relation="==" content="2"/>
+			<find name="heartbeat.target.miss.id" relation="==" content="3"/>
 		</or>
 	</filter>
 	<chain>
