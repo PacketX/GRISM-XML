@@ -1,4 +1,4 @@
-## basic
+## basic inline
 ```
         WAN
          |
@@ -23,6 +23,73 @@
     <chain>
         <in>P7</in>
         <out>P6</out>
+    </chain>
+</run>
+```
+## basic inline & bypass
+```
+                         WAN
+                          |
+                          |P7 
+                    --------------- 
+  ---------        |               |
+ |         |----P5 |               |
+ |   IPS   |       |     GRISM     |
+ |         |----P4 |               |
+  ---------        |               |
+                    --------------- 
+                           |P6
+                           |
+                          LAN
+```
+```xml
+configSet.xml
+<configSet reboot="no">
+    <heartbeat>
+        <enable>True</enable>
+        <frequency>500</frequency>
+        <maxAllowTimeouts>3</maxAllowTimeouts>
+        <target>
+            <enable>True</enable>
+            <sendPort>P4</sendPort>
+            <receivePort>P5</receivePort>
+            <packetData>000d48285134000d482851338137ffff0030000000004004eca2c6130102c61301010000000000000000000000000000000000000000000000000000</packetData>
+            <description>IPS</description>
+            <id>1</id>
+        </target>
+    </heartbeat>
+</configSet>
+```
+```xml
+<run>
+    <filter id="1" sessionBase="no">
+        <or>
+	    <find name="heartbeat.target.miss.id" relation="==" content="1"/>
+	</or>
+    </filter>
+    <chain>
+        <in>P6</in>
+	<fid>F1</fid>
+	<out>P7</out>
+	<next type="notmatch">
+            <out>P4</out>
+	</next>
+    </chain>
+    <chain>
+       <in>P7</in>
+	<fid>F1</fid>
+	<out>P6</out>
+	<next type="notmatch">
+            <out>P5</out>
+	</next>
+    </chain>
+    <chain>
+       <in>P4</in>
+       <out>P6</out>
+    </chain>
+    <chain>
+       <in>P5</in>
+       <out>P7</out>
     </chain>
 </run>
 ```
