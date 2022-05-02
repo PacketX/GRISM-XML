@@ -42,7 +42,7 @@
                            |
                           LAN
 ```
-configSet.xml
+### Config XML
 
 ```xml
 <configSet reboot="no">
@@ -61,6 +61,7 @@ configSet.xml
     </heartbeat>
 </configSet>
 ```
+### GRISM XML
 ```xml
 <run>
     <filter id="1" sessionBase="no">
