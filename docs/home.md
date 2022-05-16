@@ -3,7 +3,7 @@
 ## Tutorial
 > GRISM XML is the standard markup language for SDN
 
-> With GRISM XML you can describes the structure of Network Packet Broker
+> With GRISM XML you can define the Network with XML
 
 > GRISM XML is easy to learn - You will enjoy it!
 
@@ -15,8 +15,8 @@
 - Simple and lightweight
 
 ## A Simple GRISM XML
-First define filter id=1 aka <b>F1</b> as black IP list.<br>
-Second define chain, When packets come from P0, if matched F1, send to P1
+- Define filter id=1 aka <b>F1</b> as black IP list.<br>
+- Descript network topology in chain. When packets come from P0, if matched F1, send to P1, else send to P2
 ```xml
 <run>
     <filter id="1" name="black IP list">
@@ -30,6 +30,9 @@ Second define chain, When packets come from P0, if matched F1, send to P1
         <in>P0</in>
         <fid>F1</fid>
         <out>P1</out>
+        <next type="notmatch">
+            <out>P2</out>
+        </next>
     </chain>
 </run>
 ```
