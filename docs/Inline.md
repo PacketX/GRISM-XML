@@ -169,7 +169,6 @@
                 <or>
                         <find name="ssl.handshake.type" relation="==" content="0" />
                         <find name="ssl.handshake.type" relation="==" content="1" />
-                        <find name="quic.tag" relation="==" content="CHLO" />
                 </or>
         </filter>
         <filter id="2" sessionBase="no">
@@ -364,7 +363,6 @@
         <or>
             <find name="ssl.handshake.type" relation="==" content="0" />
             <find name="ssl.handshake.type" relation="==" content="1" />
-            <find name="quic.tag" relation="==" content="CHLO" />
         </or>
     </filter>
     <filter id="2" sessionBase="yes">
