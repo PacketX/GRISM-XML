@@ -32,19 +32,50 @@ It has a start tag &lt;port&gt; and an end tag &lt;/port&gt;.
 ```
   <port>P0</port>
 ```
-### filepath
-Defines pcap filepath<B>(must have)</B>.
 
-It has a start tag &lt;filepath&gt; and an end tag &lt;/filepath&gt;.
-```
-<filepath>H1/in/sample.pcap</filepath>
-```
 ### time
 Defines play time<B>(must have)</B>.
 
 It has a start tag &lt;time&gt; and an end tag &lt;/time&gt;.
 ```
 <time>1</time>
+```
+
+### filepath
+Defines pcap filepath<B>(either filepath or scandir must have)</B>.
+
+It has a start tag &lt;filepath&gt; and an end tag &lt;/filepath&gt;.
+```
+<filepath>H1/in/sample.pcap</filepath>
+```
+### scandir
+Defines pcap scandir<B>(either filepath or scandir must have)</B>.
+
+It has a start tag &lt;scandir&gt; and an end tag &lt;/scandir&gt;., limit 1024 files
+#### Attribute
+| Attribute | Description | Type | Default (* must have) |
+|---|---|---|---|
+| interval | Scan interval | Seconds | 60 |
+| minbytes | will replay if pcap file bigger than minbytes | Interger | 0 |
+| timeout | force replay if pcap file less than minbytes after timeout | Interger | 0 |
+```
+<scandir interval="5" minbytes="1000" timeout="10">H1/in</scandir>
+```
+### playedFilesHandle
+Defines pcap file handle after replay.
+
+It has a start tag &lt;playedFilesHandle&gt; and an end tag &lt;/playedFilesHandle&gt;.
+must be <B>delete</B> or <B>move</B>
+```
+<playedFilesHandle>move</playedFilesHandle>
+```
+
+### playedFilesMoveTo
+Defines pcap file move to dir after after replay.
+
+It has a start tag &lt;playedFilesMoveTo&gt; and an end tag &lt;/playedFilesMoveTo&gt;.
+```
+<playedFilesMoveTo>H1/in/played</playedFilesMoveTo>
 ```
 
 ### msinterval
