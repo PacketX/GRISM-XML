@@ -78,6 +78,14 @@ It has a start tag &lt;playedFilesMoveTo&gt; and an end tag &lt;/playedFilesMove
 <playedFilesMoveTo>H1/in/played</playedFilesMoveTo>
 ```
 
+### speed
+Defines speed, default is full line rate. 
+
+It has a start tag &lt;speed&gt; and an end tag &lt;/speed&gt;.
+```
+<speed>10000</speed>
+```
+
 ### msinterval
 Defines the play ms interval between each packet. 
 
