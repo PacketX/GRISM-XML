@@ -28,10 +28,12 @@
     </filter>
     <chain>
         <in>P0</in>
-        <fid>F1</fid>
-        <out>P1</out>
-        <next type="notmatch">
-            <out>P2</out>
+        <next>
+            <fid>F1</fid>
+            <out>P1</out>
+            <next type="notmatch">
+                <out>P2</out>
+            </next>
         </next>
     </chain>
 </run>
