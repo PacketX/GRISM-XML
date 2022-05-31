@@ -6,9 +6,9 @@
   - [Element - filter](filter.md)
   - [Element - find](find.md)
   - [Element - output](output.md)
+  - [Element - chain](chain.md)
   - [Element - action](action.md)
   - [Element - input](input.md)
-  - [Element - chain](chain.md)
   
 - Case Study
   - [Mirror](Mirror.md)
