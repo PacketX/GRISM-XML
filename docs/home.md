@@ -1,6 +1,7 @@
 # GRISM XML
 
 ## Tutorial
+
 > GRISM XML is the standard markup language for SDN
 
 > With GRISM XML you can define the Network with XML
@@ -9,14 +10,17 @@
 
 ## Features
 
-- Easy to learn and use, simple to edit
-- User-Friendly
-- Easy to integrate with third-party software
-- Simple and lightweight
+* Easy to learn and use, simple to edit
+* User-Friendly
+* Easy to integrate with third-party software
+* Simple and lightweight
 
 ## A Simple GRISM XML
-- Define filter id=1 aka <b>F1</b> as black IP list.<br>
-- Descript network topology in chain. When packets come from P0, if matched F1, send to P1, else send to P2
+
+* Define filter id=1 aka **F1** as black IP list.\
+
+* Descript network topology in chain. When packets come from P0, if matched F1, send to P1, else send to P2
+
 ```xml
 <run>
     <filter id="1" name="black IP list">

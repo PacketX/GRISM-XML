@@ -1,25 +1,26 @@
 # Element - Output
-Defines the Output. 
-It has a start tag &lt;output&gt; and an end tag &lt;/output&gt;.
 
-It can be used in &lt;out&gt;&lt;out&gt; replace default port like P0,P1,..etc.
+Defines the Output. It has a start tag \<output> and an end tag \</output>.
+
+It can be used in \<out>\<out> replace default port like P0,P1,..etc.
 
 And output id=1 -> O1, refer to Example
 
 ## Attribute
-| Attribute | Description | Type | Default (* must have) | Version |
-|---|---|---|---|---|
-| id | Specifies a unique id for an element | Interger | * | |
-| type | output type | String | mix | |
-| name | Specifies a name for an element | String | | |
-| mtu | Maximum Transmission Unit | Interger | 0(unlimited) | |
-| stl | Second To Live | Interger | 0(unlimited) | |
-| minbps | Minimum bandwidth reserved | Interger | 0(unlimited) | 3.7.220527 |
-| maxbps | Maximum bandwidth reserved | Interger | 0(unlimited) | 3.7.220527 |
-| arp_dstip_mac | arp request for dstip mac | yes/no | no | |
 
+| Attribute       | Description                          | Type     | Default (\* must have) | Version    |
+| --------------- | ------------------------------------ | -------- | ---------------------- | ---------- |
+| id              | Specifies a unique id for an element | Interger | \*                     |            |
+| type            | output type                          | String   | mix                    |            |
+| name            | Specifies a name for an element      | String   |                        |            |
+| mtu             | Maximum Transmission Unit            | Interger | 0(unlimited)           |            |
+| stl             | Second To Live                       | Interger | 0(unlimited)           |            |
+| minbps          | Minimum bandwidth reserved           | Interger | 0(unlimited)           | 3.7.220527 |
+| maxbps          | Maximum bandwidth reserved           | Interger | 0(unlimited)           | 3.7.220527 |
+| arp\_dstip\_mac | arp request for dstip mac            | yes/no   | no                     |            |
 
 ## Example
+
 ```xml
 <run>
   <output id="1">
@@ -34,11 +35,12 @@ And output id=1 -> O1, refer to Example
 ```
 
 ## Elements in Output
-&lt;port&gt;, &lt;Q&gt;, &lt;QinQ&gt;, &lt;stripping&gt;, &lt;tagging&gt;, &lt;maxlen&gt;, &lt;modify_srcip&gt;, &lt;modify_dstip&gt;, &lt;modify_srcmac&gt;, &lt;modify_dstmac&gt;, &lt;dir&gt;, &lt;nvgre_dip&gt;, &lt;arp_reply_target_mac&gt;, &lt;dns_response_ipv4&gt;
 
-### &lt;port&gt;
-Defines output port(must have). 
-It has a start tag &lt;port&gt; and an end tag &lt;/port&gt;.
+\<port>, \<Q>, \<QinQ>, \<stripping>, \<tagging>, \<maxlen>, \<modify\_srcip>, \<modify\_dstip>, \<modify\_srcmac>, \<modify\_dstmac>, \<dir>, \<nvgre\_dip>, \<arp\_reply\_target\_mac>, \<dns\_response\_ipv4>
+
+### \<port>
+
+Defines output port(must have). It has a start tag \<port> and an end tag \</port>.
 
 ```
 <output id="1">
@@ -46,10 +48,9 @@ It has a start tag &lt;port&gt; and an end tag &lt;/port&gt;.
 </output>
 ```
 
-### &lt;gateway&gt;
-Defines gateway 
-It has a start tag &lt;gateway&gt; and an end tag &lt;/gateway&gt;.
-The ouptut will send arp request to gateway for mac address, than use this mac to replace destination mac address on packet.
+### \<gateway>
+
+Defines gateway It has a start tag \<gateway> and an end tag \</gateway>. The ouptut will send arp request to gateway for mac address, than use this mac to replace destination mac address on packet.
 
 ```
 <output id="1">
@@ -58,9 +59,9 @@ The ouptut will send arp request to gateway for mac address, than use this mac t
 </output>
 ```
 
-### &lt;Q&gt;
-Defines vlan tagging. 
-It has a start tag &lt;Q&gt; and an end tag &lt;/Q&gt;.
+### \<Q>
+
+Defines vlan tagging. It has a start tag \<Q> and an end tag \</Q>.
 
 ```
 <output id="1">
@@ -69,9 +70,10 @@ It has a start tag &lt;Q&gt; and an end tag &lt;/Q&gt;.
 </output>
 ```
 
-### &lt;QinQ&gt;
-Defines vlan layer 2 tagging. 
-It has a start tag &lt;QinQ&gt; and an end tag &lt;/QinQ&gt;.
+### \<QinQ>
+
+Defines vlan layer 2 tagging. It has a start tag \<QinQ> and an end tag \</QinQ>.
+
 ```
 <output id="1">
   <port>P0</port>
@@ -79,19 +81,20 @@ It has a start tag &lt;QinQ&gt; and an end tag &lt;/QinQ&gt;.
 </output>
 ```
 
-### &lt;stripping&gt;
-Defines stripping. 
-It has a start tag &lt;stripping&gt; and an end tag &lt;/stripping&gt;.
+### \<stripping>
+
+Defines stripping. It has a start tag \<stripping> and an end tag \</stripping>.
 
 #### support type
-- payload 
-- vlan
-- mpls
-- gre
-- vxlan
-- gre-erspan
-- gtp
-- grism
+
+* payload
+* vlan
+* mpls
+* gre
+* vxlan
+* gre-erspan
+* gtp
+* grism
 
 ```
 <output id="1">
@@ -100,14 +103,13 @@ It has a start tag &lt;stripping&gt; and an end tag &lt;/stripping&gt;.
 </output>
 ```
 
-### &lt;modify_srcip&gt;
-Defines modify source ip address
-It has a start tag &lt;modify_srcip&gt; and an end tag &lt;/modify_srcip&gt;.
+### \<modify\_srcip>
 
-| Attribute | Description | Type | Default (* must have) |
-|---|---|---|---|
-| nat | NAT support, don't forget to set args->nat to true | yes/no | no |
+Defines modify source ip address It has a start tag \<modify\_srcip> and an end tag \</modify\_srcip>.
 
+| Attribute | Description                                        | Type   | Default (\* must have) |
+| --------- | -------------------------------------------------- | ------ | ---------------------- |
+| nat       | NAT support, don't forget to set args->nat to true | yes/no | no                     |
 
 ```
 <output id="1">
@@ -116,9 +118,9 @@ It has a start tag &lt;modify_srcip&gt; and an end tag &lt;/modify_srcip&gt;.
 </output>
 ```
 
-### &lt;modify_dstip&gt;
-Defines modify destination ip address
-It has a start tag &lt;modify_dstip&gt; and an end tag &lt;/modify_dstip&gt;.
+### \<modify\_dstip>
+
+Defines modify destination ip address It has a start tag \<modify\_dstip> and an end tag \</modify\_dstip>.
 
 ```
 <output id="1">
@@ -127,9 +129,9 @@ It has a start tag &lt;modify_dstip&gt; and an end tag &lt;/modify_dstip&gt;.
 </output>
 ```
 
-### &lt;modify_srcmac&gt;
-Defines modify source mac address
-It has a start tag &lt;modify_srcmac&gt; and an end tag &lt;/modify_srcmac&gt;.
+### \<modify\_srcmac>
+
+Defines modify source mac address It has a start tag \<modify\_srcmac> and an end tag \</modify\_srcmac>.
 
 ```
 <output id="1">
@@ -138,9 +140,9 @@ It has a start tag &lt;modify_srcmac&gt; and an end tag &lt;/modify_srcmac&gt;.
 </output>
 ```
 
-### &lt;modify_dstmac&gt;
-Defines modify destination mac address
-It has a start tag &lt;modify_dstmac&gt; and an end tag &lt;/modify_dstmac&gt;.
+### \<modify\_dstmac>
+
+Defines modify destination mac address It has a start tag \<modify\_dstmac> and an end tag \</modify\_dstmac>.
 
 ```
 <output id="1">
@@ -149,15 +151,16 @@ It has a start tag &lt;modify_dstmac&gt; and an end tag &lt;/modify_dstmac&gt;.
 </output>
 ```
 
-### &lt;tagging&gt;
-Defines tagging. 
-It has a start tag &lt;tagging&gt; and an end tag &lt;/tagging&gt;.
+### \<tagging>
+
+Defines tagging. It has a start tag \<tagging> and an end tag \</tagging>.
 
 #### support type
-- timestamp 
-- gtp
-- gtp2
-- grism
+
+* timestamp
+* gtp
+* gtp2
+* grism
 
 ```
 <output id="1">
@@ -166,9 +169,10 @@ It has a start tag &lt;tagging&gt; and an end tag &lt;/tagging&gt;.
 </output>
 ```
 
-### &lt;maxlen&gt;
-Defines packet max length. 
-It has a start tag &lt;maxlen&gt; and an end tag &lt;/maxlen&gt;.
+### \<maxlen>
+
+Defines packet max length. It has a start tag \<maxlen> and an end tag \</maxlen>.
+
 ```
 <output id="1">
   <port>P0</port>
@@ -176,14 +180,14 @@ It has a start tag &lt;maxlen&gt; and an end tag &lt;/maxlen&gt;.
 </output>
 ```
 
-### &lt;dir&gt;
-Defines output dir in Hard disk. Save packet to pcap files.
-It has a start tag &lt;dir&gt; and an end tag &lt;/dir&gt;.
+### \<dir>
 
-| Attribute | Description | Type | Default (* must have) |
-|---|---|---|---|
-| timeout | timeout to next pcap file | seconds | 0 (No timeout) |
-| max_split_size | max pcap size | integer(bytes) | 104857600 (100M) |
+Defines output dir in Hard disk. Save packet to pcap files. It has a start tag \<dir> and an end tag \</dir>.
+
+| Attribute        | Description               | Type           | Default (\* must have) |
+| ---------------- | ------------------------- | -------------- | ---------------------- |
+| timeout          | timeout to next pcap file | seconds        | 0 (No timeout)         |
+| max\_split\_size | max pcap size             | integer(bytes) | 104857600 (100M)       |
 
 ```
 <output id="1">
@@ -192,20 +196,21 @@ It has a start tag &lt;dir&gt; and an end tag &lt;/dir&gt;.
 </output>
 ```
 
-### &lt;nvgre_dip&gt;
-Defines output to gre tunnel. must setting interface port ip addr first.
-It has a start tag &lt;nvgre_dip&gt; and an end tag &lt;/nvgre_dip&gt;.
+### \<nvgre\_dip>
+
+Defines output to gre tunnel. must setting interface port ip addr first. It has a start tag \<nvgre\_dip> and an end tag \</nvgre\_dip>.
+
 ```
 <output id="1">
   <port>P7</port>
   <nvgre_dip>192.168.1.201</nvgre_dip>
 </output>
-
 ```
 
-### &lt;arp_reply_target_mac&gt;
-Defines output reply arp target mac address.
-It has a start tag &lt;arp_reply_target_mac&gt; and an end tag &lt;/arp_reply_target_mac&gt;.
+### \<arp\_reply\_target\_mac>
+
+Defines output reply arp target mac address. It has a start tag \<arp\_reply\_target\_mac> and an end tag \</arp\_reply\_target\_mac>.
+
 ```
 <output id="1">
   <port>P0</port>
@@ -214,6 +219,7 @@ It has a start tag &lt;arp_reply_target_mac&gt; and an end tag &lt;/arp_reply_ta
 ```
 
 Example for for inline (P6 <-> P7) reply target mac 02:00:00:00:00:00 when arp request ip 192.168.1.10
+
 ```
 <run>
     <filter id="1" sessionBase="no">
@@ -240,14 +246,15 @@ Example for for inline (P6 <-> P7) reply target mac 02:00:00:00:00:00 when arp r
 </run>
 ```
 
-### &lt;dns_response_ipv4&gt;
-Defines output response IPv4 address when dns query domain (not support EDNS yet).
-It has a start tag &lt;dns_response_ipv4&gt; and an end tag &lt;/dns_response_ipv4&gt;.
+### \<dns\_response\_ipv4>
 
-#### dns_response_ipv4 Attribute
-| Attribute | Description | Type | Default (* must have) |
-|---|---|---|---|
-| noswapmac | do'nt swap mac address | yes or no | no |
+Defines output response IPv4 address when dns query domain (not support EDNS yet). It has a start tag \<dns\_response\_ipv4> and an end tag \</dns\_response\_ipv4>.
+
+#### dns\_response\_ipv4 Attribute
+
+| Attribute | Description            | Type      | Default (\* must have) |
+| --------- | ---------------------- | --------- | ---------------------- |
+| noswapmac | do'nt swap mac address | yes or no | no                     |
 
 ```
 <output id="1">
@@ -257,6 +264,7 @@ It has a start tag &lt;dns_response_ipv4&gt; and an end tag &lt;/dns_response_ip
 ```
 
 Example for inline (P6 <-> P7) response ip 192.168.1.201 when dns query google.com
+
 ```
 <run>
     <filter id="1" sessionBase="no">
@@ -295,15 +303,18 @@ Example for inline (P6 <-> P7) response ip 192.168.1.201 when dns query google.c
 ```
 
 ### type : httprequesthijack
+
 Defines output http request hijack (and redirect to safeweb).
 
 #### redirect2safeweb Attribute
-| Attribute | Description | Type | Default (* must have) |
-|---|---|---|---|
-| noswapmac | do'nt swap mac address | yes or no | no |
-| redirectPort | redirect to Port | port (ex.P7) |  |
+
+| Attribute    | Description            | Type         | Default (\* must have) |
+| ------------ | ---------------------- | ------------ | ---------------------- |
+| noswapmac    | do'nt swap mac address | yes or no    | no                     |
+| redirectPort | redirect to Port       | port (ex.P7) |                        |
 
 Example for inline (P6 <-> P7) redirect http request url www.com/ to https://safeweb.secure365.hinet.net/
+
 ```
 <run>
   <filter id="1" sessionBase="no">
@@ -329,12 +340,14 @@ Example for inline (P6 <-> P7) redirect http request url www.com/ to https://saf
   </chain>
 </run>
 
-
 ```
+
 ### type : udpencap
+
 Defines output pcap header+packet throught UDP encapsulation.
 
 Example
+
 ```
 <run>
   <output id="1" type="udpencap">
