@@ -71,11 +71,14 @@ It has a start tag \<scandir> and an end tag \</scandir>., limit 1024 files
 | interval                               | Scan interval                                              | Seconds  | 60                     |
 | minbytes                               | will replay if pcap file bigger than minbytes              | Interger | 0                      |
 | timeout                                | force replay if pcap file less than minbytes after timeout | Interger | 0                      |
-| \`\`\`                                 |                                                            |          |                        |
-| H1/in                                  |                                                            |          |                        |
-| \`\`\`                                 |                                                            |          |                        |
-| ### playedFilesHandle                  |                                                            |          |                        |
-| Defines pcap file handle after replay. |                                                            |          |                        |
+
+```xml
+<scandir interval="10" minbytes="1048576" timeout="60">H1/in</scandir>
+```
+
+### playedFilesHandle
+
+Defines pcap file handle after replay. 
 
 It has a start tag \<playedFilesHandle> and an end tag \</playedFilesHandle>. must be **delete** or **move**
 
