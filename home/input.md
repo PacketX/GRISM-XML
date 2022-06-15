@@ -30,47 +30,47 @@ Before using this function, make sure you upload pcap files to the correct path 
 
 ### port
 
-Defines output port**(must have)**.
+Defines output port\*\*(must have)\*\*.
 
 It has a start tag \<port> and an end tag \</port>.
 
-```
+```xml
   <port>P0</port>
 ```
 
 ### time
 
-Defines play time**(must have)**.
+Defines play time\*\*(must have)\*\*.
 
 It has a start tag \<time> and an end tag \</time>.
 
-```
+```xml
 <time>1</time>
 ```
 
 ### filepath
 
-Defines pcap filepath**(either filepath or scandir must have)**.
+Defines pcap filepath\*\*(either filepath or scandir must have)\*\*.
 
 It has a start tag \<filepath> and an end tag \</filepath>.
 
-```
+```xml
 <filepath>H1/in/sample.pcap</filepath>
 ```
 
 ### scandir
 
-Defines pcap scandir**(either filepath or scandir must have)**.
+Defines pcap scandir\*\*(either filepath or scandir must have)\*\*.
 
 It has a start tag \<scandir> and an end tag \</scandir>., limit 1024 files
 
 #### Attribute
 
-| Attribute                              | Description                                                | Type     | Default (\* must have) |
-| -------------------------------------- | ---------------------------------------------------------- | -------- | ---------------------- |
-| interval                               | Scan interval                                              | Seconds  | 60                     |
-| minbytes                               | will replay if pcap file bigger than minbytes              | Interger | 0                      |
-| timeout                                | force replay if pcap file less than minbytes after timeout | Interger | 0                      |
+| Attribute | Description                                                | Type     | Default (\* must have) |
+| --------- | ---------------------------------------------------------- | -------- | ---------------------- |
+| interval  | Scan interval                                              | Seconds  | 60                     |
+| minbytes  | will replay if pcap file bigger than minbytes              | Interger | 0                      |
+| timeout   | force replay if pcap file less than minbytes after timeout | Interger | 0                      |
 
 ```xml
 <scandir interval="10" minbytes="1048576" timeout="60">H1/in</scandir>
@@ -78,11 +78,11 @@ It has a start tag \<scandir> and an end tag \</scandir>., limit 1024 files
 
 ### playedFilesHandle
 
-Defines pcap file handle after replay. 
+Defines pcap file handle after replay.
 
 It has a start tag \<playedFilesHandle> and an end tag \</playedFilesHandle>. must be **delete** or **move**
 
-```
+```xml
 <playedFilesHandle>move</playedFilesHandle>
 ```
 
@@ -92,7 +92,7 @@ Defines pcap file move to dir after after replay.
 
 It has a start tag \<playedFilesMoveTo> and an end tag \</playedFilesMoveTo>.
 
-```
+```xml
 <playedFilesMoveTo>H1/in/played</playedFilesMoveTo>
 ```
 
@@ -102,7 +102,7 @@ Defines speed, default is full line rate.
 
 It has a start tag \<speed> and an end tag \</speed>.
 
-```
+```xml
 <speed>10000</speed>
 ```
 
@@ -112,7 +112,7 @@ Defines the play ms interval between each packet.
 
 It has a start tag \<msinterval> and an end tag \</msinterval>.
 
-```
+```xml
 <msinterval>1</msinterval>
 ```
 
@@ -156,11 +156,11 @@ generate traffic
 
 ### port
 
-Defines output port**(must have)**.
+Defines output port\*\*(must have)\*\*.
 
 It has a start tag \<port> and an end tag \</port>.
 
-```
+```xml
   <port>P0</port>
 ```
 
@@ -170,7 +170,7 @@ Defines protocol TCP/UDP, default UDP
 
 It has a start tag \<protocol> and an end tag \</protocol>.
 
-```
+```xml
 <protocol>UDP</protocol>
 ```
 
@@ -180,7 +180,7 @@ Defines packet size, default 512
 
 It has a start tag \<packet\_size> and an end tag \</packet\_size>.
 
-```
+```xml
 <packet_size>1024</packet_size>
 ```
 
@@ -190,7 +190,7 @@ Defines speed, default is full line rate.
 
 It has a start tag \<speed> and an end tag \</speed>.
 
-```
+```xml
 <speed>10000</speed>
 ```
 
@@ -200,7 +200,7 @@ Defines payload text
 
 It has a start tag \<payload\_text> and an end tag \</payload\_text>.
 
-```
+```xml
 <payload_text>abcdefg</payload_text>
 ```
 
@@ -210,7 +210,7 @@ Defines source ip, default 10.0.1.99
 
 It has a start tag \<src\_ip> and an end tag \</src\_ip>.
 
-```
+```xml
 <src_ip>10.1.0.99</src_ip>
 ```
 
@@ -220,7 +220,7 @@ Defines minimum source ip
 
 It has a start tag \<src\_ip\_min> and an end tag \</src\_ip\_min>.
 
-```
+```xml
 <src_ip_min>10.1.0.0</src_ip_min>
 ```
 
@@ -230,7 +230,7 @@ Defines maximum source ip
 
 It has a start tag \<src\_ip\_max> and an end tag \</src\_ip\_max>.
 
-```
+```xml
 <src_ip_max>10.1.0.99</src_ip_max>
 ```
 
@@ -240,7 +240,7 @@ Defines the number to increase source ip, default 0
 
 It has a start tag \<src\_ip\_inc> and an end tag \</src\_ip\_inc>.
 
-```
+```xml
 <src_ip_inc>5</src_ip_inc>
 ```
 
@@ -250,7 +250,7 @@ Defines source ip random (0 or 1), default 0
 
 It has a start tag \<src\_ip\_random> and an end tag \</src\_ip\_random>.
 
-```
+```xml
 <src_ip_random>1</src_ip_random>
 ```
 
@@ -260,7 +260,7 @@ Defines source port, default 5000
 
 It has a start tag \<src\_port> and an end tag \</src\_port>.
 
-```
+```xml
 <src_port>1234</src_port>
 ```
 
@@ -270,7 +270,7 @@ Defines minimum source port
 
 It has a start tag \<src\_port\_min> and an end tag \</src\_port\_min>.
 
-```
+```xml
 <src_port_min>2</src_port_min>
 ```
 
@@ -280,7 +280,7 @@ Defines maximum source port
 
 It has a start tag \<src\_port\_max> and an end tag \</src\_port\_max>.
 
-```
+```xml
 <src_port_max>9999</src_port_max>
 ```
 
@@ -290,7 +290,7 @@ Defines the number to increase source port, default 0
 
 It has a start tag \<src\_port\_inc> and an end tag \</src\_port\_inc>.
 
-```
+```xml
  <src_port_inc>10</src_port_inc>
 ```
 
@@ -300,7 +300,7 @@ Defines random source port (0 or 1), default 0
 
 It has a start tag \<src\_port\_random> and an end tag \</src\_port\_random>.
 
-```
+```xml
  <src_port_random>1</src_port_random>
 ```
 
