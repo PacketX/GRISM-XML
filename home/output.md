@@ -42,7 +42,7 @@ And output id=1 -> O1, refer to Example
 
 Defines output port(must have). It has a start tag \<port> and an end tag \</port>.
 
-```
+```xml
 <output id="1">
   <port>P0</port>
 </output>
@@ -52,7 +52,7 @@ Defines output port(must have). It has a start tag \<port> and an end tag \</por
 
 Defines gateway It has a start tag \<gateway> and an end tag \</gateway>. The ouptut will send arp request to gateway for mac address, than use this mac to replace destination mac address on packet.
 
-```
+```xml
 <output id="1">
   <port>P0</port>
   <gateway>192.168.1.1</gateway>
@@ -63,7 +63,7 @@ Defines gateway It has a start tag \<gateway> and an end tag \</gateway>. The ou
 
 Defines vlan tagging. It has a start tag \<Q> and an end tag \</Q>.
 
-```
+```xml
 <output id="1">
   <port>P0</port>
   <Q>10</Q>
@@ -74,7 +74,7 @@ Defines vlan tagging. It has a start tag \<Q> and an end tag \</Q>.
 
 Defines vlan layer 2 tagging. It has a start tag \<QinQ> and an end tag \</QinQ>.
 
-```
+```xml
 <output id="1">
   <port>P0</port>
   <QinQ>20</QinQ>
@@ -96,7 +96,7 @@ Defines stripping. It has a start tag \<stripping> and an end tag \</stripping>.
 * gtp
 * grism
 
-```
+```xml
 <output id="1">
   <port>P0</port>
   <stripping>vlan</stripping>
@@ -133,10 +133,21 @@ Defines modify destination ip address It has a start tag \<modify\_dstip> and an
 
 Defines modify source mac address It has a start tag \<modify\_srcmac> and an end tag \</modify\_srcmac>.
 
-```
+```xml
 <output id="1">
   <port>P0</port>
   <modify_srcmac>d8:fe:e3:a4:d3:78</modify_srcmac>
+</output>
+```
+
+### \<modify\_src\_default\_mac/>
+
+Defines modify source mac address use port default mac address
+
+```xml
+<output id="1">
+  <port>P0</port>
+  <modify_src_default_mac/>
 </output>
 ```
 
@@ -144,7 +155,7 @@ Defines modify source mac address It has a start tag \<modify\_srcmac> and an en
 
 Defines modify destination mac address It has a start tag \<modify\_dstmac> and an end tag \</modify\_dstmac>.
 
-```
+```xml
 <output id="1">
   <port>P0</port>
   <modify_dstmac>d8:fe:e3:a4:d3:78</modify_dstmac>
@@ -162,7 +173,7 @@ Defines tagging. It has a start tag \<tagging> and an end tag \</tagging>.
 * gtp2
 * grism
 
-```
+```xml
 <output id="1">
   <port>P0</port>
   <tagging>grism</taging>
@@ -173,7 +184,7 @@ Defines tagging. It has a start tag \<tagging> and an end tag \</tagging>.
 
 Defines packet max length. It has a start tag \<maxlen> and an end tag \</maxlen>.
 
-```
+```xml
 <output id="1">
   <port>P0</port>
   <maxlen>64</maxlen>
@@ -189,7 +200,7 @@ Defines output dir in Hard disk. Save packet to pcap files. It has a start tag \
 | timeout          | timeout to next pcap file | seconds        | 0 (No timeout)         |
 | max\_split\_size | max pcap size             | integer(bytes) | 104857600 (100M)       |
 
-```
+```xml
 <output id="1">
  <port>H1</port>
  <dir>test</dir>
@@ -200,7 +211,7 @@ Defines output dir in Hard disk. Save packet to pcap files. It has a start tag \
 
 Defines output to gre tunnel. must setting interface port ip addr first. It has a start tag \<nvgre\_dip> and an end tag \</nvgre\_dip>.
 
-```
+```xml
 <output id="1">
   <port>P7</port>
   <nvgre_dip>192.168.1.201</nvgre_dip>
@@ -211,7 +222,7 @@ Defines output to gre tunnel. must setting interface port ip addr first. It has 
 
 Defines output reply arp target mac address. It has a start tag \<arp\_reply\_target\_mac> and an end tag \</arp\_reply\_target\_mac>.
 
-```
+```xml
 <output id="1">
   <port>P0</port>
   <arp_reply_target_mac>00:0f:bb:ef:8a:25</arp_reply_target_mac>
@@ -220,7 +231,7 @@ Defines output reply arp target mac address. It has a start tag \<arp\_reply\_ta
 
 Example for for inline (P6 <-> P7) reply target mac 02:00:00:00:00:00 when arp request ip 192.168.1.10
 
-```
+```xml
 <run>
     <filter id="1" sessionBase="no">
     <or>
@@ -246,6 +257,17 @@ Example for for inline (P6 <-> P7) reply target mac 02:00:00:00:00:00 when arp r
 </run>
 ```
 
+### \<arp\_reply\_default\_mac/>
+
+Defines output reply arp default port mac address.
+
+```xml
+<output id="1">
+    <port>P6</port>
+    <arp_reply_default_mac/>
+</output>
+```
+
 ### \<dns\_response\_ipv4>
 
 Defines output response IPv4 address when dns query domain (not support EDNS yet). It has a start tag \<dns\_response\_ipv4> and an end tag \</dns\_response\_ipv4>.
@@ -256,7 +278,7 @@ Defines output response IPv4 address when dns query domain (not support EDNS yet
 | --------- | ---------------------- | --------- | ---------------------- |
 | noswapmac | do'nt swap mac address | yes or no | no                     |
 
-```
+```xml
 <output id="1">
   <port>P0</port>
   <dns_response_ipv4 noswapmac="yes">192.168.1.150</dns_response_ipv4>
@@ -265,7 +287,7 @@ Defines output response IPv4 address when dns query domain (not support EDNS yet
 
 Example for inline (P6 <-> P7) response ip 192.168.1.201 when dns query google.com
 
-```
+```xml
 <run>
     <filter id="1" sessionBase="no">
     <or>
@@ -315,7 +337,7 @@ Defines output http request hijack (and redirect to safeweb).
 
 Example for inline (P6 <-> P7) redirect http request url www.com/ to https://safeweb.secure365.hinet.net/
 
-```
+```xml
 <run>
   <filter id="1" sessionBase="no">
     <or>
@@ -348,7 +370,7 @@ Defines output pcap header+packet throught UDP encapsulation.
 
 Example
 
-```
+```xml
 <run>
   <output id="1" type="udpencap">
     <port>P7</port>
