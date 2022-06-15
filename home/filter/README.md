@@ -6,6 +6,8 @@ description: Defines the filter. It has a start tag <filter> and an end tag </fi
 
 In filter, must start at \<or>\</or> or \<and>\</and>, then put \<find/> into there like
 
+And filter id=1 -> F1, refer to Example
+
 ```xml
 <filter id="1" >
     <or>
@@ -42,18 +44,26 @@ Please refer to [Element - \<find](find.md)>
 
 ## Example
 
-### only match first 10 packets in a session
+filter dns port and server
 
 ```xml
 <run>
-<filter id="1" maxPackets="10">
+<filter id="1" sessionBase="no">
     <or>
-	<find name="regex" relation="==" content="abcdefg" />
+	<find name="udp.port" relation="==" content="53" />
+    </or>
+</filter>
+<filter id="2" sessionBase="no">
+    <or>
+	<find name="ip.addr" relation="==" content="8.8.8.8" />
+	<find name="ip.addr" relation="==" content="8.8.4.4" />
+	<find name="ip.addr" relation="==" content="168.95.1.1" />
+	<find name="ip.addr" relation="==" content="168.95.100.1" />
     </or>
 </filter>
 <chain>
     <in>P0</in>
-    <fid>F1</fid>
+    <fid type="and">F1,F2</fid>
     <out>P1</out>
     <next type="notmatch">
         <out>P2</out>
