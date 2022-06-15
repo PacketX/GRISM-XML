@@ -1,6 +1,8 @@
-# Element - Output
+---
+description: Defines the Output. It has a start tag <output> and an end tag </output>.
+---
 
-Defines the Output. It has a start tag \<output> and an end tag \</output>.
+# Element - \<output>
 
 It can be used in \<out>\<out> replace default port like P0,P1,..etc.
 
