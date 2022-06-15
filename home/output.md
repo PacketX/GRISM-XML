@@ -113,7 +113,7 @@ Defines modify source ip address It has a start tag \<modify\_srcip> and an end 
 | --------- | -------------------------------------------------- | ------ | ---------------------- |
 | nat       | NAT support, don't forget to set args->nat to true | yes/no | no                     |
 
-```
+```xml
 <output id="1">
   <port>P0</port>
   <modify_srcip>10.1.1.0</modify_srcip>
@@ -124,7 +124,7 @@ Defines modify source ip address It has a start tag \<modify\_srcip> and an end 
 
 Defines modify destination ip address It has a start tag \<modify\_dstip> and an end tag \</modify\_dstip>.
 
-```
+```xml
 <output id="1">
   <port>P0</port>
   <modify_dstip>10.1.1.0</modify_dstip>

@@ -1,8 +1,6 @@
----
-description: Defines the find(f). It has a start tag <find> or <f>
----
+# Element - \<find>
 
-# Element \<find>
+Defines the find(f). It has a start tag \<find> or \<f>
 
 ## Attribute
 
