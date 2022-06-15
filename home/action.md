@@ -1,16 +1,18 @@
-# Element - \<action>
+---
+description: Defines the Action. It has a start tag <action> and an end tag </action>.
+---
 
-Defines the Action. It has a start tag \<action> and an end tag \</action>.
+# Element \<action>
 
-For example, input packets process
+Two main funcitons, "input packet process" and "link pairs".
 
 ## Attribute
 
-| Attribute | Description                          | Type     | Default (\* must have) |
-| --------- | ------------------------------------ | -------- | ---------------------- |
-| id        | Specifies a unique id for an element | Interger | \*                     |
-| name      | Specifies a name for an element      | String   |                        |
-| type      | action type                          | String   | \*                     |
+| Attribute | Description                          | Type     | Default (\* must have)            |
+| --------- | ------------------------------------ | -------- | --------------------------------- |
+| id        | Specifies a unique id for an element | Interger | \*                                |
+| name      | Specifies a name for an element      | String   |                                   |
+| type      | action type                          | String   | input-packet-process or linkpairs |
 
 ## Example
 
