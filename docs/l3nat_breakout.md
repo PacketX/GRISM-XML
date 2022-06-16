@@ -1,10 +1,14 @@
-## L3 NAT Breakout
+# L3 NAT Breakout
 
 P5: other outer P6: inner P7: outer
 
-Set P6 NAT Breakout to P5 according to filter
+1. Set P6 NAT Breakout (only dns query to 8.8.8.8) to P5
+2. modify dns server from 8.8.8.8 to 168.95.1.1
 
-### Config XML
+
+
+## Config XML
+
 ```xml
 <configSet reboot="no">
     <args>
@@ -13,18 +17,29 @@ Set P6 NAT Breakout to P5 according to filter
 </configSet>
 ```
 
-### GRISM XML
+## GRISM XML
 
 ```xml
 <run>
+    <filter id="99" alt="dns query" sessionBase="no">
+        <or>
+            <find n="dns.qry.type" r="==" c="1"/>
+            <find n="dns.count.add_rr" r="==" c="0"/>
+        </or>
+    </filter>
     <filter id="100" alt="breakout server" sessionBase="no">
         <or>
             <find name="ip.dst" relation="==" content="8.8.8.8"/>
         </or>
     </filter>
+    <filter id="101" alt="dns from server" sessionBase="no">
+        <or>
+            <find name="ip.src" relation="==" content="168.95.1.1"/>
+        </or>
+    </filter>
     <filter id="3" sessionBase="no">
         <or>
-            <find name="arp.request.target.ip" relation="==" content="192.168.50.10"/>
+            <find name="arp.request.target.ip" relation="==" content="172.16.10.10"/>
         </or>
     </filter>
     <output id="3">
@@ -34,15 +49,20 @@ Set P6 NAT Breakout to P5 according to filter
     <output id="5">
         <port>P5</port>
         <modify_src_default_mac/>
-        <modify_srcip nat="yes">192.168.50.10</modify_srcip>
-        <gateway>192.168.50.1</gateway>
+        <modify_dstip>168.95.1.1</modify_dstip>
+        <modify_srcip nat="yes">172.16.10.10</modify_srcip>
+        <gateway>172.16.10.1</gateway>
     </output>
     <output id="6" arp_dstip_mac="yes">
         <port>P6</port>
     </output>
+    <output id="101" arp_dstip_mac="yes">
+        <port>P6</port>
+        <modify_srcip>8.8.8.8</modify_srcip>
+    </output>
     <chain>
         <in>P6</in>
-        <fid>F100</fid>
+        <fid type="and">F99,F100</fid>
         <out>O5</out>
         <next type="notmatch">
             <out>P7</out>
@@ -57,7 +77,11 @@ Set P6 NAT Breakout to P5 according to filter
         <fid>F3</fid>
         <out>O3</out>
         <next type="notmatch">
-            <out>O6</out>
+            <fid>F101</fid>
+            <out>O101</out>
+            <next type="notmatch">
+                <out>O6</out>
+            </next>
         </next>
     </chain>
 </run>
