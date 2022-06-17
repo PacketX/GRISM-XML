@@ -23,8 +23,7 @@ P5: other outer P6: inner P7: outer
 <run>
     <filter id="99" alt="dns query" sessionBase="no">
         <or>
-            <find n="dns.qry.type" r="==" c="1"/>
-            <find n="dns.count.add_rr" r="==" c="0"/>
+            <find name="udp.port" relation="==" content="53"/>
         </or>
     </filter>
     <filter id="100" alt="breakout server" sessionBase="no">
