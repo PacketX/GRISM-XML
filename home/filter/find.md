@@ -1,6 +1,8 @@
-# Element - \<find>
+---
+description: Defines the find(f). It has a start tag <find> or <f>
+---
 
-Defines the find(f). It has a start tag \<find> or \<f>
+# Element \<find>
 
 ## Attribute
 
@@ -28,6 +30,8 @@ Defines the find(f). It has a start tag \<find> or \<f>
 | ip.dst                           | IPv4 address                | Destination Address                                                                | ip.dst == 8.8.8.8                                                          |
 | ip.proto                         | Unsigned integer, 1 byte    | Protocol                                                                           | ip.proto == 6 (TCP)                                                        |
 | ip.fragment                      |                             | is IPv4 Fragment                                                                   | ip.fragment ==                                                             |
+| ip.flags.df                      | Unsigned integer, 1 byte    | is IP don't fragment                                                               | ip.flags.df == 1                                                           |
+| ip.flags.mf                      | Unsigned integer, 1 byte    | is IP more fragment                                                                | ip.flags.mf == 1                                                           |
 | ip.dsfield                       | Unsigned integer, 1 byte    | Differentiated Services Field                                                      | ip.dsfield == 1                                                            |
 | ipv6                             |                             | is IPv6                                                                            | ipv6 ==                                                                    |
 | ipv6.addr                        | IPv6 address                | Source or Destination Address                                                      | ipv6.addr == 2001:0db8:86a3:08d3:1319:8a2e:0370:7344                       |
