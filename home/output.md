@@ -10,16 +10,16 @@ And output id=1 -> O1, refer to Example
 
 ## Attribute
 
-| Attribute       | Description                          | Type     | Default (\* must have) | Support Version |
-| --------------- | ------------------------------------ | -------- | ---------------------- | --------------- |
-| id              | Specifies a unique id for an element | Interger | \*                     |                 |
-| type            | output type                          | String   | mix                    |                 |
-| name            | Specifies a name for an element      | String   |                        |                 |
-| mtu             | Maximum Transmission Unit            | Interger | 0(unlimited)           |                 |
-| stl             | Second To Live                       | Interger | 0(unlimited)           |                 |
-| minbps          | Minimum bandwidth reserved           | Interger | 0(unlimited)           | 3.7             |
-| maxbps          | Maximum bandwidth reserved           | Interger | 0(unlimited)           | 3.7             |
-| arp\_dstip\_mac | arp request for dstip mac            | yes/no   | no                     |                 |
+| Attribute       | Description                          | Type     | Default (\* must have) | Support  |
+| --------------- | ------------------------------------ | -------- | ---------------------- | -------- |
+| id              | Specifies a unique id for an element | Interger | \*                     |          |
+| type            | output type                          | String   | mix                    |          |
+| name            | Specifies a name for an element      | String   |                        |          |
+| mtu             | Maximum Transmission Unit            | Interger | 0(unlimited)           |          |
+| stl             | Second To Live                       | Interger | 0(unlimited)           |          |
+| minbps          | Minimum bandwidth reserved           | Interger | 0(unlimited)           | ver. 3.7 |
+| maxbps          | Maximum bandwidth reserved           | Interger | 0(unlimited)           | ver. 3.7 |
+| arp\_dstip\_mac | arp request for dstip mac            | yes/no   | no                     |          |
 
 ## Example
 
@@ -144,7 +144,7 @@ Defines modify source mac address It has a start tag \<modify\_srcmac> and an en
 
 ### \<modify\_src\_default\_mac/>
 
-Defines modify source mac address use port default mac address
+Defines modify source mac address use port default mac address (ver. 3.8)
 
 ```xml
 <output id="1">
@@ -261,7 +261,7 @@ Example for for inline (P6 <-> P7) reply target mac 02:00:00:00:00:00 when arp r
 
 ### \<arp\_reply\_default\_mac/>
 
-Defines output reply arp default port mac address.
+Defines output reply arp default port mac address. (ver. 3.8)
 
 ```xml
 <output id="1">
