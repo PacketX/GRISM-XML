@@ -10,16 +10,16 @@ And output id=1 -> O1, refer to Example
 
 ## Attribute
 
-| Attribute       | Description                          | Type     | Default (\* must have) | Version    |
-| --------------- | ------------------------------------ | -------- | ---------------------- | ---------- |
-| id              | Specifies a unique id for an element | Interger | \*                     |            |
-| type            | output type                          | String   | mix                    |            |
-| name            | Specifies a name for an element      | String   |                        |            |
-| mtu             | Maximum Transmission Unit            | Interger | 0(unlimited)           |            |
-| stl             | Second To Live                       | Interger | 0(unlimited)           |            |
-| minbps          | Minimum bandwidth reserved           | Interger | 0(unlimited)           | 3.7.220527 |
-| maxbps          | Maximum bandwidth reserved           | Interger | 0(unlimited)           | 3.7.220527 |
-| arp\_dstip\_mac | arp request for dstip mac            | yes/no   | no                     |            |
+| Attribute       | Description                          | Type     | Default (\* must have) | Support Version |
+| --------------- | ------------------------------------ | -------- | ---------------------- | --------------- |
+| id              | Specifies a unique id for an element | Interger | \*                     |                 |
+| type            | output type                          | String   | mix                    |                 |
+| name            | Specifies a name for an element      | String   |                        |                 |
+| mtu             | Maximum Transmission Unit            | Interger | 0(unlimited)           |                 |
+| stl             | Second To Live                       | Interger | 0(unlimited)           |                 |
+| minbps          | Minimum bandwidth reserved           | Interger | 0(unlimited)           | 3.7             |
+| maxbps          | Maximum bandwidth reserved           | Interger | 0(unlimited)           | 3.7             |
+| arp\_dstip\_mac | arp request for dstip mac            | yes/no   | no                     |                 |
 
 ## Example
 
