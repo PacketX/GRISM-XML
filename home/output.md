@@ -326,6 +326,42 @@ Example for inline (P6 <-> P7) response ip 192.168.1.201 when dns query google.c
 </run>
 ```
 
+### \<icmp\_reply\_fragment\_need/>
+
+Defines output reply ICMP fragmentation needed packet (ver. 3.10)
+
+| Attribute | Description     | Type   | Default (\* must have) |
+| --------- | --------------- | ------ | ---------------------- |
+| mtu       | MTU of next hop | UINT16 | \*                     |
+
+```markup
+<run>
+    <filter id="4" alt="ip df and packet len over 1500" sessionBase="no">
+        <and>
+            <find name="ip.flags.df" relation="==" content="1"/>
+            <find name="packet.len" relation="&gt;=" content="1500"/>
+        </and>
+    </filter>
+    <output id="6">
+        <port>P6</port>
+        <icmp_reply_fragment_need mtu="1440"/>
+        <modify_srcip>172.16.10.10</modify_srcip>
+    </output>
+    <chain>
+        <in>P6</in> 
+        <fid>F4</fid>
+        <out>O6</out>
+        <next type="notmatch">
+            <out>P7</out>
+        </next>
+    </chain>
+    <chain>
+        <in>P7</in>
+        <out>P6</out>
+    </chain>
+</run>
+```
+
 ### type : httprequesthijack
 
 Defines output http request hijack (and redirect to safeweb).
