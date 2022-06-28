@@ -1,4 +1,7 @@
-## basic inline
+# Inline & Bypass
+
+### basic inline
+
 ```
         WAN
          |
@@ -14,6 +17,7 @@
          |
         LAN
 ```
+
 ```xml
 <run>
     <chain>
@@ -26,7 +30,9 @@
     </chain>
 </run>
 ```
-## basic inline & bypass with heartbeat
+
+### basic inline & bypass with heartbeat
+
 ```
                          WAN
                           |
@@ -42,7 +48,10 @@
                            |
                           LAN
 ```
-#### Config XML
+
+**Config XML**
+
+Send heartbeat packet to P4 and expect packet will come back from P5
 
 ```xml
 <configSet reboot="no">
@@ -61,7 +70,9 @@
     </heartbeat>
 </configSet>
 ```
-#### GRISM XML
+
+**GRISM XML**
+
 ```xml
 <run>
     <filter id="1" sessionBase="no">
@@ -95,7 +106,9 @@
     </chain>
 </run>
 ```
-## inline block HTTP url and HTTPS server name
+
+### inline block HTTP url and HTTPS server name
+
 ```
         WAN
          |
@@ -111,6 +124,7 @@
          |
         LAN
 ```
+
 ```xml
 <run>
 	<filter id="1" sessionBase="no">
@@ -147,7 +161,8 @@
 </run>
 ```
 
-## inline block HTTP url and HTTPS server name (regex)
+### inline block HTTP url and HTTPS server name (regex)
+
 ```
         WAN
          |
@@ -163,6 +178,7 @@
          |
         LAN
 ```
+
 ```xml
 <run>
         <filter id="1" sessionBase="no">
@@ -208,7 +224,8 @@
 </run>
 ```
 
-## inline bypass 443 without first 10 packets
+### inline bypass 443 without first 10 packets
+
 ```
                          WAN
                           |
@@ -224,6 +241,7 @@
                            |
                           LAN
 ```
+
 ```xml
 <run>
     <filter id="1" sessionBase="no">
@@ -276,7 +294,9 @@
     </chain>
 </run>
 ```
-## inline bypass HTTPS Youtube
+
+### inline bypass HTTPS Youtube
+
 ```
                          WAN
                           |
@@ -292,6 +312,7 @@
                            |
                           LAN
 ```
+
 ```xml
 <run>
     <filter id="5" sessionBase="yes">
@@ -342,7 +363,8 @@
 </run>
 ```
 
-## inline 2 in 2 out and bypass SSL
+### inline 2 in 2 out and bypass SSL
+
 ```
                     --------------- 
   ---------        |               |
@@ -357,6 +379,7 @@
   ---------        |               |
                     --------------- 
 ```
+
 ```xml
 <run>
     <filter id="1" name="1" sessionBase="yes">
@@ -420,9 +443,10 @@
     </chain>
 </run>
 ```
-## inline 2 LAN to 1 WAN
-```
 
+### inline 2 LAN to 1 WAN
+
+```
         WAN
          |
          |P7 
@@ -437,6 +461,7 @@
      |      |
     LAN1   LAN2
 ```
+
 ```xml
 <run>
     <filter id="1" name="1" sessionBase="yes">
