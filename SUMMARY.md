@@ -12,7 +12,7 @@
   * [Mirror](docs/Mirror.md)
   * [Inline & Bypass](docs/Inline.md)
   * [Load Balance](docs/LoadBalance.md)
-  * [Packet Slicing](docs/packet-slicing.md)
+  * [Packet Stripping](docs/packet-stripping.md)
   * [Packet Editing](docs/packet-editing.md)
   * [Packet Tagging](docs/packet-tagging.md)
   * [Packet Reply](docs/packet-reply.md)
