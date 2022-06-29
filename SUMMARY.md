@@ -13,6 +13,7 @@
   * [Inline & Bypass](docs/Inline.md)
   * [Load Balance](docs/LoadBalance.md)
   * [Bandwidth Control](docs/bandwidth-control.md)
+  * [Stripping Payload](docs/stripping-payload.md)
   * [Reduce](docs/reduce.md)
   * [Service Chain](docs/service\_chain\_ssli\_ips.md)
   * [Black List block/detect](docs/blackList.md)
