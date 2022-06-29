@@ -18,7 +18,7 @@
   * [Packet Reply](docs/packet-reply.md)
   * [Tunnel](docs/tunnel.md)
   * [Bandwidth Control](docs/bandwidth-control.md)
-  * [Reduce](docs/reduce.md)
+  * [Offload](docs/reduce.md)
   * [Service Chain](docs/service\_chain\_ssli\_ips.md)
   * [Black List block/detect](docs/blackList.md)
   * [Mobile Edge Computing Breakout](docs/MECTerminate.md)
