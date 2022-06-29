@@ -1,16 +1,11 @@
----
-description: Reduce packet throughput
----
+## 描述
+封包減量
 
-# Reduce
-
-### Reference
-
-* https://github.com/ntop/nDPI/blob/dev/src/lib/ndpi\_content\_match.c.inc
+## Reference
+* https://github.com/ntop/nDPI/blob/dev/src/lib/ndpi_content_match.c.inc
 * https://github.com/boychongzen18/Bug-Host-All-Operator
 
-### Remove Youtube/Netflix/tiktok/Teams/Zoom/WebEx/Spotify streaming&#x20;
-
+## 移除 Youtube/Netflix/tiktok/Teams/Zoom/WebEx/Spotify streaming 等協定流量
 ```xml
 <run>
   <filter id="1">
