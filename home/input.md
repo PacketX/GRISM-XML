@@ -1,6 +1,8 @@
-# Element - Input
+---
+description: Defines the Input. It has a start tag <input> and an end tag </input>.
+---
 
-Defines the Input. It has a start tag \<input> and an end tag \</input>.
+# Element \<input>
 
 Two main funcitons, "replay pcap files" and "traffic generator".
 
