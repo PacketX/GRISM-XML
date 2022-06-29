@@ -1,9 +1,7 @@
-# Black List block/detect
+## 描述
+IP/domain/url/ssl server_name黑名單阻擋/偵測範例
 
-### IP/domain/url/ssl server\_name Block/Detect Sample
-
-### Black List
-
+## 過濾條件 filter xml
 ```xml
 <run>
     <filter id="10000" sessionBase="yes" matchedlog="yes">
@@ -34,8 +32,7 @@
 </run>
 ```
 
-### Block Sample
-
+## 阻擋 chain xml
 ```xml
 <run>
     <chain>
@@ -57,8 +54,7 @@
 </run>
 ```
 
-### Detect Sample
-
+## 偵測 chain xml
 ```xml
 <run>
     <chain>
@@ -75,4 +71,5 @@
         <out>0</out>
     </chain>
 </run>
+
 ```

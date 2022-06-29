@@ -1,8 +1,8 @@
 ---
-description: Stripping Payload, VLAN, MPLS, Tunnel header, etc.
+description: Slicing Payload, VLAN, MPLS, Tunnel header, etc.
 ---
 
-# Packet Stripping
+# Packet Slicing
 
 ### Stripping Payload
 
@@ -26,21 +26,6 @@ description: Stripping Payload, VLAN, MPLS, Tunnel header, etc.
     <output id="1">
         <port>P7</out>
         <stripping>vlan</stripping>
-    </output>
-    <chain>
-        <in>P6</in>
-        <out>O1</out>
-    </chain>
-</run>
-```
-
-### Stripping GTP
-
-```xml
-<run>
-    <output id="1">
-        <port>P7</out>
-        <stripping>gtp</stripping>
     </output>
     <chain>
         <in>P6</in>

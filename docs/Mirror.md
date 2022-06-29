@@ -1,11 +1,7 @@
----
-description: Duplicate packets. one to one, one to many, many to one, many to many
----
+## 描述
+Packets from P0 mirror to P1,P2,P3,P4
 
-# Mirror
-
-### Packets from P0 duplicate to P1,P2,P3,P4
-
+## xml
 ```xml
 <run>
     <chain>
