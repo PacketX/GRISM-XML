@@ -1,5 +1,5 @@
 ---
-description: Edit packet header like Mac address, IP address
+description: Edit packet header like Mac address, IP address and packet payload masking
 ---
 
 # Packet Editing
