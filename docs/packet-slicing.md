@@ -1,0 +1,35 @@
+---
+description: Slicing Payload, VLAN, MPLS, Tunnel header, etc.
+---
+
+# Packet Slicing
+
+### Stripping Payload
+
+```xml
+<run>
+    <output id="1">
+        <port>P7</out>
+        <stripping>payload</stripping>
+    </output>
+    <chain>
+        <in>P6</in>
+        <out>O1</out>
+    </chain>
+</run>
+```
+
+### Stripping VLAN
+
+```xml
+<run>
+    <output id="1">
+        <port>P7</out>
+        <stripping>vlan</stripping>
+    </output>
+    <chain>
+        <in>P6</in>
+        <out>O1</out>
+    </chain>
+</run>
+```
