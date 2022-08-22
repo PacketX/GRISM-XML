@@ -1,6 +1,8 @@
-# Element - Input
+---
+description: Defines the Input. It has a start tag <input> and an end tag </input>.
+---
 
-Defines the Input. It has a start tag \<input> and an end tag \</input>.
+# Element \<input>
 
 Two main funcitons, "replay pcap files" and "traffic generator".
 
@@ -166,7 +168,7 @@ It has a start tag \<port> and an end tag \</port>.
 
 ### protocol
 
-Defines protocol TCP/UDP, default UDP
+Defines protocol TCP/UDP/ICMP, default UDP
 
 It has a start tag \<protocol> and an end tag \</protocol>.
 
@@ -192,6 +194,16 @@ It has a start tag \<speed> and an end tag \</speed>.
 
 ```xml
 <speed>10000</speed>
+```
+
+### msinterval
+
+Defines the ms interval between each packet. higher priority than speed.
+
+It has a start tag \<msinterval> and an end tag \</msinterval>.
+
+```xml
+<msinterval>1</msinterval>
 ```
 
 ### payload\_text
