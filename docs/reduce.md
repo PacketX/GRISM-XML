@@ -1,11 +1,32 @@
-## 描述
-封包減量
+---
+description: Offload network analysis device
+---
 
-## Reference
-* https://github.com/ntop/nDPI/blob/dev/src/lib/ndpi_content_match.c.inc
+# Offload
+
+### Only send TCP/UDP 443 first 20 packets to analysis device
+
+<pre class="language-xml"><code class="lang-xml"><strong>&#x3C;run>
+</strong>  &#x3C;filter id="1" maxPackets="20" sessionBase="no">
+    &#x3C;or>
+      &#x3C;find name="tcp.port" relation="==" content="443"/>
+      &#x3C;find name="udp.port" relation="==" content="443"/>
+    &#x3C;/or>
+  &#x3C;/filter>
+  &#x3C;chain>
+    &#x3C;in>P1&#x3C;/in>
+    &#x3C;fid>F1&#x3C;/fid>
+    &#x3C;out>P2&#x3C;/out>
+  &#x3C;/chain>
+&#x3C;/run></code></pre>
+
+### Remove Youtube/Netflix/tiktok/Teams/Zoom/WebEx/Spotify streaming&#x20;
+
+#### Reference
+
+* https://github.com/ntop/nDPI/blob/dev/src/lib/ndpi\_content\_match.c.inc
 * https://github.com/boychongzen18/Bug-Host-All-Operator
 
-## 移除 Youtube/Netflix/tiktok/Teams/Zoom/WebEx/Spotify streaming 等協定流量
 ```xml
 <run>
   <filter id="1">
