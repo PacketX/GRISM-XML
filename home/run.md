@@ -2,7 +2,7 @@
 description: Defines the whole document. It has a start tag <run> and an end tag </run>.
 ---
 
-# Element - \<run>
+# Element \<run>
 
 ## Attribute
 
@@ -13,5 +13,7 @@ description: Defines the whole document. It has a start tag <run> and an end tag
 ## Example
 
 ```xml
-<run id="1">Content goes here..</run>
+<run>
+    Content goes here..
+</run>
 ```

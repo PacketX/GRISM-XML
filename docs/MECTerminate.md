@@ -1,18 +1,17 @@
-## 描述
+# Mobile Edge Computing Breakout
+
 4G/5G Mobile Edge Computing Breakout Sample
 
-P5: Edge
-P6: eNB
-P7: Core
+P5: Edge P6: eNB P7: Core
 
 Functions
+
 1. keep inline connect between Core and eNB
 2. Set End User IP which need to be breakout to Edge Server
 3. stripping GTP header before packet send to Edge
 4. tagging GTP headaer when packet comes from Edge
 5. reply ARP when Edge request for End User IP
 
-## xml
 ```xml
 <run>
     <filter id="1" sessionBase="no">
@@ -66,4 +65,3 @@ Functions
     </chain>
 </run>
 ```
-
