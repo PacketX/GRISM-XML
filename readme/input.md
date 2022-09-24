@@ -1,5 +1,5 @@
 ---
-description: Coming soon! (ver 4.4)
+description: Coming soon! (ver 4.3)
 ---
 
 # Element \<script>
@@ -24,5 +24,18 @@ description: Coming soon! (ver 4.4)
         print ("<chain><in>"+inport+"</in><fid>F10</fid><out>"+outport+"</out></chain>");
     }
     only_dns("P0","P1");
+</script>
+```
+
+### common.js
+
+#### port\_mirror (inports, outports)
+
+#### port\_inline (porta, portb)
+
+```javascript
+<script src="common.js"></script>
+<script>
+    port_mirror("P0", "P1,P2");
 </script>
 ```
