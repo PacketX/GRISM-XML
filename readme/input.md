@@ -16,18 +16,22 @@ description: Coming soon! (ver 4.3)
 
 ```javascript
 <script>
+<![CDATA[
     print("<!-- hello -->");
+]]>
 </script>
 ```
 
 ```javascript
 <script>
+<![CDATA[
     function only_dns (inport,outport)
     {
         print ("<filter id=\"10\"><or><find name=\"udp.port\" relation=\"==\" content=\"53\"></or></filter>");
         print ("<chain><in>"+inport+"</in><fid>F10</fid><out>"+outport+"</out></chain>");
     }
     only_dns("P0","P1");
+]]>
 </script>
 ```
 
@@ -44,7 +48,9 @@ var heartbeat_id = grism_heartbeat_id_get(lantoport, wantoport);
 ```javascript
 <script src="common.js"></script>
 <script>
+<![CDATA[
     port_mirror("P0", "P1,P2");
+]]>
 </script>
 ```
 
@@ -53,7 +59,9 @@ var heartbeat_id = grism_heartbeat_id_get(lantoport, wantoport);
 ```javascript
 <script src="common.js"></script>
 <script>
+<![CDATA[
     port_inline ("P6", "P7");
+]]>
 </script>
 ```
 
@@ -62,7 +70,9 @@ var heartbeat_id = grism_heartbeat_id_get(lantoport, wantoport);
 ```javascript
 <script src="common.js"></script>
 <script>
+<![CDATA[
     port_loadbalance ("P0", "P1,P2,P3,P4");
+]]>
 </script>
 ```
 
@@ -71,7 +81,9 @@ var heartbeat_id = grism_heartbeat_id_get(lantoport, wantoport);
 ```javascript
 <script src="common.js"></script>
 <script>
+<![CDATA[
     port_inline_bypass ("P4","P5","P6","P7");
+-->
 </script>
 ```
 
@@ -80,7 +92,9 @@ var heartbeat_id = grism_heartbeat_id_get(lantoport, wantoport);
 ```javascript
 <script src="common.js"></script>
 <script>
+<![CDATA[
     port_chain ("P0", "<out>P1</out>", "F1", "<out>P2</out>");
+]]>
 </script>
 ```
 
@@ -89,9 +103,11 @@ var heartbeat_id = grism_heartbeat_id_get(lantoport, wantoport);
 ```javascript
 <script src="common.js"></script>
 <script>
+<![CDATA[
     port_chain ("P0",
         port_chain_if_else ("    ", "<out>P1</out>", "F2", "<out>P2</out>"),
         "F1",
         "<out>P2</out>");
+]]>
 </script>
 ```
