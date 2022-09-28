@@ -56,7 +56,7 @@ description: Coming soon! (ver 4.3)
 </script>
 ```
 
-#### port\_loadbalance (inports, outports, lbtype="5thash")
+#### port\_loadbalance (inports, outports, lbtype='5thash')
 
 ```javascript
 <script src="common.js"></script>
@@ -78,7 +78,7 @@ description: Coming soon! (ver 4.3)
 </script>
 ```
 
-#### port\_chain (inports, match, filter="", notmatch="", fid\_type="")
+#### port\_chain (inports, match, filter='', notmatch='', fid\_type='')
 
 ```javascript
 <script src="common.js"></script>
@@ -89,7 +89,7 @@ description: Coming soon! (ver 4.3)
 </script>
 ```
 
-#### port\_chain\_next (match, filter="", notmatch="", fid\_type="")
+#### port\_chain\_next (match, filter='', notmatch='', fid\_type='')
 
 ```javascript
 <script src="common.js"></script>
