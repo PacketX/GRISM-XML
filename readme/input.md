@@ -84,7 +84,7 @@ description: Coming soon! (ver 4.3)
 <script src="common.js"></script>
 <script>
 <![CDATA[
-    port_chain ('P0', '<out>P1</out>', 'F1', '<out>P2</out>');
+    port_chain ('P0', 'P1', 'F1', 'P2');
 ]]>
 </script>
 ```
@@ -95,8 +95,8 @@ description: Coming soon! (ver 4.3)
 <script src="common.js"></script>
 <script>
 <![CDATA[
-    port_chain ('P0', '<out>P1</out>', 'F1',
-        port_chain_next ('<out>P2</out>', 'F2', '<out>P3</out>'),
+    port_chain ('P0', 'P1', 'F1',
+        port_chain_next ('P2', 'F2', '<out type="loadBalance">P3,P4</out>'),
     );
 ]]>
 </script>
