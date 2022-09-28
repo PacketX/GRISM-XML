@@ -95,7 +95,7 @@ description: Coming soon! (ver 4.3)
 <script src="common.js"></script>
 <script>
 <![CDATA[
-    port_chain ('P0', 'F1', '<out>P1</out>',
+    port_chain ('P0', '<out>P1</out>', 'F1',
         port_chain_if_else ('<out>P2</out>', 'F2', '<out>P3</out>'),
     );
 ]]>
