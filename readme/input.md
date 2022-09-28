@@ -89,14 +89,14 @@ description: Coming soon! (ver 4.3)
 </script>
 ```
 
-#### port\_chain\_if\_else (match, filter="", notmatch="", fid\_type="")
+#### port\_chain\_next (match, filter="", notmatch="", fid\_type="")
 
 ```javascript
 <script src="common.js"></script>
 <script>
 <![CDATA[
     port_chain ('P0', '<out>P1</out>', 'F1',
-        port_chain_if_else ('<out>P2</out>', 'F2', '<out>P3</out>'),
+        port_chain_next ('<out>P2</out>', 'F2', '<out>P3</out>'),
     );
 ]]>
 </script>
