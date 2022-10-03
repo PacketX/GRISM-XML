@@ -60,6 +60,26 @@ It has a start tag \<filepath> and an end tag \</filepath>.
 <filepath>H1/in/sample.pcap</filepath>
 ```
 
+### speed
+
+Defines speed, default is full line rate.
+
+It has a start tag \<speed> and an end tag \</speed>.
+
+```xml
+<speed>10000</speed>
+```
+
+### msinterval
+
+Defines the play ms interval between each packet.
+
+It has a start tag \<msinterval> and an end tag \</msinterval>.
+
+```xml
+<msinterval>1</msinterval>
+```
+
 ### scandir
 
 Defines pcap scandir\*\*(either filepath or scandir must have)\*\*.
@@ -98,25 +118,16 @@ It has a start tag \<playedFilesMoveTo> and an end tag \</playedFilesMoveTo>.
 <playedFilesMoveTo>H1/in/played</playedFilesMoveTo>
 ```
 
-### speed
+### Example - scandir
 
-Defines speed, default is full line rate.
-
-It has a start tag \<speed> and an end tag \</speed>.
-
-```xml
-<speed>10000</speed>
-```
-
-### msinterval
-
-Defines the play ms interval between each packet.
-
-It has a start tag \<msinterval> and an end tag \</msinterval>.
-
-```xml
-<msinterval>1</msinterval>
-```
+<pre class="language-xml"><code class="lang-xml">&#x3C;run>
+<strong>&#x3C;input type="replayPcap">
+</strong>        &#x3C;port>P0&#x3C;/port>
+        &#x3C;scandir interval="10" minbytes="1048576" timeout="60">H1/in&#x3C;/scandir>
+        &#x3C;playedFilesHandle>move&#x3C;/playedFilesHandle>
+        &#x3C;playedFilesMoveTo>H1/in/played&#x3C;/playedFilesMoveTo>  
+&#x3C;/input>
+&#x3C;/run></code></pre>
 
 ## Elements in Input - traffic-gen
 
