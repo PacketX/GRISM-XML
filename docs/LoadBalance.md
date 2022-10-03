@@ -1,5 +1,8 @@
-## basic 
-P0,P1 load balance to P3,P4,P5,P6 by 5-tuple (sip,dip,sport,dport,ip_proto)
+# Load Balance
+
+### basic
+
+P0,P1 load balance to P3,P4,P5,P6 by 5-tuple (sip,dip,sport,dport,ip\_proto)
 
 ```xml
 <run>
@@ -10,7 +13,21 @@ P0,P1 load balance to P3,P4,P5,P6 by 5-tuple (sip,dip,sport,dport,ip_proto)
 </run>
 ```
 
-## inline loadbalance to IPS1 and IPS2
+or
+
+```javascript
+<run>
+    <script src="common.js"></script>
+    <script>
+    <![CDATA[
+        port_loadbalance ('P0,P1', 'P3,P4,P5,P6');
+    ]]>
+    </script>
+</run>
+```
+
+### inline loadbalance to IPS1 and IPS2
+
 ```
                          WAN
                           |
@@ -30,8 +47,8 @@ P0,P1 load balance to P3,P4,P5,P6 by 5-tuple (sip,dip,sport,dport,ip_proto)
                            |P6
                            |
                           LAN
-
 ```
+
 ```xml
 <run>
     <chain>

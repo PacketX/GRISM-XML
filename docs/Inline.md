@@ -31,6 +31,19 @@
 </run>
 ```
 
+or
+
+```javascript
+<run>
+    <script src="common.js"></script>
+    <script>
+    <![CDATA[
+        port_inline ('P6', 'P7');
+    ]]>
+    </script>
+</run>
+```
+
 ### basic inline & bypass with heartbeat
 
 ```
@@ -104,6 +117,19 @@ Send heartbeat packet to P4 and expect packet will come back from P5
         <in>P5</in>
         <out>P7</out>
     </chain>
+</run>
+```
+
+or
+
+```javascript
+<run>
+    <script src="common.js"></script>
+    <script>
+    <![CDATA[
+        port_inline_bypass ('P4','P5','P6','P7');
+    -->
+    </script>
 </run>
 ```
 
