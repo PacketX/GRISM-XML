@@ -1,5 +1,5 @@
 ---
-description: Lightweight script language support (ver 4.3)
+description: Coming soon! (ver 4.3)
 ---
 
 # Element \<script>
