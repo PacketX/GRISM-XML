@@ -21,12 +21,12 @@ Before using this function, make sure you upload pcap files to the correct path 
 
 ```xml
 <run>
-<input type="replayPcap">
+    <input type="replayPcap">
         <port>P0</port>
         <filepath>H1/in/sample.pcap</filepath>
         <time>1</time>
         <msinterval>1</msinterval>   
-</input>
+    </input>
 </run>
 ```
 
@@ -121,12 +121,13 @@ It has a start tag \<playedFilesMoveTo> and an end tag \</playedFilesMoveTo>.
 ### Example - scandir
 
 <pre class="language-xml"><code class="lang-xml">&#x3C;run>
-<strong>&#x3C;input type="replayPcap">
+<strong>    &#x3C;input type="replayPcap">
 </strong>        &#x3C;port>P0&#x3C;/port>
+        &#x3C;time>1&#x3C;/time>
         &#x3C;scandir interval="10" minbytes="1048576" timeout="60">H1/in&#x3C;/scandir>
         &#x3C;playedFilesHandle>move&#x3C;/playedFilesHandle>
-        &#x3C;playedFilesMoveTo>H1/in/played&#x3C;/playedFilesMoveTo>  
-&#x3C;/input>
+        &#x3C;playedFilesMoveTo>H1/played&#x3C;/playedFilesMoveTo>  
+    &#x3C;/input>
 &#x3C;/run></code></pre>
 
 ## Elements in Input - traffic-gen
