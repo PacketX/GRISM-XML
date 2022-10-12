@@ -128,7 +128,7 @@ or
     <script>
     <![CDATA[
         port_inline_bypass ('P4','P5','P6','P7');
-    -->
+    ]]>
     </script>
 </run>
 ```
