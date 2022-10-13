@@ -197,16 +197,15 @@ Defines packet max length. It has a start tag \<maxlen> and an end tag \</maxlen
 
 Defines output dir in Hard disk. Save packet to pcap files. It has a start tag \<dir> and an end tag \</dir>.
 
-| Attribute        | Description                                           | Type           | Default (\* must have) |
-| ---------------- | ----------------------------------------------------- | -------------- | ---------------------- |
-| timeout          | timeout to next pcap file                             | seconds        | 0 (No timeout)         |
-| max\_split\_size | max pcap size                                         | integer(bytes) | 104857600 (100M)       |
-| category         | category for pcap files by month, day, hour or minute | string         | none                   |
+| Attribute        | Description               | Type           | Default (\* must have) |
+| ---------------- | ------------------------- | -------------- | ---------------------- |
+| timeout          | timeout to next pcap file | seconds        | 0 (No timeout)         |
+| max\_split\_size | max pcap size             | integer(bytes) | 104857600 (100M)       |
 
 ```xml
 <output id="1">
-    <port>H1</port>
-    <dir>test</dir>
+ <port>H1</port>
+ <dir>test</dir>
 </output>
 ```
 
@@ -216,8 +215,8 @@ Defines output to gre tunnel. must setting interface port ip addr first. It has 
 
 ```xml
 <output id="1">
-    <port>P7</port>
-    <nvgre_dip>192.168.1.201</nvgre_dip>
+  <port>P7</port>
+  <nvgre_dip>192.168.1.201</nvgre_dip>
 </output>
 ```
 
@@ -227,8 +226,8 @@ Defines output reply arp target mac address. It has a start tag \<arp\_reply\_ta
 
 ```xml
 <output id="1">
-    <port>P0</port>
-    <arp_reply_target_mac>00:0f:bb:ef:8a:25</arp_reply_target_mac>
+  <port>P0</port>
+  <arp_reply_target_mac>00:0f:bb:ef:8a:25</arp_reply_target_mac>
 </output>
 ```
 
