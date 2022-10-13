@@ -15,7 +15,7 @@ description: Save packet to pcap
     </filter>
     <output id="1">
         <port>H1</port>
-        <dir>dns</dir>
+        <dir category="day">dns</dir>
     </output>
     <chain>
         <in>P6</in>
@@ -24,3 +24,5 @@ description: Save packet to pcap
     </chain>
 </run>
 ```
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
