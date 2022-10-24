@@ -4,6 +4,23 @@ description: Save packet to pcap
 
 # Packet 2 pcap
 
+## Basic
+
+Save packet from P0 to H1/default&#x20;
+
+```xml
+<run>
+    <output id="1">
+        <port>H1</port>
+        <dir>default</dir>
+    </output>
+    <chain>
+        <in>P0</in>
+        <out>O1</out>
+    </chain>
+</run>
+```
+
 ## Save DNS packet to pcap
 
 ```xml
