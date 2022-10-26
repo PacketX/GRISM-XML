@@ -198,6 +198,16 @@ It has a start tag \<packet\_size> and an end tag \</packet\_size>.
 <packet_size>1024</packet_size>
 ```
 
+### packet\_data
+
+Defines packet data
+
+It has a start tag \<packet\_data> and an end tag \</packet\_data>.
+
+```xml
+<packet_data>000cbd0bfd36000cbd0bfd3708004500002e00000000800124090a0001630a0001640800662f0001000168656c6c6f20776f726c6400000000000000</packet_data>
+```
+
 ### speed
 
 Defines speed, default is full line rate.
