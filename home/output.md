@@ -212,12 +212,38 @@ Defines output dir in Hard disk. Save packet to pcap files. It has a start tag \
 
 ### \<nvgre\_dip>
 
-Defines output to gre tunnel. must setting interface port ip addr first. It has a start tag \<nvgre\_dip> and an end tag \</nvgre\_dip>.
+Defines output to gre tunnel dest ip. It has a start tag \<nvgre\_dip> and an end tag \</nvgre\_dip>.
+
+### \<nvgre\_sip>
+
+Defines output to gre tunnel source ip. It has a start tag \<nvgre\_sip> and an end tag \</nvgre\_sip>.
+
+### \<nvgre\_dmac>
+
+Defines output to gre tunnel dest mac. It has a start tag \<nvgre\_dmac> and an end tag \</nvgre\_dmac>.
+
+### \<nvgre\_type>
+
+Defines output to gre tunnel type eth or ip, default is eth . It has a sart tag \<nvgre\_type> and an end tag \</nvgre\_type>.
+
+#### Example if interface sip set already
 
 ```xml
 <output id="1">
     <port>P7</port>
     <nvgre_dip>192.168.1.201</nvgre_dip>
+</output>
+```
+
+#### Example&#x20;
+
+```xml
+<output id="1">
+    <port>P7</port>
+    <nvgre_type>eth</nvgre_type>
+    <nvgre_sip>192.168.1.10</nvgre_sip>
+    <nvgre_dip>192.168.1.201</nvgre_dip>
+    <nvgre_dmac>00:0c:bd:0b:fd:36</nvgre_dmac>
 </output>
 ```
 
