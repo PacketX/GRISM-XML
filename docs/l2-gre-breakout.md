@@ -1,5 +1,5 @@
 ---
-description: concat all L2 Switches with GRE
+description: concat all L2 Switches with GRE tunnel
 ---
 
 # L2 GRE Breakout
