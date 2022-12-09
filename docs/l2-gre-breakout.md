@@ -1,5 +1,5 @@
 ---
-description: mix all L2 GRE source to L2 Switch
+description: concat all L2 Switches with GRE
 ---
 
 # L2 GRE Breakout
@@ -13,8 +13,10 @@ description: mix all L2 GRE source to L2 Switch
    |L2 Switch|---P0|    GRISM    |P1---|    
     ---------      | GRE(dest)   |     |    ---------------     ---------
         |          | 192.168.2.1 |      ---| GRE(source)   |---|L2 Switch|--- user
-       user         -------------          | 192.168.2.101 |    ---------
-                                            ---------------
+       user         -------------      |   | 192.168.2.101 |    ---------
+                                       |    ---------------
+                                       |
+                                        ---... more   
 ```
 
 ## Config XML
