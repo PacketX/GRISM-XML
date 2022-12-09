@@ -24,5 +24,6 @@
   * [Service Chain](docs/service\_chain\_ssli\_ips.md)
   * [Black List block/detect](docs/blackList.md)
   * [Mobile Edge Computing Breakout](docs/MECTerminate.md)
+  * [L2 GRE Breakout](docs/l2-gre-breakout.md)
   * [L2 Switch Like](docs/l2switchlike.md)
-  * [L3 Switch NAT breakout](docs/l3nat\_breakout.md)
+  * [L3 Switch NAT Breakout](docs/l3nat\_breakout.md)

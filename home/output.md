@@ -173,12 +173,13 @@ Defines tagging. It has a start tag \<tagging> and an end tag \</tagging>.
 * timestamp
 * gtp
 * gtp2
+* l2gre (ver 4.8)
 * grism
 
 ```xml
 <output id="1">
   <port>P0</port>
-  <tagging>grism</taging>
+  <tagging>l2gre</taging>
 </output>
 ```
 
