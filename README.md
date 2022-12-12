@@ -19,6 +19,10 @@
 
 GRISM, GRISM-MEC ([https://packetx.biz/](https://packetx.biz/))
 
+## Online Doc
+
+[https://packetx.gitbook.io/grism-xml/](https://packetx.gitbook.io/grism-xml/)
+
 ## A Simple GRISM XML
 
 * Define filter id=1 aka **F1** as black IP list.\
