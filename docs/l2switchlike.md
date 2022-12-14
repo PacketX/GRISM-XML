@@ -1,7 +1,9 @@
-## L2 Switch Like 
+# L2 Switch Like
+
 set P4,P5,P6,P7 as L2 Switch
 
-### Config XML
+## Config XML
+
 ```xml
 <configSet reboot="no">
     <args>
@@ -10,7 +12,7 @@ set P4,P5,P6,P7 as L2 Switch
 </configSet>
 ```
 
-### GRISM XML
+## GRISM XML
 
 ```xml
 <run>
@@ -50,10 +52,6 @@ set P4,P5,P6,P7 as L2 Switch
         <next type="notmatch">
             <out>S</out>
         </next>
-    </chain>
-    <chain>
-        <in>P3</in>
-        <out>P0,P1,P2</out>
     </chain>
 </run>
 ```
