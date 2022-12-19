@@ -24,7 +24,8 @@ description: concat all L2 Switches with GRE tunnel
 ```xml
 <configSet reboot="no">
     <args>
-        <grel2Correlation>True</grel2Correlation>   
+        <grel2Correlation>True</grel2Correlation>
+        <grel2CorrelationPort>P1</grel2CorrelationPort>   
     </args>
     <filters>
         <in-tunnels>     
