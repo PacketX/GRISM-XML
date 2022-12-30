@@ -71,3 +71,27 @@ filter dns port and server
 </chain>
 </run>
 ```
+
+## Example for Regular Expression
+
+```xml
+<run>
+    <filter id="1" sessionBase="no">
+        <or>
+            <!-- string -->
+            <find name="regex" relation="==" content="This is p@cket filtering test"/>
+            <!-- hex -->
+            <find name="regex" relation="==" content="\xE9\xA2\xB1\xE9\xA2\xA8"/>
+            <!-- http host name-->
+            <find name="regex" relation="==" content="{s}\/.*Host: nlpqflkbvkdde\.eu"/>
+            <!-- dns qry name-->
+            <find name="regex" relation="==" content="\x08facebook\x03com"/>
+        </or>
+    </filter>
+    <chain>
+        <in>P0</in>
+        <fid>F1</fid>
+        <out>P1</out>
+    </chain>
+</run>
+```
