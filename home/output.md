@@ -164,6 +164,17 @@ Defines modify destination mac address It has a start tag \<modify\_dstmac> and 
 </output>
 ```
 
+### \<modify\_swapmac>
+
+Defines swap source mac address and destination mac address (ver. 4.9)
+
+```xml
+<output id="1">
+  <port>P0</port>
+  <modify_swapmac/>
+</output>
+```
+
 ### \<tagging>
 
 Defines tagging. It has a start tag \<tagging> and an end tag \</tagging>.
