@@ -365,6 +365,81 @@ Example for inline (P6 <-> P7) response ip 192.168.1.201 when dns query google.c
 </run>
 ```
 
+### \<dns\_response\_ipv6>
+
+Defines output response IPv6 address when dns query domain (not support EDNS yet). It has a start tag \<dns\_response\_ipv6> and an end tag \</dns\_response\_ipv6>.
+
+#### dns\_response\_ipv6 Attribute
+
+| Attribute | Description            | Type      | Default (\* must have) |
+| --------- | ---------------------- | --------- | ---------------------- |
+| noswapmac | do'nt swap mac address | yes or no | no                     |
+
+```xml
+<output id="1">
+  <port>P0</port>
+  <dns_response_ipv6>::ffff:7a74:e554</dns_response_ipv6>
+</output>
+```
+
+Example for inline (P6 <-> P7) response ipv4 122.116.229.84 or ipv6 ::ffff:7a74:e554  when dns query block list
+
+```xml
+<run>
+    <filter id="1" sessionBase="no" alt="DNS block list">
+        <or>
+            <find name="dns.qry.name" relation="==" content="www.abc.com"/>
+            <find name="dns.qry.name" relation="==" content="www.def.com"/>
+        </or>
+    </filter>
+    <filter id="2" sessionBase="no">
+        <or>
+            <find name="dns.flags.response" relation="==" content="0"/>
+        </or>
+    </filter>
+    <filter id="3" sessionBase="no" alt="dns type A">
+        <or>
+            <find name="dns.qry.type" relation="==" content="1"/>
+        </or>
+    </filter>
+    <filter id="4" sessionBase="no" alt="dns type AAAA">
+        <or>
+            <find name="dns.qry.type" relation="==" content="28"/>
+        </or>
+    </filter>
+     <output id="2">
+        <port>P7</port>
+        <dns_response_ipv4>122.116.229.84</dns_response_ipv4>
+    </output>
+    <output id="3">
+        <port>P7</port>
+        <dns_response_ipv6>::ffff:7a74:e554</dns_response_ipv6>
+    </output>
+     <chain>
+        <in>P7</in>
+        <fid>F1</fid>
+        <next>
+            <fid>F2</fid>
+            <next>
+                <fid>F3</fid>
+                <out>O2</out>
+                <next type="notmatch">
+                    <fid>F4</fid>
+                    <out>O3</out>
+                </next>
+            </next>
+        </next>
+        <next type="notmatch">
+            <out>P6</out>
+        </next>
+    </chain>
+    <chain>
+        <in>P6</in>
+        <out>P7</out>
+    </chain>
+</run>
+```
+
 ### \<icmp\_reply\_fragment\_need/>
 
 Defines output reply ICMP fragmentation needed packet (ver. 3.10)
