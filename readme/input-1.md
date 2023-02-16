@@ -128,7 +128,8 @@ It has a start tag \<playedFilesMoveTo> and an end tag \</playedFilesMoveTo>.
         &#x3C;playedFilesHandle>move&#x3C;/playedFilesHandle>
         &#x3C;playedFilesMoveTo>H1/played&#x3C;/playedFilesMoveTo>  
     &#x3C;/input>
-&#x3C;/run></code></pre>
+&#x3C;/run>
+</code></pre>
 
 ## Elements in Input - traffic-gen
 
@@ -144,6 +145,8 @@ generate traffic
         <packet_size>1024</packet_size>
         <speed>10000</speed>
         <payload_text>abcdefg</payload_text>
+        <src_mac>00:0d:48:28:28:56</src_mac>
+        <dest_mac>00:0d:48:28:28:57</dest_mac>  
         <src_ip>10.1.0.99</src_ip>
         <src_ip_min>10.1.0.0</src_ip_min>
         <src_ip_max>10.1.0.99</src_ip_max>
@@ -236,6 +239,26 @@ It has a start tag \<payload\_text> and an end tag \</payload\_text>.
 
 ```xml
 <payload_text>abcdefg</payload_text>
+```
+
+### src\_mac
+
+Defines source mac address
+
+It has a start tag \<src\_mac> and an end tag \</src\_mac>.
+
+```xml
+<src_mac>00:0d:48:28:28:56</src_mac>
+```
+
+### dest\_mac
+
+Defines destination mac address
+
+It has a start tag \<dest\_mac> and an end tag \</dest\_mac>.
+
+```xml
+<dest_mac>00:0d:48:28:28:57</dest_mac>
 ```
 
 ### src\_ip
