@@ -9,6 +9,7 @@
   * [Element \<script>](readme/input.md)
   * [Element \<action>](home/action.md)
   * [Element \<input>](readme/input-1.md)
+  * [Schema](readme/schema.md)
 * [Case Study](docs/README.md)
   * [Mirror](docs/Mirror.md)
   * [Inline & Bypass](docs/Inline.md)
