@@ -77,6 +77,7 @@ Defines stripping. It has a start tag \<stripping> and an end tag \</stripping>.
 * gre-erspan
 * gtp
 * grism
+* mpls-in-udp
 
 ```xml
 <action id="1" type="input-packet-process">
