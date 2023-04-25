@@ -176,6 +176,17 @@ Defines swap source mac address and destination mac address (ver. 4.9)
 </output>
 ```
 
+### \<modify\_tcp\_syn\_mss>
+
+Modify TCP syn or syn+ack option mss field (ver. 5.1)
+
+```xml
+<output id="1">
+  <port>P0</port>
+  <modify_tcp_syn_mss>1300<modify_tcp_syn_mss/>
+</output>
+```
+
 ### \<tagging>
 
 Defines tagging. It has a start tag \<tagging> and an end tag \</tagging>.
