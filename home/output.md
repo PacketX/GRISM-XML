@@ -183,7 +183,7 @@ Modify TCP syn or syn+ack option mss field (ver. 5.1)
 ```xml
 <output id="1">
   <port>P0</port>
-  <modify_tcp_syn_mss>1300<modify_tcp_syn_mss/>
+  <modify_tcp_syn_mss>1300</modify_tcp_syn_mss>
 </output>
 ```
 
