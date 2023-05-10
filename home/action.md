@@ -29,8 +29,6 @@ Two main funcitons, "input packet process" and "link pairs".
 
 ### input-packet-process type
 
-\<port>, \<Q>, \<QinQ>, \<stripping>, \<tagging>, \<maxlen>
-
 ### \<port>
 
 Defines input port(must have). It has a start tag \<port> and an end tag \</port>.
@@ -78,6 +76,7 @@ Defines stripping. It has a start tag \<stripping> and an end tag \</stripping>.
 * gtp
 * grism
 * mpls-in-udp
+* mpls-in-gre
 
 ```xml
 <action id="1" type="input-packet-process">

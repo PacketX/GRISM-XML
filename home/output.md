@@ -38,8 +38,6 @@ And output id=1 -> O1, refer to Example
 
 ## Elements in Output
 
-\<port>, \<Q>, \<QinQ>, \<stripping>, \<tagging>, \<maxlen>, \<modify\_srcip>, \<modify\_dstip>, \<modify\_srcmac>, \<modify\_dstmac>, \<dir>, \<nvgre\_dip>, \<arp\_reply\_target\_mac>, \<dns\_response\_ipv4>
-
 ### \<port>
 
 Defines output port(must have). It has a start tag \<port> and an end tag \</port>.
@@ -98,6 +96,7 @@ Defines stripping. It has a start tag \<stripping> and an end tag \</stripping>.
 * gtp
 * grism
 * mpls-in-udp
+* mpls-in-gre
 
 ```xml
 <output id="1">
