@@ -25,7 +25,7 @@ GRISM, GRISM-MEC ([https://packetx.biz/](https://packetx.biz/))
 
 ## A Simple GRISM XML
 
-Define filter id=1 aka **F1** as black IP list and descript network topology in chain. When packets come from P0, if matched F1, send to P1, else send to P2
+Define filter id=1 aka **F1** as black IP list and descript network topology in chain. When packets come from P0, if matched F1, send to P1, else if not matched, send to P2
 
 ```xml
 <run>
@@ -38,12 +38,10 @@ Define filter id=1 aka **F1** as black IP list and descript network topology in 
     </filter>
     <chain>
         <in>P0</in>
-        <next>
-            <fid>F1</fid>
-            <out>P1</out>
-            <next type="notmatch">
-                <out>P2</out>
-            </next>
+        <fid>F1</fid>
+        <out>P1</out>
+        <next type="notmatch">
+            <out>P2</out>
         </next>
     </chain>
 </run>
