@@ -10,16 +10,7 @@ And output id=1 -> O1, refer to Example
 
 ## Attribute
 
-| Attribute       | Description                          | Type     | Default (\* must have) | Support  |
-| --------------- | ------------------------------------ | -------- | ---------------------- | -------- |
-| id              | Specifies a unique id for an element | Interger | \*                     |          |
-| type            | output type                          | String   | mix                    |          |
-| name            | Specifies a name for an element      | String   |                        |          |
-| mtu             | Maximum Transmission Unit            | Interger | 0(unlimited)           |          |
-| stl             | Second To Live                       | Interger | 0(unlimited)           |          |
-| minbps          | Minimum bandwidth reserved           | Interger | 0(unlimited)           | ver. 3.7 |
-| maxbps          | Maximum bandwidth reserved           | Interger | 0(unlimited)           | ver. 3.7 |
-| arp\_dstip\_mac | arp request for dstip mac            | yes/no   | no                     |          |
+<table><thead><tr><th width="178">Attribute</th><th>Description</th><th width="150">Type</th><th width="150">Default (* must have)</th><th>Support</th></tr></thead><tbody><tr><td>id</td><td>Specifies a unique id for an element</td><td>Interger</td><td>*</td><td></td></tr><tr><td>type</td><td>output type</td><td>String</td><td>mix</td><td></td></tr><tr><td>name</td><td>Specifies a name for an element</td><td>String</td><td></td><td></td></tr><tr><td>mtu</td><td>Maximum Transmission Unit</td><td>Interger</td><td>0(unlimited)</td><td></td></tr><tr><td>stl</td><td>Second To Live</td><td>Interger</td><td>0(unlimited)</td><td></td></tr><tr><td>minbps</td><td>Minimum bandwidth reserved</td><td>Interger</td><td>0(unlimited)</td><td>ver. 3.7</td></tr><tr><td>maxbps</td><td>Maximum bandwidth reserved</td><td>Interger</td><td>0(unlimited)</td><td>ver. 3.7</td></tr><tr><td>arp_dstip_mac</td><td>arp request for dstip mac</td><td>yes/no</td><td>no</td><td></td></tr></tbody></table>
 
 ## Example
 
@@ -109,9 +100,7 @@ Defines stripping. It has a start tag \<stripping> and an end tag \</stripping>.
 
 Defines modify source ip address It has a start tag \<modify\_srcip> and an end tag \</modify\_srcip>.
 
-| Attribute | Description                                        | Type   | Default (\* must have) |
-| --------- | -------------------------------------------------- | ------ | ---------------------- |
-| nat       | NAT support, don't forget to set args->nat to true | yes/no | no                     |
+<table><thead><tr><th width="150">Attribute</th><th width="242.71428571428567">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>nat</td><td>NAT support, don't forget to set args->nat to true</td><td>yes/no</td><td>no</td></tr></tbody></table>
 
 ```xml
 <output id="1">
@@ -196,6 +185,7 @@ Defines tagging. It has a start tag \<tagging> and an end tag \</tagging>.
 * gtp
 * gtp2
 * l2gre (ver 4.8)
+* vxlan (ver 5.1)
 * grism
 
 ```xml
@@ -220,11 +210,7 @@ Defines packet max length. It has a start tag \<maxlen> and an end tag \</maxlen
 
 Defines output dir in Hard disk. Save packet to pcap files. It has a start tag \<dir> and an end tag \</dir>.
 
-| Attribute        | Description                                           | Type           | Default (\* must have) |
-| ---------------- | ----------------------------------------------------- | -------------- | ---------------------- |
-| timeout          | timeout to next pcap file                             | seconds        | 0 (No timeout)         |
-| max\_split\_size | max pcap size                                         | integer(bytes) | 104857600 (100M)       |
-| category         | category for pcap files by month, day, hour or minute | string         | none                   |
+<table><thead><tr><th>Attribute</th><th width="186">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>timeout</td><td>timeout to next pcap file</td><td>seconds</td><td>0 (No timeout)</td></tr><tr><td>max_split_size</td><td>max pcap size</td><td>integer(bytes)</td><td>104857600 (100M)</td></tr><tr><td>category</td><td>category for pcap files by month, day, hour or minute</td><td>string</td><td>none</td></tr></tbody></table>
 
 ```xml
 <output id="1">
@@ -326,9 +312,7 @@ Defines output response IPv4 address when dns query domain (not support EDNS yet
 
 #### dns\_response\_ipv4 Attribute
 
-| Attribute | Description            | Type      | Default (\* must have) |
-| --------- | ---------------------- | --------- | ---------------------- |
-| noswapmac | do'nt swap mac address | yes or no | no                     |
+<table><thead><tr><th width="200.00142653352353">Attribute</th><th width="172">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>noswapmac</td><td>do'nt swap mac address</td><td>yes or no</td><td>no</td></tr></tbody></table>
 
 ```xml
 <output id="1">
@@ -382,9 +366,7 @@ Defines output response IPv6 address when dns query domain (not support EDNS yet
 
 #### dns\_response\_ipv6 Attribute
 
-| Attribute | Description            | Type      | Default (\* must have) |
-| --------- | ---------------------- | --------- | ---------------------- |
-| noswapmac | do'nt swap mac address | yes or no | no                     |
+<table><thead><tr><th width="200.00142653352353">Attribute</th><th width="172">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>noswapmac</td><td>do'nt swap mac address</td><td>yes or no</td><td>no</td></tr></tbody></table>
 
 ```xml
 <output id="1">
@@ -455,9 +437,7 @@ Example for inline (P6 <-> P7) response ipv4 122.116.229.84 or ipv6 ::ffff:7a74:
 
 Defines output reply ICMP fragmentation needed packet (ver. 3.10)
 
-| Attribute | Description     | Type   | Default (\* must have) |
-| --------- | --------------- | ------ | ---------------------- |
-| mtu       | MTU of next hop | UINT16 | \*                     |
+<table><thead><tr><th width="179">Attribute</th><th width="172">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>mtu</td><td>MTU of next hop</td><td>UINT16</td><td>*</td></tr></tbody></table>
 
 ```markup
 <run>
@@ -493,10 +473,7 @@ Defines output http request hijack (and redirect to safeweb).
 
 #### redirect2safeweb Attribute
 
-| Attribute    | Description            | Type         | Default (\* must have) |
-| ------------ | ---------------------- | ------------ | ---------------------- |
-| noswapmac    | do'nt swap mac address | yes or no    | no                     |
-| redirectPort | redirect to Port       | port (ex.P7) |                        |
+<table><thead><tr><th>Attribute</th><th width="177">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>noswapmac</td><td>do'nt swap mac address</td><td>yes or no</td><td>no</td></tr><tr><td>redirectPort</td><td>redirect to Port</td><td>port (ex.P7)</td><td></td></tr></tbody></table>
 
 Example for inline (P6 <-> P7) redirect http request url www.com/ to https://safeweb.secure365.hinet.net/
 
