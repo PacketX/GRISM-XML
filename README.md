@@ -49,4 +49,4 @@ Define filter id=1 aka **F1** as black IP list and descript network topology in 
 
 ## Version
 
-&#x20;5.1.230517
+&#x20;5.2.230615
