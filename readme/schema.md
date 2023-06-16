@@ -155,6 +155,7 @@ description: GRISM XML Schema
       <xs:enumeration value="gtp.cp"></xs:enumeration>
       <xs:enumeration value="gtp.data"></xs:enumeration>
       <xs:enumeration value="gtp.data.by.s1ap.SubscriberProfileIDforRFP"></xs:enumeration>
+      <xs:enumeration value="gtp.data.by.s1ap.CellIdentity"></xs:enumeration>
       <xs:enumeration value="gtp.imsi"></xs:enumeration>
       <xs:enumeration value="gtp.teid"></xs:enumeration>
       <xs:enumeration value="ip.addr.related.gtp.imsi"></xs:enumeration>
@@ -208,6 +209,7 @@ description: GRISM XML Schema
       <xs:enumeration value="arp.request.sender.ip"></xs:enumeration>
       <xs:enumeration value="arp.request.target.ip"></xs:enumeration>
       <xs:enumeration value="arp.reply"></xs:enumeration>
+      <xs:enumeration value="mec.mapping.ue.ipv4.connected"></xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
@@ -248,7 +250,13 @@ description: GRISM XML Schema
       <xs:choice>
         <xs:group ref="heartbeatGroup"></xs:group>
         <xs:sequence>
-          <xs:element name="port" type="xs:string"></xs:element>
+          <xs:element name="port">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value="[A-Z][0-9]+"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
           <xs:element name="stripping" default="mpls" minOccurs="0" maxOccurs="unbounded">
             <xs:simpleType>
               <xs:restriction base="xs:string">
@@ -258,6 +266,8 @@ description: GRISM XML Schema
                 <xs:enumeration value="gre-erspan"></xs:enumeration>
                 <xs:enumeration value="gtp"></xs:enumeration>
                 <xs:enumeration value="vxlan"></xs:enumeration>
+                <xs:enumeration value="mpls-in-udp"></xs:enumeration>
+                <xs:enumeration value="mpls-in-gre"></xs:enumeration>
                 <xs:enumeration value="payload"></xs:enumeration>
               </xs:restriction>
             </xs:simpleType>
@@ -317,7 +327,13 @@ description: GRISM XML Schema
   <xs:element name="input">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="port" type="xs:string"></xs:element>
+        <xs:element name="port">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[A-Z][0-9]+"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
         <xs:choice minOccurs="0" maxOccurs="unbounded">
           <xs:element name="filepath" type="xs:string"></xs:element>
           <xs:element name="time" type="xs:nonNegativeInteger" default="1"></xs:element>
@@ -391,7 +407,13 @@ description: GRISM XML Schema
   <xs:element name="output">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="port" type="xs:string"></xs:element>
+        <xs:element name="port">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[A-Z][0-9]+"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
         <xs:choice minOccurs="0" maxOccurs="unbounded">
           <xs:element name="gateway" type="ipType"></xs:element>
           <xs:element name="Q" type="vlanidType"></xs:element>
@@ -404,6 +426,8 @@ description: GRISM XML Schema
                 <xs:enumeration value="mpls"></xs:enumeration>
                 <xs:enumeration value="gre"></xs:enumeration>
                 <xs:enumeration value="vxlan"></xs:enumeration>
+                <xs:enumeration value="mpls-in-udp"></xs:enumeration>
+                <xs:enumeration value="mpls-in-gre"></xs:enumeration>
                 <xs:enumeration value="gre-erspan"></xs:enumeration>
                 <xs:enumeration value="gtp"></xs:enumeration>
                 <xs:enumeration value="grism"></xs:enumeration>
@@ -439,6 +463,7 @@ description: GRISM XML Schema
                 <xs:enumeration value="gtp2"></xs:enumeration>
                 <xs:enumeration value="grism"></xs:enumeration>
                 <xs:enumeration value="l2gre"></xs:enumeration>
+                <xs:enumeration value="vxlan"></xs:enumeration>
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
@@ -517,6 +542,7 @@ description: GRISM XML Schema
             <xs:complexType>
             </xs:complexType>
           </xs:element>
+          <xs:element name="modify_tcp_syn_mss" type="xs:integer"></xs:element>
         </xs:choice>
       </xs:sequence>
       <xs:attribute name="id" type="xs:integer" use="required"></xs:attribute>
