@@ -2,6 +2,20 @@
 
 <img src="../.gitbook/assets/file.excalidraw (1).svg" alt="VXLAN Encapsulation" class="gitbook-drawing">
 
+## Config XML
+
+```xml
+<configSet reboot="no">
+    <filters>
+        <in-tunnels>     
+            <VXLAN>True</VXLAN>
+        </in-tunnels>
+    </filters>
+</configSet>
+```
+
+## GRISM XML
+
 ```xml
 <run>
     <filter id="2" sessionBase="no">

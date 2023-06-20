@@ -6,7 +6,9 @@ description: Lightweight javascript language support (ver 4.3)
 
 ## Attribute
 
-<table><thead><tr><th width="179">Attribute</th><th width="212.21262002743487">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>src</td><td>Specifies js filepath to include</td><td>String</td><td></td></tr></tbody></table>
+| Attribute | Description                      | Type   | Default (\* must have) |
+| --------- | -------------------------------- | ------ | ---------------------- |
+| src       | Specifies js filepath to include | String |                        |
 
 ## Functions
 

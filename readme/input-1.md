@@ -8,7 +8,10 @@ Two main funcitons, "replay pcap files" and "traffic generator".
 
 ## Attribute
 
-<table><thead><tr><th width="150">Attribute</th><th width="249.79413377234155">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>id</td><td>Specifies a unique id for an element</td><td>Interger</td><td></td></tr><tr><td>type</td><td>Specifies a type for an element</td><td>String</td><td>replayPcap or traffic-gen</td></tr></tbody></table>
+| Attribute | Description                          | Type     | Default (\* must have)    |
+| --------- | ------------------------------------ | -------- | ------------------------- |
+| id        | Specifies a unique id for an element | Interger |                           |
+| type      | Specifies a type for an element      | String   | replayPcap or traffic-gen |
 
 ## Elements in Input - replayPcap
 
@@ -85,7 +88,11 @@ It has a start tag \<scandir> and an end tag \</scandir>., limit 1024 files
 
 #### Attribute
 
-<table><thead><tr><th width="150">Attribute</th><th width="237.7142857142857">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>interval</td><td>Scan interval</td><td>Seconds</td><td>60</td></tr><tr><td>minbytes</td><td>will replay if pcap file bigger than minbytes</td><td>Interger</td><td>0</td></tr><tr><td>timeout</td><td>force replay if pcap file less than minbytes after timeout</td><td>Interger</td><td>0</td></tr></tbody></table>
+| Attribute | Description                                                | Type     | Default (\* must have) |
+| --------- | ---------------------------------------------------------- | -------- | ---------------------- |
+| interval  | Scan interval                                              | Seconds  | 60                     |
+| minbytes  | will replay if pcap file bigger than minbytes              | Interger | 0                      |
+| timeout   | force replay if pcap file less than minbytes after timeout | Interger | 0                      |
 
 ```xml
 <scandir interval="10" minbytes="1048576" timeout="60">H1/in</scandir>
