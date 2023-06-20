@@ -8,11 +8,7 @@ Two main funcitons, "input packet process" and "link pairs".
 
 ## Attribute
 
-| Attribute | Description                          | Type     | Default (\* must have)            |
-| --------- | ------------------------------------ | -------- | --------------------------------- |
-| id        | Specifies a unique id for an element | Interger | \*                                |
-| name      | Specifies a name for an element      | String   |                                   |
-| type      | action type                          | String   | input-packet-process or linkpairs |
+<table><thead><tr><th width="150">Attribute</th><th width="233.7142857142857">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>id</td><td>Specifies a unique id for an element</td><td>Interger</td><td>*</td></tr><tr><td>name</td><td>Specifies a name for an element</td><td>String</td><td></td></tr><tr><td>type</td><td>action type</td><td>String</td><td>input-packet-process or linkpairs</td></tr></tbody></table>
 
 ## Example
 

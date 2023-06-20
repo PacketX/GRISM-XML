@@ -219,19 +219,21 @@ Defines output dir in Hard disk. Save packet to pcap files. It has a start tag \
 </output>
 ```
 
-### \<nvgre\_dip>
+### NVGRE encapsulation
+
+#### \<nvgre\_dip>
 
 Defines output to gre tunnel dest ip. It has a start tag \<nvgre\_dip> and an end tag \</nvgre\_dip>.
 
-### \<nvgre\_sip>
+#### \<nvgre\_sip>
 
 Defines output to gre tunnel source ip. It has a start tag \<nvgre\_sip> and an end tag \</nvgre\_sip>.
 
-### \<nvgre\_dmac>
+#### \<nvgre\_dmac>
 
 Defines output to gre tunnel dest mac. It has a start tag \<nvgre\_dmac> and an end tag \</nvgre\_dmac>.
 
-### \<nvgre\_type>
+#### \<nvgre\_type>
 
 Defines output to gre tunnel type eth or ip, default is eth . It has a sart tag \<nvgre\_type> and an end tag \</nvgre\_type>.
 
@@ -255,6 +257,28 @@ Defines output to gre tunnel type eth or ip, default is eth . It has a sart tag 
     <nvgre_dmac>00:0c:bd:0b:fd:36</nvgre_dmac>
 </output>
 ```
+
+### VXLAN encapsulation
+
+#### \<vxlan\_sip>
+
+Defines output to vxlan source ip. It has a start tag \<vxlan\_sip> and an end tag \</vxlan\_sip>
+
+#### \<vxlan\_dip>
+
+Defines output to vxlan destination ip. It has a start tag \<vxlan\_dip> and an end tag \</vxlan\_dip>
+
+#### \<vxlan\_sport>
+
+Defines output to vxlan source port. It has a start tag \<vxlan\_sport> and an end tag \</vxlan\_sport>
+
+#### \<vxlan\_dport>
+
+Defines output to vxlan destination port. It has a start tag \<vxlan\_dport> and an end tag \</vxlan\_dport>
+
+#### \<vxlan\_vni>
+
+Defines output to vxlan vni. It has a start tag \<vxlan\_vni> and an end tag \</vxlan\_vni>
 
 ### \<arp\_reply\_target\_mac>
 

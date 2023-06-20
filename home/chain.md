@@ -6,12 +6,7 @@ description: Defines the chain. It has a start tag <chain> and an end tag </chai
 
 ## Attribute
 
-| Attribute     | Description                          | Type     | Default (\* must have) |
-| ------------- | ------------------------------------ | -------- | ---------------------- |
-| id            | Specifies a unique id for an element | Interger |                        |
-| name          | Specifies a name for an element      | String   |                        |
-| sessionUnique | one session one output               | yes/no   | no                     |
-| disable       | disable chain                        | yes/no   | no                     |
+<table><thead><tr><th width="179">Attribute</th><th width="212.21262002743487">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>id</td><td>Specifies a unique id for an element</td><td>Interger</td><td></td></tr><tr><td>name</td><td>Specifies a name for an element</td><td>String</td><td></td></tr><tr><td>sessionUnique</td><td>one session one output</td><td>yes/no</td><td>no</td></tr><tr><td>disable</td><td>disable chain</td><td>yes/no</td><td>no</td></tr></tbody></table>
 
 ## Elements in chain
 
@@ -36,12 +31,7 @@ Defines output ports. It has a start tag \<out> and an end tag \</out>.
 
 #### Attribute
 
-| Attribute | Description                                                                            | Type   | Default (\* must have) |
-| --------- | -------------------------------------------------------------------------------------- | ------ | ---------------------- |
-| type      | duplicate or loadBalance                                                               | String | duplicate              |
-| lbtype    | Load Balance type, includes session, ethtype, iptype, smac, dmac, sip, dip, rr, 5thash | String | session                |
-| failover  | Load Balance fail over                                                                 | yes/no | yes                    |
-| weight    | Load Balance weight (not support session, rr type)                                     | String | 20,80                  |
+<table><thead><tr><th width="150">Attribute</th><th width="249.7142857142857">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>type</td><td>duplicate or loadBalance</td><td>String</td><td>duplicate</td></tr><tr><td>lbtype</td><td>Load Balance type, includes session, ethtype, iptype, smac, dmac, sip, dip, rr, 5thash</td><td>String</td><td>session</td></tr><tr><td>failover</td><td>Load Balance fail over</td><td>yes/no</td><td>yes</td></tr><tr><td>weight</td><td>Load Balance weight (not support session, rr type)</td><td>String</td><td>20,80</td></tr></tbody></table>
 
 #### Example
 
@@ -58,9 +48,7 @@ Defines packets pass through filter id. It has a start tag \<fid> and an end tag
 
 #### Attribute
 
-| Attribute | Description | Type   | Default (\* must have) |
-| --------- | ----------- | ------ | ---------------------- |
-| type      | and/or      | String | or                     |
+<table><thead><tr><th width="150">Attribute</th><th width="150">Description</th><th>Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>type</td><td>and/or</td><td>String</td><td>or</td></tr></tbody></table>
 
 #### Example
 
@@ -79,9 +67,7 @@ Defines going next if packet match/not match filter. It has a next tag \<next> a
 
 #### Attribute
 
-| Attribute | Description    | Type   | Default (\* must have) |
-| --------- | -------------- | ------ | ---------------------- |
-| type      | match/notmatch | String | match                  |
+<table><thead><tr><th width="150">Attribute</th><th>Description</th><th>Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>type</td><td>match/notmatch</td><td>String</td><td>match</td></tr></tbody></table>
 
 #### Example
 

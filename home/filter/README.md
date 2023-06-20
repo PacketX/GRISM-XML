@@ -31,16 +31,7 @@ Please refer to [Element - \<find](find.md)>
 
 ## Attribute
 
-| Attribute                     | Description                                                                  | Type     | Default (\* must have) | Support  |
-| ----------------------------- | ---------------------------------------------------------------------------- | -------- | ---------------------- | -------- |
-| id                            | Specifies a unique id for an element                                         | Interger | \*                     |          |
-| name                          | Specifies a name for an element                                              | String   |                        |          |
-| sessionBase                   | If one packet in session match filter, the whole session will treat as match | yes/no   | yes                    |          |
-| matchedlog                    | if match filter and syslog set, send log                                     | yes/no   | no                     |          |
-| blockifempty                  | block if no find in filter                                                   | yes/no   | no                     |          |
-| maxPackets                    | only match first N packets in a session                                      | Interger | 0(means no limit)      |          |
-| masking                       | only for hfa regex condition, just masking, no filter function               | yes/no   | no                     |          |
-| tuple5\_live\_hashtable\_size | set hash table size for tuple5 live use only                                 | Interger | no                     | ver. 3.3 |
+<table><thead><tr><th width="188">Attribute</th><th width="387">Description</th><th width="150">Type</th><th width="154">Default (* must have)</th><th>Support</th></tr></thead><tbody><tr><td>id</td><td>Specifies a unique id for an element</td><td>Interger</td><td>*</td><td></td></tr><tr><td>name</td><td>Specifies a name for an element</td><td>String</td><td></td><td></td></tr><tr><td>sessionBase</td><td>If one packet in session match filter, the whole session will treat as match</td><td>yes/no</td><td>yes</td><td></td></tr><tr><td>matchedlog</td><td>if match filter and syslog set, send log</td><td>yes/no</td><td>no</td><td></td></tr><tr><td>blockifempty</td><td>block if no find in filter</td><td>yes/no</td><td>no</td><td></td></tr><tr><td>maxPackets</td><td>only match first N packets in a session</td><td>Interger</td><td>0(means no limit)</td><td></td></tr><tr><td>masking</td><td>only for hfa regex condition, just masking, no filter function</td><td>yes/no</td><td>no</td><td></td></tr><tr><td>tuple5_live_hashtable_size</td><td>set hash table size for tuple5 live use only</td><td>Interger</td><td>no</td><td>ver. 3.3</td></tr></tbody></table>
 
 ## Example
 
