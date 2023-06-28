@@ -6,7 +6,7 @@ description: Defines the find(f). It has a start tag <find> or <f>
 
 ## Attribute
 
-<table><thead><tr><th width="150">Attribute</th><th width="150">Alternative</th><th width="215">Description</th><th width="156">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>id</td><td></td><td>Specifies a unique id for an element</td><td>Interger</td><td></td></tr><tr><td>name</td><td>n</td><td>refer to wireshark filter function, but less item</td><td>String</td><td>*</td></tr><tr><td>relation</td><td>r</td><td>Equal or Not equal</td><td><p>==/!=</p><p>>=/&#x3C;= (ver. 3.9)</p></td><td>*</td></tr><tr><td>content</td><td>c</td><td>content of name, could be empty</td><td>String</td><td>*</td></tr></tbody></table>
+<table><thead><tr><th width="150">Attribute</th><th width="150">Alternative</th><th width="215">Description</th><th width="156">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>id</td><td></td><td>Specifies a unique id for an element</td><td>Interger</td><td></td></tr><tr><td>name</td><td>n</td><td>refer to wireshark filter function, but less item</td><td>String</td><td>*</td></tr><tr><td>relation</td><td>r</td><td>Equal or Not equal</td><td><p>==/!=</p><p>>=/&#x3C;= (v3.9)</p></td><td>*</td></tr><tr><td>content</td><td>c</td><td>content of name, could be empty</td><td>String</td><td>*</td></tr></tbody></table>
 
 ### Attribute -name
 
