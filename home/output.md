@@ -206,7 +206,9 @@ Defines packet max length. It has a start tag \<maxlen> and an end tag \</maxlen
 </output>
 ```
 
-### \<dir>
+### Save to Pcap file
+
+#### \<dir>
 
 Defines output dir in Hard disk. Save packet to pcap files. It has a start tag \<dir> and an end tag \</dir>.
 
