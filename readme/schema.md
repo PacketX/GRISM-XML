@@ -173,12 +173,15 @@ description: GRISM XML Schema
       <xs:enumeration value="dns.qry.type"></xs:enumeration>
       <xs:enumeration value="dns.count.add_rr"></xs:enumeration>
       <xs:enumeration value="http"></xs:enumeration>
+      <xs:enumeration value="http.host"></xs:enumeration>
       <xs:enumeration value="http.request"></xs:enumeration>
       <xs:enumeration value="http.request.method"></xs:enumeration>
+      <xs:enumeration value="http.request.uri"></xs:enumeration>
       <xs:enumeration value="http.request.url"></xs:enumeration>
       <xs:enumeration value="ssl"></xs:enumeration>
       <xs:enumeration value="ssl.handshake.type"></xs:enumeration>
       <xs:enumeration value="ssl.ja3_digest"></xs:enumeration>
+      <xs:enumeration value="ssl.ja3s_digest"></xs:enumeration>
       <xs:enumeration value="ssl.server_name"></xs:enumeration>
       <xs:enumeration value="ssl.server_name_public_suffix"></xs:enumeration>
       <xs:enumeration value="ftp"></xs:enumeration>
@@ -210,6 +213,8 @@ description: GRISM XML Schema
       <xs:enumeration value="arp.request.target.ip"></xs:enumeration>
       <xs:enumeration value="arp.reply"></xs:enumeration>
       <xs:enumeration value="mec.mapping.ue.ipv4.connected"></xs:enumeration>
+      <xs:enumeration value="vxlan"></xs:enumeration>
+      <xs:enumeration value="vxlan.vni"></xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
@@ -618,6 +623,20 @@ description: GRISM XML Schema
       <xs:attribute name="blockifempty" type="ynType" default="no"></xs:attribute>
       <xs:attribute name="tuple5_live_hashtable_size" type="xs:nonNegativeInteger"></xs:attribute>
       <xs:attribute name="alt" type="xs:string"></xs:attribute>
+      <xs:attribute name="start">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="l2"></xs:enumeration>
+            <xs:enumeration value="l3"></xs:enumeration>
+            <xs:enumeration value="l4"></xs:enumeration>
+            <xs:enumeration value="l7"></xs:enumeration>
+            <xs:enumeration value="http_body"></xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="position" type="xs:nonNegativeInteger"></xs:attribute>
+      <xs:attribute name="within" type="xs:nonNegativeInteger"></xs:attribute>
+      <xs:attribute name="mpslog" type="xs:nonNegativeInteger"></xs:attribute>
     </xs:complexType>
   </xs:element>
 
@@ -744,4 +763,5 @@ description: GRISM XML Schema
   </xs:element>
 
 </xs:schema>
+
 ```
