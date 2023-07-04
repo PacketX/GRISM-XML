@@ -41,7 +41,7 @@ Functions
     </output>
     <output id="3">
         <port>P5</port>
-        <arp_reply_target_mac>02:01:00:00:00:00</arp_reply_target_mac>
+        <arp_reply_default_mac/>
     </output>
     <chain>
         <in>P7</in>
