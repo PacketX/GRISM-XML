@@ -10,7 +10,7 @@ And output id=1 -> O1, refer to Example
 
 ## Attribute
 
-<table><thead><tr><th width="178">Attribute</th><th>Description</th><th width="150">Type</th><th width="150">Default (* must have)</th><th>Support</th></tr></thead><tbody><tr><td>id</td><td>Specifies a unique id for an element</td><td>Interger</td><td>*</td><td></td></tr><tr><td>type</td><td>output type</td><td>String</td><td>mix</td><td></td></tr><tr><td>name</td><td>Specifies a name for an element</td><td>String</td><td></td><td></td></tr><tr><td>mtu</td><td>Maximum Transmission Unit</td><td>Interger</td><td>0(unlimited)</td><td></td></tr><tr><td>stl</td><td>Second To Live</td><td>Interger</td><td>0(unlimited)</td><td></td></tr><tr><td>minbps</td><td>Minimum bandwidth reserved</td><td>Interger</td><td>0(unlimited)</td><td>ver. 3.7</td></tr><tr><td>maxbps</td><td>Maximum bandwidth reserved</td><td>Interger</td><td>0(unlimited)</td><td>ver. 3.7</td></tr><tr><td>arp_dstip_mac</td><td>arp request for dstip mac</td><td>yes/no</td><td>no</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="178">Attribute</th><th>Description</th><th width="150">Type</th><th width="150">Default (* must have)</th><th>Support</th></tr></thead><tbody><tr><td>id</td><td>Specifies a unique id for an element</td><td>Interger</td><td>*</td><td></td></tr><tr><td>type</td><td>output type</td><td>String</td><td>mix</td><td></td></tr><tr><td>name</td><td>Specifies a name for an element</td><td>String</td><td></td><td></td></tr><tr><td>mtu</td><td>Maximum Transmission Unit</td><td>Interger</td><td>0(unlimited)</td><td></td></tr><tr><td>stl</td><td>Second To Live</td><td>Interger</td><td>0(unlimited)</td><td></td></tr><tr><td>minbps</td><td>Minimum bandwidth reserved</td><td>Interger</td><td>0(unlimited)</td><td>v3.7</td></tr><tr><td>maxbps</td><td>Maximum bandwidth reserved</td><td>Interger</td><td>0(unlimited)</td><td>v3.7</td></tr><tr><td>arp_dstip_mac</td><td>arp request for dstip mac</td><td>yes/no</td><td>no</td><td></td></tr></tbody></table>
 
 ## Example
 
@@ -155,7 +155,7 @@ Defines modify destination mac address It has a start tag \<modify\_dstmac> and 
 
 ### \<modify\_swapmac>
 
-Defines swap source mac address and destination mac address (ver. 4.9)
+Defines swap source mac address and destination mac address (v4.9)
 
 ```xml
 <output id="1">
@@ -166,7 +166,7 @@ Defines swap source mac address and destination mac address (ver. 4.9)
 
 ### \<modify\_tcp\_syn\_mss>
 
-Modify TCP syn or syn+ack option mss field (ver. 5.1)
+Modify TCP syn or syn+ack option mss field (v5.1)
 
 ```xml
 <output id="1">
@@ -323,7 +323,7 @@ Example for for inline (P6 <-> P7) reply target mac 02:00:00:00:00:00 when arp r
 
 ### \<arp\_reply\_default\_mac/>
 
-Defines output reply arp default port mac address. (ver. 3.8)
+Defines output reply arp default port mac address. (v3.8)
 
 ```xml
 <output id="1">
@@ -461,7 +461,7 @@ Example for inline (P6 <-> P7) response ipv4 122.116.229.84 or ipv6 ::ffff:7a74:
 
 ### \<icmp\_reply\_fragment\_need/>
 
-Defines output reply ICMP fragmentation needed packet (ver. 3.10)
+Defines output reply ICMP fragmentation needed packet (v3.10)
 
 <table><thead><tr><th width="179">Attribute</th><th width="172">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>mtu</td><td>MTU of next hop</td><td>UINT16</td><td>*</td></tr></tbody></table>
 
