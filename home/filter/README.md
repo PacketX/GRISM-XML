@@ -67,7 +67,7 @@ filter dns port and server
 
 ```xml
 <run>
-    <filter id="1" sessionBase="no">
+    <filter id="1" sessionBase="no" start="l7" within="100">
         <or>
             <!-- string -->
             <find name="regex" relation="==" content="This is p@cket filtering test"/>
