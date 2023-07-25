@@ -20,7 +20,7 @@ description: block specific country try to establish TCP/UDP connection from WAN
 
 ```xml
 <run>
-    <filter id="778" sessionBase="no">
+    <filter id="778">
         <or>
             <find name="country.iso_code" relation="==" content="CN"/>
             <find name="country.iso_code" relation="==" content="RU"/>
