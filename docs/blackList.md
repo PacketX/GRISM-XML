@@ -1,8 +1,39 @@
-# Black List block/detect
+---
+description: IP/domain/url/ssl server_name Block/Detect Sample
+---
 
-### IP/domain/url/ssl server\_name Block/Detect Sample
+# Block/Detect black list
 
-### Black List
+### Config XML
+
+<pre class="language-xml"><code class="lang-xml"><strong>&#x3C;configSet reboot="no">
+</strong>    &#x3C;log>
+        &#x3C;syslog>
+            &#x3C;enable>True&#x3C;/enable>
+            &#x3C;port>M0&#x3C;/port>
+            &#x3C;target>
+                &#x3C;enable>True&#x3C;/enable>
+                &#x3C;dip>192.168.1.12&#x3C;/dip>
+                &#x3C;dport>514&#x3C;/dport>
+                &#x3C;interfaces>P6,P7&#x3C;/interfaces>
+                &#x3C;filter>&#x3C;/filter>
+                &#x3C;type>matched&#x3C;/type>
+                &#x3C;subtype>
+                    &#x3C;sip>True&#x3C;/sip>
+                    &#x3C;dip>True&#x3C;/dip>
+                    &#x3C;sport>True&#x3C;/sport>
+                    &#x3C;dport>True&#x3C;/dport>
+                    &#x3C;protocol>True&#x3C;/protocol>
+                    &#x3C;find_id>True&#x3C;/find_id>
+                    &#x3C;find_content>True&#x3C;/find_content>
+                &#x3C;/subtype>
+            &#x3C;/target>
+        &#x3C;/syslog>
+    &#x3C;/log>
+&#x3C;/configSet>
+</code></pre>
+
+### GRISM XML (black list sample)
 
 ```xml
 <run>
@@ -34,7 +65,7 @@
 </run>
 ```
 
-### Block Sample
+### GRISM XML(block sample)
 
 ```xml
 <run>
@@ -57,7 +88,7 @@
 </run>
 ```
 
-### Detect Sample
+### GRISM XML(detect sample)
 
 ```xml
 <run>
