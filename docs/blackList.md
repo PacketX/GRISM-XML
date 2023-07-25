@@ -6,6 +6,8 @@ description: IP/domain/url/ssl server_name Block/Detect Sample
 
 ### Config XML
 
+send syslog to log server 192.168.1.12:514 if block/detect happened
+
 <pre class="language-xml"><code class="lang-xml"><strong>&#x3C;configSet reboot="no">
 </strong>    &#x3C;log>
         &#x3C;syslog>
