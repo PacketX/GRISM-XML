@@ -1,5 +1,5 @@
 ---
-description: block specific country try to establish connection
+description: block specific country try to establish TCP/UDP connection from WAN to LAN
 ---
 
 # Block Specific Country
