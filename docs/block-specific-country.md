@@ -41,7 +41,6 @@ description: block specific country try to establish TCP/UDP connection from WAN
     <chain>
         <in>P6</in>
         <out>P7</out>
-        </next>
     </chain>
     <chain>
         <in>P7</in>
