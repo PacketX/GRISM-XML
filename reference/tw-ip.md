@@ -1,11 +1,10 @@
 ---
-description: Taiwan IP range
+description: Taiwan IP range from https://rms.twnic.tw/help_ipv4_assign.php
 ---
 
 # TW IP
 
 ```xml
-<run>
     <filter id="778" alt="TW IP 2023-07-28">
         <or>
             <find id="1" name="ip.addr" relation="==" content="1.34.0.0/15"/>
@@ -618,5 +617,4 @@ description: Taiwan IP range
             <find id="608" name="ip.addr" relation="==" content="223.200.0.0/16"/>
         </or>
     </filter>
-</run>
 ```
