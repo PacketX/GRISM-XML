@@ -21,6 +21,7 @@
   * [Packet 2 pcap](docs/packet-2-pcap.md)
   * [Tunnel](docs/tunnel.md)
   * [Bandwidth Control](docs/bandwidth-control.md)
+  * [Snort Rule 2 GRISM XML](docs/snort-rule-2-grism-xml.md)
   * [Offload](docs/reduce.md)
   * [Service Chain](docs/service\_chain\_ssli\_ips.md)
   * [Block Gmail](docs/block-gmail.md)
