@@ -63,7 +63,6 @@ alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS
   content:"Accept-Language: en-US|0D 0A|";
   content:"{|22|locale|22|:|22|en|22|,|22|channel|22|:|22|prod|22|,|22|addon|22|:|22|",fast_pattern,nocase;
   content:"cli";
-  content:"|-";
 )
 ```
 
@@ -77,7 +76,6 @@ alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS
         <find name="regex" relation="==" content="Accept-Language: en-US|0D 0A|"/>
         <find name="regex" relation="==" content="{i}\{|22|locale|22|:|22|en|22|,|22|channel|22|:|22|prod|22|,|22|addon|22|:|22|"/>
         <find name="regex" relation="==" content="cli"/>
-        <find name="regex" relation="==" content="|-"/>
     </and>
 </filter>
 <chain>
