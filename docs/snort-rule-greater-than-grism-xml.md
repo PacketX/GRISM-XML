@@ -2,7 +2,7 @@
 description: Translate Snort Rule to GRISM XML
 ---
 
-# Snort Rule 2 GRISM XML
+# Snort Rule > GRISM XML
 
 
 
@@ -70,7 +70,7 @@ alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS
 ```xml
 <filter id="101" sessionBase="no" alt="rule1">
     <and>
-        <find name="ip.porto" relation="==" content="6"/>
+        <find name="ip.proto" relation="==" content="6"/>
         <find name="http.request.uri" relation="==" content="/v1/push"/>
         <find name="regex" relation="==" content="Accept: */*"/>
         <find name="regex" relation="==" content="Accept-Encoding: gzip, deflate, br"/>
