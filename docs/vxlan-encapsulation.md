@@ -1,8 +1,89 @@
 # VXLAN Encapsulation
 
-<img src="../.gitbook/assets/file.excalidraw (1).svg" alt="VXLAN Encapsulation" class="gitbook-drawing">
+## Mirror
 
-## Config XML
+<img src="../.gitbook/assets/file.excalidraw.svg" alt="VXLAN Tunnel for Mirror traffic" class="gitbook-drawing">
+
+### GRISM1
+
+#### Config XML
+
+```xml
+<configSet reboot="no">
+    <filters>
+        <in-tunnels>     
+            <VXLAN>True</VXLAN>
+        </in-tunnels>
+    </filters>
+     <ifcfgs>
+        <find role="ft">
+            <enable>True</enable>
+            <ip>192.168.1.100</ip>
+            <name>P7</name>
+            <netmask>255.255.255.0</netmask>
+            <gateway></gateway>
+        </find>
+    </ifcfgs>
+</configSet>
+```
+
+#### GRISM XML
+
+```xml
+<run>
+    <output id="7">
+        <port>P7</port>
+        <vxlan_dip>192.168.1.101</vxlan_dip>
+        <vxlan_sport>4789</vxlan_sport>
+        <vxlan_dport>4789</vxlan_dport>
+        <vxlan_vni>1234</vxlan_vni>
+    </output>
+    <chain>
+        <in>P6</in>
+        <out>O7</out>
+    </chain>
+</run>
+```
+
+### GRISM2
+
+#### Config XML
+
+```xml
+<configSet reboot="no">
+    <filters>
+        <in-tunnels>     
+            <VXLAN>True</VXLAN>
+        </in-tunnels>
+    </filters>
+     <ifcfgs>
+        <find role="ft">
+            <enable>True</enable>
+            <ip>192.168.1.101</ip>
+            <name>P7</name>
+            <netmask>255.255.255.0</netmask>
+            <gateway></gateway>
+        </find>
+    </ifcfgs>
+</configSet>
+```
+
+#### GRISM XML
+
+```xml
+<run>
+    <chain>
+        <in>P7</in>
+        <out>P6</out>
+    </chain>
+</run>
+```
+
+## Inline
+
+<img src="../.gitbook/assets/file.excalidraw (1) (1).svg" alt="VXLAN Encapsulation for inline" class="gitbook-drawing">
+
+### Config XML
 
 ```xml
 <configSet reboot="no">
@@ -14,7 +95,7 @@
 </configSet>
 ```
 
-## GRISM XML
+### GRISM XML
 
 ```xml
 <run>
