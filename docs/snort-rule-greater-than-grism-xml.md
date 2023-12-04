@@ -85,3 +85,51 @@ alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS
 </chain>
 
 ```
+
+## Rule2
+
+<pre><code>alert tcp any any -> any any
+(
+<strong>  msg:"Trickbot Commands HTTP POST Url Generic"
+</strong>  flow:established; //Not support yet
+  content:"POST|20|"; offset:0; depth:5;
+  content:"_W"; fast_pattern; offset:4; depth:77;
+  pcre:"/[0-9]{6,10}/RA";
+  content:"."; distance:0; within:1; //Not support yet
+  pcre:"/^POST\x20.{0,9}\/[a-z0-9]{3,10}\/.{3,50}_W[0-9]{6,10}\.[0-9A-Fa-f]{32}/";
+  sid:1;
+)
+</code></pre>
+
+```xml
+<filter id="4" sessionBase="no">
+    <or>
+        <find name="tcp" relation="==" content=""/>
+    </or>
+</filter>
+<filter id="101" sessionBase="no" within="5">
+    <and>
+        <find name="regex" relation="==" content="POST|20|"/>  
+    </and>
+</filter>
+<filter id="102" sessionBase="no" position="4" within="77" >
+    <and>
+        <find name="regex" relation="==" content="_W"/>  
+    </and>
+</filter>
+<filter id="103" sessionBase="no">
+    <and>
+        <find name="regex" relation="==" content="/[0-9]{6,10}/RA"/>  
+    </and>
+</filter>
+<filter id="104" sessionBase="no">
+    <and>
+        <find name="regex" relation="==" content="/^POST\x20.{0,9}\/[a-z0-9]{3,10}\/.{3,50}_W[0-9]{6,10}\.[0-9A-Fa-f]{32}/"/>  
+    </and>
+</filter>
+<chain>
+    <in>P0</in>
+    <fid type="and">F4,F101,F102,F103,F104</fid>
+    <out>P1</out>
+</chain>
+```

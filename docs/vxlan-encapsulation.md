@@ -1,6 +1,6 @@
 # VXLAN Encapsulation
 
-<img src="../.gitbook/assets/file.excalidraw (1) (1).svg" alt="VXLAN Encapsulation for inline" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (2).svg" alt="VXLAN Encapsulation for inline" class="gitbook-drawing">
 
 ## Config XML
 
