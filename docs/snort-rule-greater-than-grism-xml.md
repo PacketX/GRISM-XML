@@ -71,7 +71,7 @@ alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS
     <and>
         <find name="ip.proto" relation="==" content="6"/>
         <find name="http.request.uri" relation="==" content="/v1/push"/>
-        <find name="regex" relation="==" content="Accept: */*"/>
+        <find name="regex" relation="==" content="Accept: *\/*"/>
         <find name="regex" relation="==" content="Accept-Encoding: gzip, deflate, br"/>
         <find name="regex" relation="==" content="Accept-Language: en-US|0D 0A|"/>
         <find name="regex" relation="==" content="{i}\{|22|locale|22|:|22|en|22|,|22|channel|22|:|22|prod|22|,|22|addon|22|:|22|"/>
@@ -119,12 +119,12 @@ alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS
 </filter>
 <filter id="103" sessionBase="no">
     <and>
-        <find name="regex" relation="==" content="/[0-9]{6,10}/RA"/>  
+        <find name="regex" relation="==" content="[0-9]{6,10}"/>  
     </and>
 </filter>
 <filter id="104" sessionBase="no">
     <and>
-        <find name="regex" relation="==" content="/^POST\x20.{0,9}\/[a-z0-9]{3,10}\/.{3,50}_W[0-9]{6,10}\.[0-9A-Fa-f]{32}/"/>  
+        <find name="regex" relation="==" content="^POST\x20.{0,9}\/[a-z0-9]{3,10}\/.{3,50}_W[0-9]{6,10}\.[0-9A-Fa-f]{32}"/>  
     </and>
 </filter>
 <chain>
