@@ -100,7 +100,7 @@ Defines stripping. It has a start tag \<stripping> and an end tag \</stripping>.
 
 Defines modify source ip address It has a start tag \<modify\_srcip> and an end tag \</modify\_srcip>.
 
-<table><thead><tr><th width="150">Attribute</th><th width="242.71428571428567">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>nat</td><td>NAT support, don't forget to set args->nat to true</td><td>yes/no</td><td>no</td></tr></tbody></table>
+<table><thead><tr><th width="150">Attribute</th><th width="242.71428571428567">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>nat</td><td>NAT support</td><td>yes/no</td><td>no</td></tr></tbody></table>
 
 ```xml
 <output id="1">
@@ -172,6 +172,17 @@ Modify TCP syn or syn+ack option mss field (v5.1)
 <output id="1">
   <port>P0</port>
   <modify_tcp_syn_mss>1300</modify_tcp_syn_mss>
+</output>
+```
+
+### \<modify\_dstip2nat>
+
+Modify destination ip account to  NAT table
+
+```xml
+<output id="1">
+    <port>P0</port>
+    <modify_dstip2nat/>
 </output>
 ```
 

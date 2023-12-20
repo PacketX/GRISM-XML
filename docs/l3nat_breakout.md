@@ -1,31 +1,74 @@
 ---
-description: >-
-  Network Address Translation(NAT), our implement is more like Port Address
-  Translation(PAT), but I think call it Flow Address Translation(FAT) might be
-  better.
+description: Network Address Translation(NAT) implement
 ---
 
-# L3 Switch NAT breakout
+# NAT
 
+## NAT
 
-
-* P6: inner
-* P7: outer
-* P5: other outer
-
-## Config XML
+* inner: P6   192.168.1.151 gateway: 192.168.1.1
+* outer: P7   10.10.1.1  10.10.1.0/24
 
 ```xml
-<configSet reboot="no">
-    <args>
-        <nat>true</nat>   
-    </args>
-</configSet>
+<run>
+    <filter id="3" sessionBase="no">
+        <or>
+            <find name="arp.request.target.ip" relation="==" content="10.10.1.1"/>
+        </or>
+    </filter>
+    <filter id="4" sessionBase="no">
+        <or>
+            <find name="arp.request.target.ip" relation="==" content="192.168.1.151"/>
+        </or>
+    </filter>
+    <filter id="5" sessionBase="no">
+        <or>
+            <find name="ip.dst" relation="==" content="192.168.1.151"/>
+        </or>
+    </filter>
+    <output id="3">
+        <port>P7</port>
+        <arp_reply_default_mac/>
+    </output>
+    <output id="4">
+        <port>P6</port>
+        <arp_reply_default_mac/>
+    </output>
+    <output id="6">
+        <port>P6</port>
+        <modify_src_default_mac/>
+        <modify_srcip nat="yes">192.168.1.151</modify_srcip>
+        <gateway>192.168.1.1</gateway>
+    </output>
+    <output id="7" arp_dstip_mac="yes">
+        <port>P7</port>
+        <modify_dstip2nat/>
+    </output>
+    <chain>
+        <in>P6</in>
+        <fid>F4</fid>
+        <out>O4</out>
+        <next type="notmatch">
+            <fid>F5</fid>
+            <out>O7</out>
+        </next>
+    </chain>
+    <chain>
+        <in>P7</in>
+        <fid>F3</fid>
+        <out>O3</out>
+        <next type="notmatch">
+            <out>O6</out>
+        </next>
+    </chain>
+</run>
 ```
 
-## GRISM XML
+## NAT breakout dns traffic
 
-### breakout dns (basic sample)
+* inner: P6
+* outer: P7
+* dns breakout outer: P5
 
 ```markup
 <run>
@@ -51,6 +94,7 @@ description: >-
     </output>
     <output id="6" arp_dstip_mac="yes">
         <port>P6</port>
+        <modify_dstip2nat/>  
     </output>
     <chain>
         <in>P6</in>
@@ -75,7 +119,7 @@ description: >-
 </run>
 ```
 
-### breakout dns and replace dns query server
+## NAT breakout dns and replace dns query server
 
 * Set P6 NAT Breakout (only dns query to 8.8.8.8) to P5
 * modify dns server from 8.8.8.8 to 168.95.1.1
@@ -115,9 +159,11 @@ description: >-
     </output>
     <output id="6" arp_dstip_mac="yes">
         <port>P6</port>
+        <modify_dstip2nat/>  
     </output>
     <output id="101" arp_dstip_mac="yes">
         <port>P6</port>
+        <modify_dstip2nat/>  
         <modify_srcip>8.8.8.8</modify_srcip>
     </output>
     <chain>
@@ -147,7 +193,7 @@ description: >-
 </run>
 ```
 
-### breakout ssh and reply ICMP fragmentation needed if packet length over 1500
+## breakout ssh and reply ICMP fragmentation needed if packet length over 1500
 
 ```markup
 <run>
@@ -178,10 +224,12 @@ description: >-
         <gateway>172.16.10.1</gateway>
     </output>
     <output id="6" arp_dstip_mac="yes">
+        <modify_dstip2nat/>
         <port>P6</port>
     </output>
-    <output id="7">
+    <output id="7" arp_dstip_mac="yes">
         <port>P6</port>
+        <modify_dstip2nat/>
         <icmp_reply_fragment_need mtu="1440"/>
         <modify_srcip>172.16.10.10</modify_srcip>
     </output>
