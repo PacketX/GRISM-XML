@@ -6,8 +6,8 @@ description: Network Address Translation(NAT) implement
 
 ## NAT
 
-* inner: P6   192.168.1.151 gateway: 192.168.1.1
-* outer: P7   10.10.1.1  10.10.1.0/24
+* outer: P6   192.168.1.151 gateway: 192.168.1.1
+* inner: P7   10.10.1.1  10.10.1.0/24
 
 ```xml
 <run>

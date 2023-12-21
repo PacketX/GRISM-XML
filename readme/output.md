@@ -470,6 +470,30 @@ Example for inline (P6 <-> P7) response ipv4 122.116.229.84 or ipv6 ::ffff:7a74:
 </run>
 ```
 
+### \<icmp\_reply/>
+
+Defines output reply ICMP (v5.5)
+
+```xml
+<run>
+    <filter id="1" sessionBase="no">
+        <and>
+            <find name="ip.dst" relation="==" content="192.168.1.10"/>
+            <find name="icmp.type" relation="==" content="8"/>
+        </and>
+    </filter>
+    <output id="1">
+        <port>P0</port>
+        <icmp_reply/>
+    </output>
+    <chain>
+        <in>P0</in>
+        <fid>F1</fid>
+        <out>O1</out>
+    </chain>
+</run>
+```
+
 ### \<icmp\_reply\_fragment\_need/>
 
 Defines output reply ICMP fragmentation needed packet (v3.10)
