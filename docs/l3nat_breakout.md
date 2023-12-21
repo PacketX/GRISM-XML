@@ -42,6 +42,7 @@ description: Network Address Translation(NAT) implement
     </output>
     <output id="7" arp_dstip_mac="yes">
         <port>P7</port>
+        <modify_src_default_mac/>
         <modify_dstip2nat/>
     </output>
     <chain>
@@ -94,6 +95,7 @@ description: Network Address Translation(NAT) implement
     </output>
     <output id="6" arp_dstip_mac="yes">
         <port>P6</port>
+        <modify_src_default_mac/>
         <modify_dstip2nat/>  
     </output>
     <chain>
@@ -163,6 +165,7 @@ description: Network Address Translation(NAT) implement
     </output>
     <output id="101" arp_dstip_mac="yes">
         <port>P6</port>
+        <modify_src_default_mac/>
         <modify_dstip2nat/>  
         <modify_srcip>8.8.8.8</modify_srcip>
     </output>
@@ -230,6 +233,7 @@ description: Network Address Translation(NAT) implement
     <output id="7" arp_dstip_mac="yes">
         <port>P6</port>
         <modify_dstip2nat/>
+        <modify_src_default_mac/>
         <icmp_reply_fragment_need mtu="1440"/>
         <modify_srcip>172.16.10.10</modify_srcip>
     </output>
