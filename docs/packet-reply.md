@@ -32,6 +32,28 @@ description: ARP reply, DNS response, HTTP response
 </run>
 ```
 
+### ICMP reply
+
+```xml
+<run>
+    <filter id="1" sessionBase="no">
+        <and>
+            <find name="ip.dst" relation="==" content="192.168.1.10"/>
+            <find name="icmp.type" relation="==" content="8"/>
+        </and>
+    </filter>
+    <output id="1">
+        <port>P0</port>
+        <icmp_reply/>
+    </output>
+    <chain>
+        <in>P0</in>
+        <fid>F1</fid>
+        <out>O1</out>
+    </chain>
+</run>
+```
+
 ### DNS response
 
 ```xml
