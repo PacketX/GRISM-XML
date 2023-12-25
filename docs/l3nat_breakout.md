@@ -4,6 +4,20 @@ description: Network Address Translation(NAT) implement
 
 # NAT
 
+## ConfigXML
+
+Set TCP/UDP flow timeout to 120 seconds
+
+```xml
+<configSet reboot="no">
+    <log>
+        <netflow>
+            <inactive_timeout>120</inactive_timeout>
+        </netflow>
+    </log>
+</configSet>
+```
+
 ## NAT
 
 * outer: P6   192.168.1.151 gateway: 192.168.1.1
@@ -26,6 +40,12 @@ description: Network Address Translation(NAT) implement
             <find name="ip.dst" relation="==" content="192.168.1.151"/>
         </or>
     </filter>
+    <filter id="6" alt="ip df and packet len over 1500" sessionBase="no">
+        <and>
+            <find name="ip.flags.df" relation="==" content="1"/>
+            <find name="packet.len" relation="&gt;=" content="1500"/>
+        </and>
+    </filter>
     <output id="3">
         <port>P7</port>
         <arp_reply_default_mac/>
@@ -40,10 +60,15 @@ description: Network Address Translation(NAT) implement
         <modify_srcip nat="yes">192.168.1.151</modify_srcip>
         <gateway>192.168.1.1</gateway>
     </output>
-    <output id="7" arp_dstip_mac="yes">
+    <output id="7" arp_srcip="10.10.1.1" arp_dstip_mac="yes">
         <port>P7</port>
         <modify_src_default_mac/>
         <modify_dstip2nat/>
+    </output>
+    <output id="8">
+        <port>P3</port>
+        <icmp_reply_fragment_need mtu="1480"/>
+        <modify_srcip>10.10.1.1</modify_srcip>
     </output>
     <chain>
         <in>P6</in>
@@ -59,7 +84,11 @@ description: Network Address Translation(NAT) implement
         <fid>F3</fid>
         <out>O3</out>
         <next type="notmatch">
-            <out>O6</out>
+            <fid>F6</fid>
+            <out>O8</out>
+            <next type="notmatch">
+                <out>O6</out>
+            </next>
         </next>
     </chain>
 </run>
