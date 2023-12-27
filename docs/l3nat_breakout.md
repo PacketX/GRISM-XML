@@ -6,13 +6,13 @@ description: Network Address Translation(NAT) implement
 
 ## ConfigXML
 
-Set TCP/UDP flow timeout to 120 seconds
+Set TCP/UDP flow inactive timeout to 15 minutes
 
 ```xml
 <configSet reboot="no">
     <log>
         <netflow>
-            <inactive_timeout>120</inactive_timeout>
+            <inactive_timeout>900</inactive_timeout>
         </netflow>
     </log>
 </configSet>
