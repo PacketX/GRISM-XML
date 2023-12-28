@@ -74,7 +74,7 @@ function mec(nb_port, core_port, bo_port, bo_ue_ip, bo_gateway, bo_ta_ip = '') {
  core_port  : Core Port, ex. P7
  bo_port    : Breakout Port, ex. P5
  bo_ue_ip   : Breakout UE IP range, ex. 10.45.16.0/24
- bo_nat_ip  : Breakout UE IP range, ex. 192.168.1.2
+ bo_nat_ip  : Breakout NAT IP, ex. 192.168.1.2
  bo_gateway : Breakout Gateway, ex. 192.168.1.1 (optional)
  bo_ta_ip   : Breakout Target IP range, ex. 192.168.1.0/24 (optional)
 */
