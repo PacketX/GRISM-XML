@@ -29,7 +29,7 @@
   * [Block Specific Country](docs/block-specific-country.md)
   * [Block/Detect black list](docs/blacklist.md)
   * [Mobile Edge Computing Breakout](docs/mecterminate.md)
-  * [NAT](docs/l3nat\_breakout.md)
+  * [NAT](docs/nat.md)
   * [L2 GRE Breakout](docs/l2-gre-breakout.md)
   * [VXLAN Breakout](docs/vxlan-breakout.md)
   * [VXLAN Encapsulation](docs/vxlan-encapsulation.md)
@@ -37,4 +37,3 @@
   * [L2 Switch](docs/l2switchlike.md)
 * [Reference](reference/README.md)
   * [mec.js](reference/mec.js.md)
-  * [TW IP](reference/tw-ip.md)
