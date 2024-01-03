@@ -26,7 +26,8 @@
 
 ```javascript
 /*
- 2023/12/29 first add
+ 2023/12/28 first add
+ 2024/1/3   add UE to UE setup
 
  nb_port   : eNB/gNB Port, ex. P6
  core_port : Core Port, ex. P7
@@ -34,8 +35,9 @@
  bo_ue_ip  : Breakout UE IP range, ex. 10.45.16.0/24 or [10.45.16.0/24, 10.45.17.0/24]
  bo_gateway: Breakout Gateway, ex. 10.45.16.100
  bo_ta_ip  : Breakout Target IP range, ex. 192.168.1.0/24 (optional)
+ ue2ue     : UE to UE, default false (optional)
 */
-function mec(nb_port, core_port, bo_port, bo_ue_ip, bo_gateway, bo_ta_ip = '') {
+function mec(nb_port, core_port, bo_port, bo_ue_ip, bo_gateway, bo_ta_ip = '', ue2ue = false) {
     print('<filter id="1" sessionBase="no"><or>');
     if (Array.isArray(bo_ue_ip)) {
         bo_ue_ip.forEach(item => print('<find name="ip.src" relation="==" content="' + item + '"/>'));
@@ -54,15 +56,15 @@ function mec(nb_port, core_port, bo_port, bo_ue_ip, bo_gateway, bo_ta_ip = '') {
     if (bo_ta_ip.length > 0) {
         print('<find name="ip.dst" relation ="==" content="' + bo_ta_ip + '"/>');
     }
-    print('</or></filter>' +
-        '<filter id="4" sessionBase="no"><or>');
+    print('</or></filter>');
+    print('<filter id="4" sessionBase="no"><or>');
     if (Array.isArray(bo_ue_ip)) {
         bo_ue_ip.forEach(item => print('<find name="ip.dst" relation="==" content="' + item + '"/>'));
     } else {
         print('<find name="ip.dst" relation="==" content="' + bo_ue_ip + '"/>');
     }
-    print('</or></filter>' +
-        '<filter id="5" sessionBase="no"><or>' +
+    print('</or></filter>');
+    print('<filter id="5" sessionBase="no"><or>' +
         '<find name="arp.request.target.ip" relation="!=" content="' + bo_gateway + '"/>' +
         '</or></filter>');
     print('<output id="1" arp_dstip_mac="yes">' +
@@ -78,8 +80,19 @@ function mec(nb_port, core_port, bo_port, bo_ue_ip, bo_gateway, bo_ta_ip = '') {
         '<port>' + bo_port + '</port>' +
         '<arp_reply_default_mac/>' +
         '</output>');
+    if (ue2ue) {
+        print('<output id="4">' +
+            '<port>' + nb_port + '</port>' +
+            '<stripping>gtp</stripping>' +
+            '<tagging>gtp2</tagging>' +
+            '</output>');
+    }
     port_mirror(core_port, nb_port);
-    port_chain(nb_port, 'O1', 'F1,F3', core_port, 'and');
+    if (ue2ue) {
+        port_chain(nb_port, port_chain_next('O4', 'F1,F4', 'O1', 'and'), 'F1,F3', core_port, 'and');
+    } else {
+        port_chain(nb_port, 'O1', 'F1,F3', core_port, 'and');
+    }
     port_chain(bo_port, 'O3', 'F2,F5', port_chain_next('O2', 'F4'), 'and');
 }
 
@@ -90,9 +103,10 @@ function mec(nb_port, core_port, bo_port, bo_ue_ip, bo_gateway, bo_ta_ip = '') {
  bo_ue_ip   : Breakout UE IP range, ex. 10.45.16.0/24 or [10.45.16.0/24, 10.45.17.0/24]
  bo_nat_ip  : Breakout NAT IP, ex. 192.168.1.2
  bo_gateway : Breakout Gateway, ex. 192.168.1.1 (optional)
- bo_ta_ip   : Breakout Target IP range, ex. 192.168.1.0/24 (optional)
+ bo_ta_ip   : Breakout Target IP range, default '', ex. 192.168.1.0/24 (optional)
+ ue2ue      : UE to UE, default false (optional)
 */
-function mec_with_nat(nb_port, core_port, bo_port, bo_ue_ip, bo_nat_ip, bo_gateway = '', bo_ta_ip = '') {
+function mec_with_nat(nb_port, core_port, bo_port, bo_ue_ip, bo_nat_ip, bo_gateway = '', bo_ta_ip = '', ue2ue = false) {
     print('<filter id="1" sessionBase="no"><or>');
     if (Array.isArray(bo_ue_ip)) {
         bo_ue_ip.forEach(item => print('<find name="ip.src" relation="==" content="' + item + '"/>'));
@@ -107,8 +121,15 @@ function mec_with_nat(nb_port, core_port, bo_port, bo_ue_ip, bo_nat_ip, bo_gatew
     if (bo_ta_ip.length > 0) {
         print('<find name="ip.dst" relation ="==" content="' + bo_ta_ip + '"/>');
     }
-    print('</or></filter>' +
-        '<filter id="4" sessionBase="no"><or>' +
+    print('</or></filter>');
+    print('<filter id="4" sessionBase="no"><or>');
+    if (Array.isArray(bo_ue_ip)) {
+        bo_ue_ip.forEach(item => print('<find name="ip.dst" relation="==" content="' + item + '"/>'));
+    } else {
+        print('<find name="ip.dst" relation="==" content="' + bo_ue_ip + '"/>');
+    }
+    print('</or></filter>');
+    print('<filter id="5" sessionBase="no"><or>' +
         '<find name="ip.dst" relation="==" content="' + bo_nat_ip + '"/>' +
         '</or></filter>');
     print('<output id="1" arp_dstip_mac="yes">' +
@@ -129,8 +150,19 @@ function mec_with_nat(nb_port, core_port, bo_port, bo_ue_ip, bo_nat_ip, bo_gatew
         '<port>' + bo_port + '</port>' +
         '<arp_reply_default_mac/>' +
         '</output>');
+    if (ue2ue) {
+        print('<output id="4">' +
+            '<port>' + nb_port + '</port>' +
+            '<stripping>gtp</stripping>' +
+            '<tagging>gtp2</tagging>' +
+            '</output>');
+    }
     port_mirror(core_port, nb_port);
-    port_chain(nb_port, 'O1', 'F1,F3', core_port, 'and');
-    port_chain(bo_port, 'O3', 'F2', port_chain_next('O2', 'F4'));
+    if (ue2ue) {
+        port_chain(nb_port, port_chain_next('O4', 'F1,F4', 'O1', 'and'), 'F1,F3', core_port, 'and');
+    } else {
+        port_chain(nb_port, 'O1', 'F1,F3', core_port, 'and');
+    }
+    port_chain(bo_port, 'O3', 'F2', port_chain_next('O2', 'F5'));
 }
 ```
