@@ -79,7 +79,7 @@ function mec(nb_port, core_port, bo_port, bo_ue_ip, bo_gateway, bo_ta_ip = '') {
         '<arp_reply_default_mac/>' +
         '</output>');
     port_mirror(core_port, nb_port);
-    port_chain(nb_port, 'O1', 'F1,F3', 'P7', 'and');
+    port_chain(nb_port, 'O1', 'F1,F3', core_port, 'and');
     port_chain(bo_port, 'O3', 'F2,F5', port_chain_next('O2', 'F4'), 'and');
 }
 
@@ -130,7 +130,7 @@ function mec_with_nat(nb_port, core_port, bo_port, bo_ue_ip, bo_nat_ip, bo_gatew
         '<arp_reply_default_mac/>' +
         '</output>');
     port_mirror(core_port, nb_port);
-    port_chain(nb_port, 'O1', 'F1,F3', 'P7', 'and');
+    port_chain(nb_port, 'O1', 'F1,F3', core_port, 'and');
     port_chain(bo_port, 'O3', 'F2', port_chain_next('O2', 'F4'));
 }
 ```
