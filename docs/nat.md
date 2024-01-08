@@ -129,197 +129,46 @@ Set TCP/UDP flow inactive timeout to 15 minutes
 
 * inner: P6
 * outer: P7
-* dns breakout outer: P5
+* dns breakout outer: P5 172.16.10.10  gateway: 192.16.10.1
 
-```markup
-<run>
-    <filter id="99" alt="dns query" sessionBase="no">
-        <or>
-            <find name="udp.port" relation="==" content="53"/>
-        </or>
-    </filter>
-    <filter id="3" sessionBase="no">
-        <or>
-            <find name="arp.request.target.ip" relation="==" content="172.16.10.10"/>
-        </or>
-    </filter>
-    <output id="3">
-        <port>P5</port>
-        <arp_reply_default_mac/>
-    </output>
-    <output id="5">
-        <port>P5</port>
-        <modify_src_default_mac/>
-        <modify_srcip nat="yes">172.16.10.10</modify_srcip>
-        <gateway>172.16.10.1</gateway>
-    </output>
-    <output id="6" arp_dstip_mac="yes">
-        <port>P6</port>
-        <modify_src_default_mac/>
-        <modify_dstip2nat/>  
-    </output>
-    <chain>
-        <in>P6</in>
-        <fid type="and">F99</fid>
-        <out>O5</out>
-        <next type="notmatch">
-            <out>P7</out>
-        </next>
-    </chain>
-    <chain>
-        <in>P7</in>
-        <out>P6</out>
-    </chain>
-    <chain>
-        <in>P5</in>
-        <fid>F3</fid>
-        <out>O3</out>
-        <next type="notmatch">
-            <out>O6</out>
-        </next>
-    </chain>
-</run>
-```
-
-## NAT breakout dns and replace dns query server
-
-* Set P6 NAT Breakout (only dns query to 8.8.8.8) to P5
-* modify dns server from 8.8.8.8 to 168.95.1.1
-
-```xml
-<run>
-    <filter id="99" alt="dns query" sessionBase="no">
-        <or>
-            <find name="udp.port" relation="==" content="53"/>
-        </or>
-    </filter>
-    <filter id="100" alt="breakout server" sessionBase="no">
-        <or>
-            <find name="ip.dst" relation="==" content="8.8.8.8"/>
-        </or>
-    </filter>
-    <filter id="101" alt="dns from server" sessionBase="no">
-        <or>
-            <find name="ip.src" relation="==" content="168.95.1.1"/>
-        </or>
-    </filter>
-    <filter id="3" sessionBase="no">
-        <or>
-            <find name="arp.request.target.ip" relation="==" content="172.16.10.10"/>
-        </or>
-    </filter>
-    <output id="3">
-        <port>P5</port>
-        <arp_reply_default_mac/>
-    </output>
-    <output id="5">
-        <port>P5</port>
-        <modify_src_default_mac/>
-        <modify_dstip>168.95.1.1</modify_dstip>
-        <modify_srcip nat="yes">172.16.10.10</modify_srcip>
-        <gateway>172.16.10.1</gateway>
-    </output>
-    <output id="6" arp_dstip_mac="yes">
-        <port>P6</port>
-        <modify_dstip2nat/>  
-    </output>
-    <output id="101" arp_dstip_mac="yes">
-        <port>P6</port>
-        <modify_src_default_mac/>
-        <modify_dstip2nat/>  
-        <modify_srcip>8.8.8.8</modify_srcip>
-    </output>
-    <chain>
-        <in>P6</in>
-        <fid type="and">F99,F100</fid>
-        <out>O5</out>
-        <next type="notmatch">
-            <out>P7</out>
-        </next>
-    </chain>
-    <chain>
-        <in>P7</in>
-        <out>P6</out>
-    </chain>
-    <chain>
-        <in>P5</in>
-        <fid>F3</fid>
-        <out>O3</out>
-        <next type="notmatch">
-            <fid>F101</fid>
-            <out>O101</out>
-            <next type="notmatch">
-                <out>O6</out>
-            </next>
-        </next>
-    </chain>
-</run>
-```
-
-## breakout ssh and reply ICMP fragmentation needed if packet length over 1500
-
-```markup
-<run>
-    <filter id="99" alt="ssh" sessionBase="no">
-        <or>
-            <find name="tcp.port" relation="==" content="22"/>
-        </or>
-    </filter>
-    <filter id="3" sessionBase="no">
-        <or>
-            <find name="arp.request.target.ip" relation="==" content="172.16.10.10"/>
-        </or>
-    </filter>
-    <filter id="4" alt="df and packet over 1500" sessionBase="no">
-        <and>
-            <find name="ip.flags.df" relation="==" content="1"/>
-            <find name="packet.len" relation="&gt;=" content="1500"/>
-        </and>
-    </filter>
-    <output id="3">
-        <port>P5</port>
-        <arp_reply_default_mac/>
-    </output>
-    <output id="5">
-        <port>P5</port>
-        <modify_src_default_mac/>
-        <modify_srcip nat="yes">172.16.10.10</modify_srcip>
-        <gateway>172.16.10.1</gateway>
-    </output>
-    <output id="6" arp_dstip_mac="yes">
-        <modify_dstip2nat/>
-        <port>P6</port>
-    </output>
-    <output id="7" arp_dstip_mac="yes">
-        <port>P6</port>
-        <modify_dstip2nat/>
-        <modify_src_default_mac/>
-        <icmp_reply_fragment_need mtu="1440"/>
-        <modify_srcip>172.16.10.10</modify_srcip>
-    </output>
-    <chain>
-        <in>P6</in>
-        <fid>F4</fid>
-        <out>O7</out>
-        <next type="notmatch">
-            <fid type="and">F99</fid>
-            <out>O5</out>
-            <next type="notmatch">
-                <out>P7</out>
-            </next>
-        </next>
-    </chain>
-    <chain>
-        <in>P7</in>
-        <out>P6</out>
-    </chain>
-    <chain>
-        <in>P5</in>
-        <fid>F3</fid>
-        <out>O3</out>
-        <next type="notmatch">
-            <out>O6</out>
-        </next>
-    </chain>
-</run>
-```
+<pre class="language-markup"><code class="lang-markup">&#x3C;run>
+<strong>    &#x3C;action>
+</strong>        &#x3C;port>P5&#x3C;/port>
+        &#x3C;ip>172.16.10.10&#x3C;/ip>
+        &#x3C;arp_reply_default_mac/>
+        &#x3C;icmp_reply/>
+    &#x3C;/action> 
+    &#x3C;filter id="99" alt="dns query" sessionBase="no">
+        &#x3C;or>
+            &#x3C;find name="udp.port" relation="==" content="53"/>
+        &#x3C;/or>
+    &#x3C;/filter> 
+    &#x3C;output id="5">
+        &#x3C;port>P5&#x3C;/port>
+        &#x3C;modify_src_default_mac/>
+        &#x3C;modify_srcip nat="yes">172.16.10.10&#x3C;/modify_srcip>
+        &#x3C;gateway>172.16.10.1&#x3C;/gateway>
+    &#x3C;/output>
+    &#x3C;output id="6" arp_dstip_mac="yes">
+        &#x3C;port>P6&#x3C;/port>
+        &#x3C;modify_src_default_mac/>
+        &#x3C;modify_dstip2nat/>  
+    &#x3C;/output>
+    &#x3C;chain>
+        &#x3C;in>P6&#x3C;/in>
+        &#x3C;fid type="and">F99&#x3C;/fid>
+        &#x3C;out>O5&#x3C;/out>
+        &#x3C;next type="notmatch">
+            &#x3C;out>P7&#x3C;/out>
+        &#x3C;/next>
+    &#x3C;/chain>
+    &#x3C;chain>
+        &#x3C;in>P7&#x3C;/in>
+        &#x3C;out>P6&#x3C;/out>
+    &#x3C;/chain>
+    &#x3C;chain>
+        &#x3C;in>P5&#x3C;/in>  
+        &#x3C;out>O6&#x3C;/out>
+    &#x3C;/chain>
+&#x3C;/run>
+</code></pre>
