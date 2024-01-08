@@ -20,138 +20,108 @@ Set TCP/UDP flow inactive timeout to 15 minutes
 
 ## NAT
 
-* outer: P6   192.168.1.151 gateway: 192.168.1.1
-* inner: P7   10.10.1.1  10.10.1.0/24
+* inner: P6   10.10.1.1  10.10.1.0/24
+* outer: P7   192.168.1.151 gateway: 192.168.1.1
 
 ```xml
 <run>
-    <filter id="3" sessionBase="no">
+    <action>
+        <port>P6</port>
+        <ip>10.10.1.1</ip>
+        <arp_reply_default_mac/>
+        <icmp_reply/>
+    </action> 
+    <action>
+        <port>P7</port>
+        <ip>192.168.1.151</ip>
+        <arp_reply_default_mac/>
+        <icmp_reply/>
+    </action>
+    <filter id="1" sessionBase="no">
         <or>
-            <find name="arp.request.target.ip" relation="==" content="10.10.1.1"/>
+            <find name="ip.src" relation="==" content="10.10.1.0/24"/>
         </or>
     </filter>
-    <filter id="4" sessionBase="no">
-        <or>
-            <find name="arp.request.target.ip" relation="==" content="192.168.1.151"/>
-        </or>
-    </filter>
-    <filter id="5" sessionBase="no">
+    <filter id="2" sessionBase="no">
         <or>
             <find name="ip.dst" relation="==" content="192.168.1.151"/>
         </or>
     </filter>
-    <output id="3">
+    <output id="6" arp_srcip="10.10.1.1" arp_dstip_mac="yes">
+        <port>P6</port>
+        <modify_src_default_mac/>
+        <modify_dstip2nat/>
+    </output>
+    <output id="7">
         <port>P7</port>
-        <arp_reply_default_mac/>
-    </output>
-    <output id="4">
-        <port>P6</port>
-        <arp_reply_default_mac/>
-    </output>
-    <output id="6">
-        <port>P6</port>
         <modify_src_default_mac/>
         <modify_srcip nat="yes">192.168.1.151</modify_srcip>
         <gateway>192.168.1.1</gateway>
     </output>
-    <output id="7" arp_srcip="10.10.1.1" arp_dstip_mac="yes">
-        <port>P7</port>
-        <modify_src_default_mac/>
-        <modify_dstip2nat/>
-    </output>
     <chain>
         <in>P6</in>
-        <fid>F4</fid>
-        <out>O4</out>
-        <next type="notmatch">
-            <fid>F5</fid>
-            <out>O7</out>
-        </next>
+        <fid>F1</fid>
+        <out>O7</out>
     </chain>
     <chain>
-        <in>P7</in>
-        <fid>F3</fid>
-        <out>O3</out>
-        <next type="notmatch">       
-            <out>O6</out>
-        </next>
-    </chain>
+        <in>P7</in>   
+        <fid>F2</fid>
+        <out>O6</out>
+    </chain>   
 </run>
 ```
 
 ## NAT and set mtu 1480
 
-* outer: P6   192.168.1.151 gateway: 192.168.1.1
-* inner: P7   10.10.1.1  10.10.1.0/24
+* inner: P6   10.10.1.1  10.10.1.0/24
+* outer: P7   192.168.1.151 gateway: 192.168.1.1
 
 ```xml
 <run>
-    <filter id="3" sessionBase="no">
+    <action>
+        <port>P6</port>
+        <ip>10.10.1.1</ip>
+        <arp_reply_default_mac/>
+        <icmp_reply/>
+    </action> 
+    <action>
+        <port>P7</port>
+        <ip>192.168.1.151</ip>
+        <arp_reply_default_mac/>
+        <icmp_reply/>
+        <icmp_reply_fragment_need mtu="1480"/>
+    </action>
+    <filter id="1" sessionBase="no">
         <or>
-            <find name="arp.request.target.ip" relation="==" content="10.10.1.1"/>
+            <find name="ip.src" relation="==" content="10.10.1.0/24"/>
         </or>
     </filter>
-    <filter id="4" sessionBase="no">
-        <or>
-            <find name="arp.request.target.ip" relation="==" content="192.168.1.151"/>
-        </or>
-    </filter>
-    <filter id="5" sessionBase="no">
+    <filter id="2" sessionBase="no">
         <or>
             <find name="ip.dst" relation="==" content="192.168.1.151"/>
         </or>
     </filter>
-    <filter id="6" alt="ip df and packet len over 1500" sessionBase="no">
-        <and>
-            <find name="ip.flags.df" relation="==" content="1"/>
-            <find name="packet.len" relation="&gt;=" content="1500"/>
-        </and>
-    </filter>
-    <output id="3">
+    <output id="6" arp_srcip="10.10.1.1" arp_dstip_mac="yes">
+        <port>P6</port>
+        <modify_src_default_mac/>
+        <modify_dstip2nat/>
+    </output>
+    <output id="7">
         <port>P7</port>
-        <arp_reply_default_mac/>
-    </output>
-    <output id="4">
-        <port>P6</port>
-        <arp_reply_default_mac/>
-    </output>
-    <output id="6">
-        <port>P6</port>
         <modify_src_default_mac/>
         <modify_srcip nat="yes">192.168.1.151</modify_srcip>
         <gateway>192.168.1.1</gateway>
     </output>
-    <output id="7" arp_srcip="10.10.1.1" arp_dstip_mac="yes">
-        <port>P7</port>
-        <modify_src_default_mac/>
-        <modify_dstip2nat/>
-    </output>
-    <output id="8">
-        <port>P3</port>
-        <icmp_reply_fragment_need mtu="1480"/>
-        <modify_srcip>10.10.1.1</modify_srcip>
-    </output>
     <chain>
         <in>P6</in>
-        <fid>F4</fid>
-        <out>O4</out>
-        <next type="notmatch">
-            <fid>F5</fid>
-            <out>O7</out>
-        </next>
+        <fid>F1</fid>
+        <out>O7</out>
     </chain>
     <chain>
-        <in>P7</in>
-        <fid>F3</fid>
-        <out>O3</out>
-        <next type="notmatch">
-            <fid>F6</fid>
-            <out>O8</out>
-            <next type="notmatch">
-                <out>O6</out>
-            </next>
-        </next>
-    </chain>
+        <in>P7</in>   
+        <fid>F2</fid>
+        <out>O6</out>
+    </chain>   
 </run>
 ```
 
