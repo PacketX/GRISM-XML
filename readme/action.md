@@ -8,7 +8,7 @@ Two main funcitons, "input packet process" and "link pairs".
 
 ## Attribute
 
-<table><thead><tr><th width="150">Attribute</th><th width="233.7142857142857">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>id</td><td>Specifies id for an element</td><td>Interger</td><td>0</td></tr><tr><td>name</td><td>Specifies a name for an element</td><td>String</td><td></td></tr><tr><td>type</td><td>action type<br>* input-packet-process<br>* linkpairs</td><td>String</td><td>input-packet-process</td></tr></tbody></table>
+<table><thead><tr><th width="150">Attribute</th><th width="213.26479750778813">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>id</td><td>Specifies id for an element</td><td>Interger</td><td>0</td></tr><tr><td>name</td><td>Specifies a name for an element</td><td>String</td><td></td></tr><tr><td>type</td><td>action type<br>* input-packet-process<br>* linkpairs</td><td>String</td><td>input-packet-process</td></tr></tbody></table>
 
 Example
 
@@ -142,6 +142,22 @@ Defines icmp reply. It has a start tag \<icmp\_reply/> .
   <port>P0</port>
   <ip>192.168.1.100</ip>
   <icmp_reply/>
+</action>
+```
+
+### \<icmp\_reply\_fragment\_need>
+
+Defines icmp reply fragment need. It has a start tag \<icmp\_reply\_fragment\_need /> .
+
+#### Attritube
+
+<table><thead><tr><th width="150">Attribute</th><th width="213.26479750778813">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>mtu</td><td>Specifies mtu size</td><td>Interger</td><td>0*</td></tr></tbody></table>
+
+```xml
+<action>
+  <port>P0</port>
+  <ip>192.168.1.100</ip>
+  <icmp_reply_fragment_need mtu="1492"/>
 </action>
 ```
 
