@@ -110,7 +110,7 @@ function mec_with_nat(nb_port, core_port, bo_port, bo_ue_ip, bo_nat_ip, bo_gatew
     print('<action>' +
         '<port>' + bo_port + '</port>' +
         '<ip>' + bo_nat_ip + '</ip>' +
-        '<arp_reply_default_ip/>' +
+        '<arp_reply_default_mac/>' +
         '<icmp_reply/></action>');
     print('<filter id="1" sessionBase="no"><or>');
     if (Array.isArray(bo_ue_ip)) {
