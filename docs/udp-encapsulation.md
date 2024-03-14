@@ -1,6 +1,6 @@
 # UDP Encapsulation
 
-<img src="../.gitbook/assets/file.excalidraw.svg" alt="UDP Tunnel for Mirror traffic" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (1).svg" alt="UDP Tunnel for Mirror traffic" class="gitbook-drawing">
 
 ## GRISM1
 
