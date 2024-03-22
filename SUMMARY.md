@@ -35,6 +35,7 @@
   * [VXLAN Encapsulation](docs/vxlan-encapsulation.md)
   * [UDP Encapsulation](docs/udp-encapsulation.md)
   * [L2 Switch](docs/l2switchlike.md)
+  * [DNS Spoofing](docs/dns-spoofing.md)
   * [Detect If Dstination IP NOT in DNS Response IP Table](docs/detect-if-dstination-ip-not-in-dns-response-ip-table.md)
 * [Reference](reference/README.md)
   * [mec.js](reference/mec.js.md)
