@@ -500,18 +500,18 @@ Defines output http request hijack (and redirect to safeweb).
 
 <table><thead><tr><th>Attribute</th><th width="177">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>noswapmac</td><td>do'nt swap mac address</td><td>yes or no</td><td>no</td></tr><tr><td>redirectPort</td><td>redirect to Port</td><td>port (ex.P7)</td><td></td></tr></tbody></table>
 
-Example for inline (P6 <-> P7) redirect http request url www.com/ to https://safeweb.secure365.hinet.net/
+Example for inline (P6 <-> P7) redirect http request url unsafe.com/ to safeweb
 
 ```xml
 <run>
   <filter id="1" sessionBase="no">
     <or>
-      <find name="http.request.url" relation="==" content="www.com/" />
+      <find name="http.request.url" relation="==" content="unsafe.com/" />
     </or>
   </filter>
   <output id="1" type="httprequesthijack">
     <port>P7</port>
-    <redirect2safeweb noswapmac="yes" redirectPort="P7">>https://safeweb.secure365.hinet.net/</redirect2safeweb>
+    <redirect2safeweb/>
   </output>
   <chain>
     <in>P6</in>
