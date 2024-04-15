@@ -120,6 +120,28 @@ Defines modify destination ip address It has a start tag \<modify\_dstip> and an
 </output>
 ```
 
+### \<modify\_srcport>
+
+Defines modify TCP/UDP/SCTP source port
+
+```xml
+<output id="1">
+  <port>P0</port>
+  <modify_srcport>500<modify_srcport/>
+</output>
+```
+
+### \<modify\_dstport>
+
+Defines modify TCP/UDP/SCTP destination port
+
+```xml
+<output id="1">
+  <port>P0</port>
+  <modify_dstport>500<modify_dstport/>
+</output>
+```
+
 ### \<modify\_srcmac>
 
 Defines modify source mac address It has a start tag \<modify\_srcmac> and an end tag \</modify\_srcmac>.
