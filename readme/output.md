@@ -498,7 +498,7 @@ Defines output http request hijack (and redirect to safeweb).
 
 #### redirect2safeweb Attribute
 
-<table><thead><tr><th>Attribute</th><th width="177">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>noswapmac</td><td>do'nt swap mac address</td><td>yes or no</td><td>no</td></tr><tr><td>redirectPort</td><td>redirect to Port</td><td>port (ex.P7)</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="536.777166437414">Attribute</th><th width="177">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>noswapmac</td><td>do'nt swap mac address</td><td>yes or no</td><td>no</td></tr><tr><td>redirectPort</td><td>redirect to Port</td><td>port (ex.P7)</td><td></td></tr></tbody></table>
 
 Example for inline (P6 <-> P7) redirect http request url unsafe.com/ to safeweb
 
@@ -511,7 +511,7 @@ Example for inline (P6 <-> P7) redirect http request url unsafe.com/ to safeweb
   </filter>
   <output id="1" type="httprequesthijack">
     <port>P7</port>
-    <redirect2safeweb/>
+    <redirect2safeweb>https://dnscare.packetx.biz/</redirect2safeweb>
   </output>
   <chain>
     <in>P6</in>
@@ -527,6 +527,37 @@ Example for inline (P6 <-> P7) redirect http request url unsafe.com/ to safeweb
   </chain>
 </run>
 
+```
+
+### type : tcpreset
+
+Defines output TCP reset hijack.
+
+Example for inline (P6 <-> P7) reset ssl server name TCP connection
+
+```xml
+<run>
+  <filter id="1" sessionBase="no">
+    <or>
+      <find name="ssl.server_name" relation="==" content="unsafe.com" />
+    </or>
+  </filter>
+  <output id="1" type="tcpreset">
+    <port>P7</port>
+  </output>
+  <chain>
+    <in>P6</in>
+    <fid>F1</fid>
+    <out>O1</out>
+    <next type="notmatch">
+      <out>P7</out>
+    </next>
+  </chain>
+  <chain>
+    <in>P7</in>
+    <out>P6</out>
+  </chain>
+</run>
 ```
 
 ### type : udpencap
