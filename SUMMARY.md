@@ -25,6 +25,7 @@
   * [Snort Rule > GRISM XML](docs/snort-rule-greater-than-grism-xml.md)
   * [Offload](docs/reduce.md)
   * [Service Chain](docs/service\_chain\_ssli\_ips.md)
+  * [Block SSL Sample](docs/block-ssl-sample.md)
   * [Block Gmail](docs/block-gmail.md)
   * [Block Specific Country](docs/block-specific-country.md)
   * [Block/Detect black list](docs/blacklist.md)
