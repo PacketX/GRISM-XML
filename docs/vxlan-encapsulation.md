@@ -18,11 +18,12 @@
 
 ```xml
 <run>
-    <filter id="2" sessionBase="no">
-        <or>
-            <find name="arp.request.target.ip" relation="==" content="192.168.1.155"/>
-        </or>
-    </filter>
+    <action>
+        <port>P7</port>
+        <ip>192.168.1.155</ip>
+        <arp_reply_default_mac/>
+        <icmp_reply/>
+    </action>
     <filter id="3" sessionBase="no">
         <or>
             <find name="vxlan.vni" relation="==" content="1234"/>
@@ -40,22 +41,14 @@
         <port>P6</port>
         <stripping>vxlan</stripping>
     </output>
-    <output id="3">
-        <port>P7</port>
-        <arp_reply_default_mac/>
-    </output>
     <chain>
         <in>P6</in>
         <out>O1</out>
     </chain>
     <chain>
         <in>P7</in>
-        <fid>F2</fid>
+        <fid>F3</fid>
         <out>O2</out>
-        <next type="notmatch">
-            <fid>F3</fid>
-            <out>O2</out>
-        </next>
     </chain>
 </run>
 ```
