@@ -40,15 +40,12 @@ description: concat all L2 Switches with VXLAN tunnel
 
 ```xml
 <run>
-    <filter id="1" sessionBase="no">
-        <or>
-            <find name="arp.request.target.ip" relation="==" content="192.168.2.1"/>
-        </or>
-    </filter>
-    <output id="1">
+    <action>
         <port>P1</port>
+        <ip>192.168.2.1</ip>
         <arp_reply_default_mac/>
-    </output>
+        <icmp_reply/>
+    </action>
     <output id="2">
         <port>P0</port>
         <stripping>vxlan</stripping>
@@ -59,11 +56,7 @@ description: concat all L2 Switches with VXLAN tunnel
     </output>
     <chain>
         <in>P1</in>
-        <fid>F1</fid>
-        <out>O1</out>
-        <next type="notmatch">
-            <out>O2</out>
-        </next>
+        <out>O2</out>
     </chain>
     <chain>
         <in>P0</in>
@@ -76,11 +69,6 @@ description: concat all L2 Switches with VXLAN tunnel
 
 ```xml
 <run>
-    <filter id="1" sessionBase="no">
-        <or>
-            <find name="arp.request.target.ip" relation="==" content="192.168.2.1"/>
-        </or>
-    </filter>
     <filter id="2" sessionBase="no">
         <or>
             <find name="dstmac.in.vxlan.mapping.table" relation="==" content=""/>
@@ -90,11 +78,13 @@ description: concat all L2 Switches with VXLAN tunnel
         <or>
             <find name="arp" relation="==" content=""/>
         </or>
-    </filter> 
-    <output id="1">
+    </filter>
+    <action>
         <port>P1</port>
+        <ip>192.168.2.1</ip>
         <arp_reply_default_mac/>
-    </output>
+        <icmp_reply/>
+    </action>
     <output id="2">
         <port>P0</port>
         <stripping>vxlan</stripping>
@@ -110,17 +100,13 @@ description: concat all L2 Switches with VXLAN tunnel
     </output>
     <chain>
         <in>P1</in>
-        <fid>F1</fid>
-        <out>O1</out>
+        <fid>F2</fid>
+        <out>O4</out>
         <next type="notmatch">
-            <fid>F2</fid>
-            <out>O4</out>
+            <fid>F3</fid>
+            <out>O4,O2</out>
             <next type="notmatch">
-                <fid>F3</fid>
-                <out>O4,O2</out>
-                <next type="notmatch">
-                    <out>O2</out>
-                </next>
+                <out>O2</out>
             </next>
         </next>
     </chain>

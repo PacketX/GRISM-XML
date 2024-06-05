@@ -39,15 +39,12 @@ description: concat all L2 Switches with GRE tunnel
 
 ```xml
 <run>
-    <filter id="1" sessionBase="no">
-        <or>
-            <find name="arp.request.target.ip" relation="==" content="192.168.2.1"/>
-        </or>
-    </filter>
-    <output id="1">
+    <action>
         <port>P1</port>
+        <ip>192.168.2.1</ip>
         <arp_reply_default_mac/>
-    </output>
+        <icmp_reply/>
+    </action>
     <output id="2">
         <port>P0</port>
         <stripping>gre</stripping>
@@ -58,11 +55,7 @@ description: concat all L2 Switches with GRE tunnel
     </output>
     <chain>
         <in>P1</in>
-        <fid>F1</fid>
-        <out>O1</out>
-        <next type="notmatch">
-            <out>O2</out>
-        </next>
+        <out>O2</out>
     </chain>
     <chain>
         <in>P0</in>
