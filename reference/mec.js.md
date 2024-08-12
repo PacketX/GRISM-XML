@@ -1,6 +1,6 @@
 # mec.js
 
-### Example
+## Example
 
 ```xml
 <run>
@@ -11,7 +11,7 @@
 </run>
 ```
 
-### Example (with NAT)
+## Example (with NAT)
 
 ```xml
 <run>
@@ -22,7 +22,7 @@
 </run>
 ```
 
-### Script
+## Script source
 
 ```javascript
 /*

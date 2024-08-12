@@ -13,7 +13,7 @@ P0,P1 load balance to P3,P4,P5,P6 by 5-tuple (sip,dip,sport,dport,ip\_proto)
 </run>
 ```
 
-or
+### Use script
 
 ```javascript
 <run>

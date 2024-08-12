@@ -15,7 +15,7 @@ description: Duplicate packets. one to one, one to many, many to one, many to ma
 </run>
 ```
 
-or
+### Use script
 
 ```javascript
 <run>

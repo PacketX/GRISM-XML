@@ -40,11 +40,11 @@ description: GRISM XML Schema
     <xs:key name="keyChain">
       <xs:selector xpath="chain"></xs:selector>
       <xs:field xpath="@id"></xs:field>
-    </xs:key>-->
+    </xs:key>
     <xs:key name="action-id">
       <xs:selector xpath="action"></xs:selector>
       <xs:field xpath="@id"></xs:field>
-    </xs:key>
+    </xs:key>-->
     <xs:key name="bandwidth-reserve-id">
       <xs:selector xpath="bandwidthReserve"></xs:selector>
       <xs:field xpath="@id"></xs:field>
@@ -86,6 +86,13 @@ description: GRISM XML Schema
       <xs:enumeration value="remove"></xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
+
+    <xs:simpleType name="vniType">
+      <xs:restriction base="xs:unsignedInt">
+        <xs:minInclusive value="1"/>
+        <xs:maxInclusive value="16777215"/>
+      </xs:restriction>
+    </xs:simpleType>
 
   <xs:simpleType name="netPortType">
     <xs:restriction base="xs:unsignedShort">
@@ -215,6 +222,13 @@ description: GRISM XML Schema
       <xs:enumeration value="mec.mapping.ue.ipv4.connected"></xs:enumeration>
       <xs:enumeration value="vxlan"></xs:enumeration>
       <xs:enumeration value="vxlan.vni"></xs:enumeration>
+      <xs:enumeration value="country.iso_code"></xs:enumeration>
+      <xs:enumeration value="dstmac.in.l2gre.mapping.table"></xs:enumeration>
+      <xs:enumeration value="dstmac.in.vxlan.mapping.table"></xs:enumeration>
+      <xs:enumeration value="dstip.in.dns.response.ip.table"></xs:enumeration>
+      <xs:enumeration value="icmp"></xs:enumeration>
+      <xs:enumeration value="icmp.type"></xs:enumeration>
+      <xs:enumeration value="icmp.code"></xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
@@ -304,6 +318,24 @@ description: GRISM XML Schema
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
+          <xs:element name="ip" type="ipType" minOccurs="0" maxOccurs="1"></xs:element>
+          <xs:element name="arp_reply_default_mac" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="icmp_reply" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="icmp_reply_fragment_need" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:simpleContent>
+                <xs:extension base="xs:string">
+                  <xs:attribute name="mtu" type="xs:integer"></xs:attribute>
+                </xs:extension>
+              </xs:simpleContent>
+            </xs:complexType>
+          </xs:element>
         </xs:sequence>
         <xs:sequence>
           <xs:element name="portA" type="xs:string"></xs:element>
@@ -323,7 +355,7 @@ description: GRISM XML Schema
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="id" type="xs:integer" use="required"></xs:attribute>
+      <xs:attribute name="id" type="xs:integer"></xs:attribute>
       <xs:attribute name="name" type="xs:string"></xs:attribute>
       <xs:attribute name="alt" type="xs:string"></xs:attribute>
     </xs:complexType>
@@ -346,7 +378,7 @@ description: GRISM XML Schema
           <xs:element name="sorting" type="t1f0Type" default="0"></xs:element>
           <xs:element name="reverseSessionResult" type="t1f0Type" default="0"></xs:element>
           <xs:element name="msinterval" type="xs:nonNegativeInteger"></xs:element>
-          <xs:element name="speed" type="xs:nonNegativeInteger"></xs:element>
+          <xs:element name="speed" type="xs:integer"></xs:element>
           <xs:element name="scandir">
             <xs:complexType>
               <xs:simpleContent>
@@ -460,6 +492,8 @@ description: GRISM XML Schema
           </xs:element>
           <xs:element name="modify_srcmac" type="macType"></xs:element>
           <xs:element name="modify_dstmac" type="macType"></xs:element>
+          <xs:element name="modify_srcport" type="netPortType"></xs:element>
+          <xs:element name="modify_dstport" type="netPortType"></xs:element>
           <xs:element name="tagging">
             <xs:simpleType>
               <xs:restriction base="xs:string">
@@ -537,6 +571,14 @@ description: GRISM XML Schema
             <xs:complexType>
             </xs:complexType>
           </xs:element>
+          <xs:element name="modify_dstip2nat">
+            <xs:complexType>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="icmp_reply">
+            <xs:complexType>
+            </xs:complexType>
+          </xs:element>
           <xs:element name="icmp_reply_fragment_need">
             <xs:complexType>
               <xs:attribute name="mtu" type="xs:unsignedShort" use="required"></xs:attribute>
@@ -548,6 +590,11 @@ description: GRISM XML Schema
             </xs:complexType>
           </xs:element>
           <xs:element name="modify_tcp_syn_mss" type="xs:integer"></xs:element>
+          <xs:element name="vxlan_sip" type="ipType"></xs:element>
+          <xs:element name="vxlan_dip" type="ipType"></xs:element>
+          <xs:element name="vxlan_sport" type="netPortType"></xs:element>
+          <xs:element name="vxlan_dport" type="netPortType"></xs:element>
+          <xs:element name="vxlan_vni" type="vniType"></xs:element>
         </xs:choice>
       </xs:sequence>
       <xs:attribute name="id" type="xs:integer" use="required"></xs:attribute>
@@ -557,6 +604,7 @@ description: GRISM XML Schema
           <xs:restriction base="xs:string">
             <xs:enumeration value="mix"></xs:enumeration>
             <xs:enumeration value="httprequesthijack"></xs:enumeration>
+            <xs:enumeration value="tcpreset"></xs:enumeration>
             <xs:enumeration value="udpencap"></xs:enumeration>
             <xs:enumeration value="vlanid"></xs:enumeration>
             <xs:enumeration value="pcap"></xs:enumeration>
@@ -568,6 +616,7 @@ description: GRISM XML Schema
       </xs:attribute>
       <xs:attribute name="mtu" type="xs:nonNegativeInteger" default="0"></xs:attribute>
       <xs:attribute name="stl" type="xs:nonNegativeInteger" default="0"></xs:attribute>
+      <xs:attribute name="arp_srcip" type="ipType"></xs:attribute>
       <xs:attribute name="arp_dstip_mac" type="ynType" default="no"></xs:attribute>
       <xs:attribute name="data-tag" type="xs:string"></xs:attribute>
       <xs:attribute name="data-index" type="xs:integer"></xs:attribute>
@@ -581,7 +630,7 @@ description: GRISM XML Schema
     <xs:complexType>
       <xs:simpleContent>
         <xs:extension base="xs:string">
-          <xs:attribute name="id" type="xs:integer" use="optional"></xs:attribute>
+          <xs:attribute name="id" type="xs:unsignedInt" use="optional"></xs:attribute>
           <xs:attribute name="name" type="fieldType" default="regex"></xs:attribute>
           <xs:attribute name="relation" type="comparisonType" default=""></xs:attribute>
           <xs:attribute name="content" type="xs:string" default=""></xs:attribute>

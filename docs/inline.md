@@ -31,7 +31,7 @@
 </run>
 ```
 
-or
+### Use script
 
 ```javascript
 <run>
@@ -120,7 +120,7 @@ Send heartbeat packet to P4 and expect packet will come back from P5
 </run>
 ```
 
-or
+### Use script
 
 ```javascript
 <run>
