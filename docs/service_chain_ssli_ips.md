@@ -45,14 +45,6 @@
             <description>IPS2</description>
             <id>2</id>
         </target>
-	    <target>
-            <enable>True</enable>
-            <sendPort>P4</sendPort>
-            <receivePort>P5</receivePort>
-            <packetData>000d48285134000d482851338137ffff0030000000004004eca2c6130102c61301010000000000000000000000000000000000000000000000000000</packetData>
-            <description>IPS</description>
-            <id>3</id>
-        </target>
     </heartbeat>
 </configSet>
 ```
