@@ -8,12 +8,12 @@
                           |P1 
                     ---------------         ----------
                    |               | P7----|          |
-                   |               |       |  VAC LAN |
+                   |               |       |   IPS2   |
                    |               | P6----|          |
                    |     GRISM     |        ----------
                    |               |        ----------
                    |               | P5----|          |
-                   |               |       |  TA LAN  |
+                   |               |       |   IPS1   |
                    |               | P4----|          |
                     ---------------         ----------
                            |P0
@@ -34,7 +34,7 @@
             <sendPort>P4</sendPort>
             <receivePort>P5</receivePort>
             <packetData>000d48285134000d482851338137ffff0030000000004004eca2c6130102c61301010000000000000000000000000000000000000000000000000000</packetData>
-            <description>TA LAN</description>
+            <description>IPS1</description>
             <id>1</id>
         </target>
 	    <target>
@@ -42,7 +42,7 @@
             <sendPort>P6</sendPort>
             <receivePort>P7</receivePort>
             <packetData>000d48285134000d482851338137ffff0030000000004004eca2c6130102c61301010000000000000000000000000000000000000000000000000000</packetData>
-            <description>VAC LAN</description>
+            <description>IPS2</description>
             <id>2</id>
         </target>
 	    <target>
@@ -61,38 +61,38 @@
 
 ```xml
 <run>
-    <filter id="1" sessionBase="no" alt="TA LAN down">
+    <filter id="1" sessionBase="no" alt="IPS1 down">
         <or>
             <find name="heartbeat.target.miss.id" relation="==" content="1"/>
         </or>
     </filter>
-    <filter id="2" sessionBase="no" alt="VAC LAN down">
+    <filter id="2" sessionBase="no" alt="IPS2 down">
         <or>
             <find name="heartbeat.target.miss.id" relation="==" content="2"/>
         </or>
     </filter>
     <chain>
         <in>P0</in>    
-        <fid type="and" alt="TA/VAC down">F1,F2</fid>
+        <fid type="and" alt="IPS1 and IPS2 down">F1,F2</fid>
         <out>P1</out>
         <next type="notmatch">
-            <fid alt="TA alive">!F1</fid>
+            <fid alt="IPS1 alive">!F1</fid>
             <out>P4</out>
             <next type="notmatch">
-                <fid alt="VAC alive">!F2</fid>
+                <fid alt="IPS2 alive">!F2</fid>
                 <out>P6</out>
             </next>
         </next>
     </chain>
     <chain>
         <in>P1</in>
-        <fid type="and" alt="TA/VAC down">F1,F2</fid>
+        <fid type="and" alt="IPS1 and IPS2 down">F1,F2</fid>
         <out>P0</out>
         <next type="notmatch">
-            <fid alt="VAC alive">!F2</fid>
+            <fid alt="IPS2 alive">!F2</fid>
             <out>P7</out>
             <next type="notmatch">
-                <fid alt="TA alive">!F1</fid>
+                <fid alt="IPS1 alive">!F1</fid>
                 <out>P5</out>
             </next>
         </next>
