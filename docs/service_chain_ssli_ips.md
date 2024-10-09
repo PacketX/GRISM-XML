@@ -1,7 +1,133 @@
-## Service Chain with SSLi(Array) and IPS
+# Service Chain
+
+### Service Chain&#x20;
+
 ```
                          WAN
                           |
+                          |P1 
+                    ---------------         ----------
+                   |               | P7----|          |
+                   |               |       |  VAC LAN |
+                   |               | P6----|          |
+                   |     GRISM     |        ----------
+                   |               |        ----------
+                   |               | P5----|          |
+                   |               |       |  TA LAN  |
+                   |               | P4----|          |
+                    ---------------         ----------
+                           |P0
+                           |
+                          LAN
+```
+
+**Config XML**
+
+```xml
+<configSet reboot="no">
+    <heartbeat>
+        <enable>True</enable>
+        <frequency>500</frequency>
+        <maxAllowTimeouts>3</maxAllowTimeouts>
+        <target>
+            <enable>True</enable>
+            <sendPort>P4</sendPort>
+            <receivePort>P5</receivePort>
+            <packetData>000d48285134000d482851338137ffff0030000000004004eca2c6130102c61301010000000000000000000000000000000000000000000000000000</packetData>
+            <description>TA LAN</description>
+            <id>1</id>
+        </target>
+	    <target>
+            <enable>True</enable>
+            <sendPort>P6</sendPort>
+            <receivePort>P7</receivePort>
+            <packetData>000d48285134000d482851338137ffff0030000000004004eca2c6130102c61301010000000000000000000000000000000000000000000000000000</packetData>
+            <description>VAC LAN</description>
+            <id>2</id>
+        </target>
+	    <target>
+            <enable>True</enable>
+            <sendPort>P4</sendPort>
+            <receivePort>P5</receivePort>
+            <packetData>000d48285134000d482851338137ffff0030000000004004eca2c6130102c61301010000000000000000000000000000000000000000000000000000</packetData>
+            <description>IPS</description>
+            <id>3</id>
+        </target>
+    </heartbeat>
+</configSet>
+```
+
+**GRISM XML**
+
+```xml
+<run>
+    <filter id="1" sessionBase="no" alt="TA LAN down">
+        <or>
+            <find name="heartbeat.target.miss.id" relation="==" content="1"/>
+        </or>
+    </filter>
+    <filter id="2" sessionBase="no" alt="VAC LAN down">
+        <or>
+            <find name="heartbeat.target.miss.id" relation="==" content="2"/>
+        </or>
+    </filter>
+    <chain>
+        <in>P0</in>    
+        <fid type="and" alt="TA/VAC down">F1,F2</fid>
+        <out>P1</out>
+        <next type="notmatch">
+            <fid alt="TA alive">!F1</fid>
+            <out>P4</out>
+            <next type="notmatch">
+                <fid alt="VAC alive">!F2</fid>
+                <out>P6</out>
+            </next>
+        </next>
+    </chain>
+    <chain>
+        <in>P1</in>
+        <fid type="and" alt="TA/VAC down">F1,F2</fid>
+        <out>P0</out>
+        <next type="notmatch">
+            <fid alt="VAC alive">!F2</fid>
+            <out>P7</out>
+            <next type="notmatch">
+                <fid alt="TA alive">!F1</fid>
+                <out>P5</out>
+            </next>
+        </next>
+    </chain>
+    <chain>
+        <in>P4</in>
+        <out>P0</out>
+    </chain>
+    <chain>
+        <in>P5</in>
+        <fid>F2</fid>
+        <out>P1</out>
+        <next type="notmatch">
+            <out>P6</out>
+        </next>
+    </chain>
+    <chain>
+        <in>P6</in>
+        <fid>F1</fid>
+        <out>P0</out>
+        <next type="notmatch">
+            <out>P5</out>
+        </next>
+    </chain>
+    <chain>
+        <in>P7</in>
+        <out>P1</out>
+    </chain> 
+</run>
+```
+
+### Service Chain with SSLi(Array) and IPS
+
+<pre><code><strong>                         WAN
+</strong>                          |
                           |P7 
                     ---------------         ----------
                    |               | P1----|          |
@@ -16,8 +142,10 @@
                            |P6
                            |
                           LAN
-```                     
-#### Config XML
+</code></pre>
+
+**Config XML**
+
 ```xml
 <configSet reboot="no">
     <heartbeat>
@@ -51,7 +179,9 @@
     </heartbeat>
 </configSet>
 ```
-#### GRISM XML
+
+**GRISM XML**
+
 ```xml
 <run>
 	<filter id="1" sessionBase="no">
@@ -158,7 +288,8 @@
 </run>
 ```
 
-## Service Chain with SSLi(A10) and IPS
+### Service Chain with SSLi(A10) and IPS
+
 ```
                          WAN
                           |
@@ -176,8 +307,10 @@
                            |P6
                            |
                           LAN
-```     
-#### Config XML
+```
+
+**Config XML**
+
 ```xml
 <configSet reboot="no">
     <heartbeat>
@@ -211,7 +344,9 @@
     </heartbeat>
 </configSet>
 ```
-#### GRISM XML
+
+**GRISM XML**
+
 ```xml
 <run>
 	<filter id="1" sessionBase="no">
