@@ -396,6 +396,7 @@ Example for inline (P6 <-> P7) response ip 192.168.1.201 when dns query google.c
     <!-- dns query type IPv4 and not EDNS -->
     <filter id="2" sessionBase="no">
     <and>
+        <find n="dns.flags.response" r="==" c="0"/>
         <find n="dns.qry.type" r="==" c="1" />
         <find n="dns.count.add_rr" r="==" c="0" />
     </and>
