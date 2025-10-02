@@ -33,17 +33,17 @@ description: In-Tunnel functions
         </or>
     </filter>
     <output id="1">
-        <port>P7</port>
+        <port>P1</port>
         <stripping>gtp</stripping>
     </output>
     <output id="2">
-        <port>P7</port>
+        <port>P2</port>
         <stripping>gtp</stripping>
     </output>
     <chain>
         <in>P6</in>
         <fid>F1</fid>
-        <out>O1,O2</out>
+        <out type="loadBalance" lbtype="5thash">O1,O2</out>
     </chain>
 </run>
 ```
