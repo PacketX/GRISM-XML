@@ -1,34 +1,20 @@
 ---
-description: GRE/GTP/UDP Tunnel
+description: GRE/VXLAN Tunnel
 ---
 
 # Tunnel
 
 ### GRE Tunnel
 
-#### Config XML
-
-```xml
-<configSet reboot="no">
-    <ifcfgs>
-        <find role="ft">
-            <enable>True</enable>
-            <name>P7</name>
-            <ip>192.168.2.10</ip>
-            <netmask>255.255.255.0</netmask>
-            <gateway></gateway>
-        </find>
-    </ifcfgs>
-</configSet>
-```
-
 #### GRISM XML
 
 ```xml
 <run>
-    <output id="1">
+    <output id="1" arp_dstip_mac="yes">
         <port>P7</port>
-        <nvgre_dip>192.168.2.201</nvgre_dip>
+        <nvgre_type>eth</nvgre_type>
+        <nvgre_sip>192.168.1.10</nvgre_sip>
+        <nvgre_dip>192.168.1.201</nvgre_dip>
     </output>
     <chain>
         <in>P6</in>
