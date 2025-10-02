@@ -21,6 +21,7 @@
   * [Packet Reply](docs/packet-reply.md)
   * [Packet > File](docs/packet-greater-than-file.md)
   * [Service Chain](docs/service_chain_ssli_ips.md)
+  * [Page](docs/page.md)
   * [Tunnel](docs/tunnel.md)
   * [In-Tunnel](docs/in-tunnel.md)
   * [Bandwidth Control](docs/bandwidth-control.md)
