@@ -6,6 +6,8 @@ description: Defines the Action. It has a start tag <action> and an end tag </ac
 
 Two main funcitons, "input packet process" and "link pairs".
 
+GRISM AH32 is **not supported**
+
 ## Attribute
 
 <table><thead><tr><th width="150">Attribute</th><th width="213.26479750778813">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>id</td><td>Specifies id for an element</td><td>Interger</td><td>0</td></tr><tr><td>name</td><td>Specifies a name for an element</td><td>String</td><td></td></tr><tr><td>type</td><td>action type<br>* input-packet-process<br>* linkpairs</td><td>String</td><td>input-packet-process</td></tr></tbody></table>

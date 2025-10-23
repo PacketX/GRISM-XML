@@ -8,6 +8,8 @@ It can be used in \<out>\<out> replace default port like P0,P1,..etc.
 
 And output id=1 -> O1, refer to Example
 
+※ GRISM AH32 is **not supported**
+
 ## Attribute
 
 <table><thead><tr><th width="178">Attribute</th><th>Description</th><th width="150">Type</th><th width="150">Default (* must have)</th><th>Support</th></tr></thead><tbody><tr><td>id</td><td>Specifies a unique id for an element</td><td>Interger</td><td>*</td><td></td></tr><tr><td>type</td><td>output type</td><td>String</td><td>mix</td><td></td></tr><tr><td>name</td><td>Specifies a name for an element</td><td>String</td><td></td><td></td></tr><tr><td>mtu</td><td>Maximum Transmission Unit</td><td>Interger</td><td>0(unlimited)</td><td></td></tr><tr><td>stl</td><td>Second To Live</td><td>Interger</td><td>0(unlimited)</td><td></td></tr><tr><td>minbps</td><td>Minimum bandwidth reserved</td><td>Interger</td><td>0(unlimited)</td><td>v3.7</td></tr><tr><td>maxbps</td><td>Maximum bandwidth reserved</td><td>Interger</td><td>0(unlimited)</td><td>v3.7</td></tr><tr><td>arp_dstip_mac</td><td>arp request for dstip mac</td><td>yes/no</td><td>no</td><td></td></tr><tr><td>arp_srcip</td><td>arp request for source ip</td><td>IPv4</td><td>0</td><td>v5.5</td></tr></tbody></table>

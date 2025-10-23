@@ -6,6 +6,8 @@ description: Defines the Input. It has a start tag <input> and an end tag </inpu
 
 Two main funcitons, "replay pcap files" and "traffic generator".
 
+GRISM AH32 is **not supported**
+
 ## Attribute
 
 <table><thead><tr><th width="150">Attribute</th><th width="249.79413377234155">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>id</td><td>Specifies a unique id for an element</td><td>Interger</td><td></td></tr><tr><td>type</td><td>Specifies a type for an element</td><td>String</td><td>replayPcap or traffic-gen</td></tr></tbody></table>
