@@ -1,5 +1,5 @@
 ---
-description: concat all L2 Switches with VXLAN tunnel
+description: concat all network of the world with VXLAN tunnel
 ---
 
 # VXLAN Breakout
