@@ -1,4 +1,8 @@
-# L2 Switch Like
+---
+hidden: true
+---
+
+# L2 Switch
 
 set P4,P5,P6,P7 as L2 Switch
 

@@ -123,6 +123,23 @@ Defines IP. It has a start tag \<ip> and an end tag \</ip>.
 </action>
 ```
 
+### \<netmask> (v7.0)
+
+Defines netmask. It has a start tag \<netmask> and an end tag \</netmask>.
+
+### \<gateway> (v7.0)
+
+Defines IP. It has a start tag \<gateway> and an end tag \</gateway>.
+
+```xml
+<action>
+  <port>P0</port>
+  <ip>192.168.1.100</ip>
+  <netmask>255.255.255.0</netmask>
+  <gateway>192.168.1.1</gateway>
+</action>
+```
+
 ### \<arp\_reply\_default\_mac>
 
 Defines arp reply default mac address.  It has a start tag \<arp\_reply\_default\_mac/> .

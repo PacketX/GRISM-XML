@@ -13,19 +13,6 @@ P0,P1 load balance to P3,P4,P5,P6 by 5-tuple (sip,dip,sport,dport,ip\_proto)
 </run>
 ```
 
-### Use script
-
-```javascript
-<run>
-    <script src="common.js"></script>
-    <script>
-    <![CDATA[
-        port_loadbalance ('P0,P1', 'P3,P4,P5,P6');
-    ]]>
-    </script>
-</run>
-```
-
 ### inline loadbalance to IPS1 and IPS2
 
 ```

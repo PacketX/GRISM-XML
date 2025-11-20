@@ -31,19 +31,6 @@
 </run>
 ```
 
-### Use script
-
-```javascript
-<run>
-    <script src="common.js"></script>
-    <script>
-    <![CDATA[
-        port_inline ('P6', 'P7');
-    ]]>
-    </script>
-</run>
-```
-
 ### basic inline & bypass with heartbeat
 
 ```

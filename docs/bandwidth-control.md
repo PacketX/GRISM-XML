@@ -2,7 +2,7 @@
 
 Example: Limit only 192.168.1.0/24 bandwidth 1M-10M, others remain full line rate.
 
-```markup
+```xml
 <run>
     <filter id="1" alt="ip bandwidth need control" sessionBase="no">
         <or>

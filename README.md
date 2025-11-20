@@ -19,11 +19,8 @@
 
 For detailed technical specifications and compatibility information, please refer to the official documentation at
 
-* GRISM G8
-* GRISM T4, GRISM T12, GRISM T20, GRISM F2T12
-* GRISM G8-MEC
-* GRISM T4-MEC, GRISM T12-MEC, GRISM T20-MEC
-* GRISM AH32 (supports L2–L4 filtering functions only)
+* GRISM-T Series
+* GRISM-A Series (supports L2–L4 filtering functions only)
 
 For detailed technical specifications and compatibility information, please refer to the official documentation at [https://packetx.biz/](https://packetx.biz/)
 

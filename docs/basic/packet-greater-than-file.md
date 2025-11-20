@@ -2,7 +2,7 @@
 description: Save packet to pcap
 ---
 
-# Packet 2 pcap
+# Packet > File
 
 ## Basic
 
@@ -42,4 +42,4 @@ Save packet from P0 to H1/default&#x20;
 </run>
 ```
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>

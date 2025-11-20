@@ -9,7 +9,7 @@ description: Stripping Payload, VLAN, MPLS, Tunnel header, etc.
 ```xml
 <run>
     <output id="1">
-        <port>P7</out>
+        <port>P7</port>
         <stripping>payload</stripping>
     </output>
     <chain>
@@ -24,7 +24,7 @@ description: Stripping Payload, VLAN, MPLS, Tunnel header, etc.
 ```xml
 <run>
     <output id="1">
-        <port>P7</out>
+        <port>P7</port>
         <stripping>vlan</stripping>
     </output>
     <chain>
@@ -39,7 +39,7 @@ description: Stripping Payload, VLAN, MPLS, Tunnel header, etc.
 ```xml
 <run>
     <output id="1">
-        <port>P7</out>
+        <port>P7</port>
         <stripping>gtp</stripping>
     </output>
     <chain>
@@ -54,7 +54,7 @@ description: Stripping Payload, VLAN, MPLS, Tunnel header, etc.
 ```xml
 <run>
     <output id="1">
-        <port>P7</out>
+        <port>P7</port>
         <stripping>mpls</stripping>
     </output>
     <chain>

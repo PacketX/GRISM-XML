@@ -14,16 +14,3 @@ description: Duplicate packets. one to one, one to many, many to one, many to ma
     </chain>
 </run>
 ```
-
-### Use script
-
-```javascript
-<run>
-    <script src="common.js"></script>
-    <script>
-    <![CDATA[
-        port_mirror('P0', 'P1,P2,P3,P4');
-    ]]>
-    </script>
-</run>
-```
