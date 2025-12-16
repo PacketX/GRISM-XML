@@ -6,7 +6,7 @@ description: Defines the chain. It has a start tag <chain> and an end tag </chai
 
 ## Attribute
 
-<table><thead><tr><th width="179">Attribute</th><th width="212.21262002743487">Description</th><th width="150">Type</th><th>Default (* must have)</th><th>AH Support</th></tr></thead><tbody><tr><td>id</td><td>Specifies a unique id for an element</td><td>Interger</td><td></td><td>v1.0</td></tr><tr><td>name</td><td>Specifies a name for an element</td><td>String</td><td></td><td></td></tr><tr><td>sessionUnique</td><td>one session one output</td><td>yes/no</td><td>no</td><td></td></tr><tr><td>disable</td><td>disable chain</td><td>yes/no</td><td>no</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="179">Attribute</th><th width="212.21262002743487">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>id</td><td>Specifies a unique id for an element</td><td>Interger</td><td></td></tr><tr><td>name</td><td>Specifies a name for an element</td><td>String</td><td></td></tr><tr><td>sessionUnique</td><td>one session one output</td><td>yes/no</td><td>no</td></tr><tr><td>disable</td><td>disable chain</td><td>yes/no</td><td>no</td></tr></tbody></table>
 
 ## Elements in chain
 
