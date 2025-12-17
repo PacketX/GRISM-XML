@@ -45,6 +45,11 @@ description: concat all network of the world with GRE tunnel
         <arp_reply_default_mac/>
         <icmp_reply/>
     </action>
+    <filter id="1" sessionBase="no">
+    <or>
+        <find name="gre" relation="==" content=""/>
+    </or>
+    </filter>
     <output id="2">
         <port>P0</port>
         <stripping>gre</stripping>
@@ -55,6 +60,7 @@ description: concat all network of the world with GRE tunnel
     </output>
     <chain>
         <in>P1</in>
+        <fid>F1</fid>
         <out>O2</out>
     </chain>
     <chain>

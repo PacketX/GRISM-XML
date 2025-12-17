@@ -46,6 +46,11 @@ description: concat all network of the world with VXLAN tunnel
         <arp_reply_default_mac/>
         <icmp_reply/>
     </action>
+    <filter id="1" sessionBase="no">
+    <or>
+        <find name="vxlan" relation="==" content=""/>
+    </or>
+    </filter>
     <output id="2">
         <port>P0</port>
         <stripping>vxlan</stripping>
@@ -56,6 +61,7 @@ description: concat all network of the world with VXLAN tunnel
     </output>
     <chain>
         <in>P1</in>
+        <fid>f1</fid>
         <out>O2</out>
     </chain>
     <chain>
