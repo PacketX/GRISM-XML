@@ -2,7 +2,7 @@
 description: Network Address Translation(NAT) implement
 ---
 
-# NAT
+# L3 NAT
 
 ## ConfigXML
 
@@ -47,7 +47,7 @@ Set TCP/UDP flow inactive timeout to 15 minutes
             <find name="ip.dst" relation="==" content="192.168.1.151"/>
         </or>
     </filter>
-    <output id="6" arp_srcip="10.10.1.1" arp_dstip_mac="yes">
+    <output id="6" arp_dstip_mac="yes">
         <port>P6</port>
         <modify_src_default_mac/>
         <modify_dstip2nat/>
@@ -101,7 +101,7 @@ Set TCP/UDP flow inactive timeout to 15 minutes
             <find name="ip.dst" relation="==" content="192.168.1.151"/>
         </or>
     </filter>
-    <output id="6" arp_srcip="10.10.1.1" arp_dstip_mac="yes">
+    <output id="6" arp_dstip_mac="yes">
         <port>P6</port>
         <modify_src_default_mac/>
         <modify_dstip2nat/>
