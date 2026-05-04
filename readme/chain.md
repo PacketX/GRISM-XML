@@ -14,9 +14,9 @@ description: Defines the chain. It has a start tag <chain> and an end tag </chai
 
 Defines input ports. It has a start tag \<in> and an end tag \</in>.
 
-#### Attribute (v6.5.260430)
+#### Attribute&#x20;
 
-<table><thead><tr><th width="150">Attribute</th><th width="249.7142857142857">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>vlantype</td><td>tagging or stripping</td><td>String</td><td></td></tr><tr><td>vlanid</td><td>vlan id</td><td>uint16</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="109">Attribute</th><th width="175.7142857142857">Description</th><th width="126">Type</th><th width="186">Default (* must have)</th><th>Support</th></tr></thead><tbody><tr><td>vlantype</td><td>tagging or stripping</td><td>String</td><td></td><td>v6.5.260430</td></tr><tr><td>vlanid</td><td>vlan id</td><td>uint16</td><td></td><td>v6.5.260430</td></tr></tbody></table>
 
 #### Example
 
@@ -35,7 +35,7 @@ Defines output ports. It has a start tag \<out> and an end tag \</out>.
 
 #### Attribute
 
-<table><thead><tr><th width="150">Attribute</th><th width="249.7142857142857">Description</th><th width="150">Type</th><th>Default (* must have)</th></tr></thead><tbody><tr><td>type</td><td>duplicate or loadBalance</td><td>String</td><td>duplicate</td></tr><tr><td>lbtype</td><td>Load Balance type, includes session, ethtype, iptype, smac, dmac, sip, dip, rr, 5thash</td><td>String</td><td>session</td></tr><tr><td>failover</td><td>Load Balance fail over</td><td>yes/no</td><td>yes</td></tr><tr><td>weight</td><td>Load Balance weight (not support session, rr type)</td><td>String</td><td>20,80</td></tr><tr><td>vlantype</td><td>tagging or stripping</td><td>String</td><td></td></tr><tr><td>vlanid</td><td>vlanid</td><td>uint16</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="111">Attribute</th><th width="223.7142857142857">Description</th><th width="95">Type</th><th width="183">Default (* must have)</th><th>Support</th></tr></thead><tbody><tr><td>type</td><td>duplicate or loadBalance</td><td>String</td><td>duplicate</td><td></td></tr><tr><td>lbtype</td><td>Load Balance type, includes session, ethtype, iptype, smac, dmac, sip, dip, rr, 5thash</td><td>String</td><td>session</td><td></td></tr><tr><td>failover</td><td>Load Balance fail over</td><td>yes/no</td><td>yes</td><td></td></tr><tr><td>weight</td><td>Load Balance weight (not support session, rr type)</td><td>String</td><td>20,80</td><td></td></tr><tr><td>vlantype</td><td>tagging or stripping</td><td>String</td><td></td><td>v6.5.260430</td></tr><tr><td>vlanid</td><td>vlanid</td><td>uint16</td><td></td><td>v6.5.260430</td></tr></tbody></table>
 
 #### Example
 
