@@ -25,6 +25,12 @@ Defines all finds conjunct with or. It has a start tag \<or> and an end tag \</o
 
 Defines all finds conjunct with and. It has a start tag \<and> and an end tag \</and>.
 
+\<or> and \<and> can also contain other groups instead of only \<find/> (v6.5.260731), please refer to [Recursive Filter](recursive.md).
+
+### \<not> (v6.5.260731)
+
+Inverts what it contains. Must be nested inside \<or> or \<and>, please refer to [Recursive Filter](recursive.md).
+
 ### \<find>
 
 Please refer to [Element - \<find](find.md)>

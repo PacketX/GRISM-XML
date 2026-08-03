@@ -4,6 +4,7 @@
   * [Element \<run>](readme/run.md)
   * [Element \<filter>](readme/filter/README.md)
     * [Element \<find>](readme/filter/find.md)
+    * [Recursive Filter](readme/filter/recursive.md)
   * [Element \<output>](readme/output.md)
   * [Element \<chain>](readme/chain.md)
   * [Element \<script>](readme/input.md)

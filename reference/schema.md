@@ -642,10 +642,23 @@ description: GRISM XML Schema
     </xs:complexType>
   </xs:element>
   <xs:element name="f" substitutionGroup="find"></xs:element>
+  <!-- a group holds finds and/or nested groups, recursive filter (v6.5.260731) -->
   <xs:complexType name="criterion">
-    <xs:sequence>
-      <xs:element ref="find" minOccurs="0" maxOccurs="unbounded"></xs:element>
-    </xs:sequence>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="find"></xs:element>
+      <xs:element name="or" type="criterion"></xs:element>
+      <xs:element name="and" type="criterion"></xs:element>
+      <xs:element name="not" type="negation"></xs:element>
+    </xs:choice>
+    <xs:attribute name="data-tag" type="xs:string"></xs:attribute>
+  </xs:complexType>
+
+  <!-- not holds groups only, a find can not be put directly into not -->
+  <xs:complexType name="negation">
+    <xs:choice minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="or" type="criterion"></xs:element>
+      <xs:element name="and" type="criterion"></xs:element>
+    </xs:choice>
     <xs:attribute name="data-tag" type="xs:string"></xs:attribute>
   </xs:complexType>
 
