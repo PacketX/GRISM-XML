@@ -1,10 +1,3 @@
----
-description: GRISM XML Schema
----
-
-# Schema
-
-```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
@@ -268,7 +261,7 @@ description: GRISM XML Schema
     <xs:complexType>
       <xs:choice>
         <xs:group ref="heartbeatGroup"></xs:group>
-        <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
           <xs:element name="port">
             <xs:simpleType>
               <xs:restriction base="xs:string">
@@ -283,11 +276,14 @@ description: GRISM XML Schema
                 <xs:enumeration value="vlan"></xs:enumeration>
                 <xs:enumeration value="grism"></xs:enumeration>
                 <xs:enumeration value="gre-erspan"></xs:enumeration>
+                <xs:enumeration value="gre"></xs:enumeration>
                 <xs:enumeration value="gtp"></xs:enumeration>
                 <xs:enumeration value="vxlan"></xs:enumeration>
                 <xs:enumeration value="mpls-in-udp"></xs:enumeration>
                 <xs:enumeration value="mpls-in-gre"></xs:enumeration>
                 <xs:enumeration value="payload"></xs:enumeration>
+                <xs:enumeration value="payload2"></xs:enumeration>
+                <xs:enumeration value="udpencap"></xs:enumeration>
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
@@ -319,6 +315,8 @@ description: GRISM XML Schema
             </xs:simpleType>
           </xs:element>
           <xs:element name="ip" type="ipType" minOccurs="0" maxOccurs="1"></xs:element>
+          <xs:element name="gateway" type="ipType" minOccurs="0" maxOccurs="1"></xs:element>
+          <xs:element name="netmask" type="ipType" minOccurs="0" maxOccurs="1"></xs:element>
           <xs:element name="arp_reply_default_mac" minOccurs="0" maxOccurs="1">
             <xs:complexType>
             </xs:complexType>
@@ -336,7 +334,7 @@ description: GRISM XML Schema
               </xs:simpleContent>
             </xs:complexType>
           </xs:element>
-        </xs:sequence>
+        </xs:choice>
         <xs:sequence>
           <xs:element name="portA" type="xs:string"></xs:element>
           <xs:element name="portB" type="xs:string"></xs:element>
@@ -459,6 +457,7 @@ description: GRISM XML Schema
             <xs:simpleType>
               <xs:restriction base="xs:string">
                 <xs:enumeration value="payload"></xs:enumeration>
+                <xs:enumeration value="payload2"></xs:enumeration>
                 <xs:enumeration value="vlan"></xs:enumeration>
                 <xs:enumeration value="mpls"></xs:enumeration>
                 <xs:enumeration value="gre"></xs:enumeration>
@@ -468,6 +467,7 @@ description: GRISM XML Schema
                 <xs:enumeration value="gre-erspan"></xs:enumeration>
                 <xs:enumeration value="gtp"></xs:enumeration>
                 <xs:enumeration value="grism"></xs:enumeration>
+                <xs:enumeration value="udpencap"></xs:enumeration>
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
@@ -543,6 +543,14 @@ description: GRISM XML Schema
                           <xs:enumeration value="day"></xs:enumeration>
                           <xs:enumeration value="hour"></xs:enumeration>
                           <xs:enumeration value="minute"></xs:enumeration>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="type" default="pcap">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="pcap"></xs:enumeration>
+                          <xs:enumeration value="payload"></xs:enumeration>
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:attribute>
@@ -642,31 +650,33 @@ description: GRISM XML Schema
     </xs:complexType>
   </xs:element>
   <xs:element name="f" substitutionGroup="find"></xs:element>
-  <!-- a group holds finds and/or nested groups, recursive filter (v6.5.260731) -->
-  <xs:complexType name="criterion">
+  <!-- Recursive conjunction body: contains find elements and/or nested or/and/not -->
+  <xs:complexType name="criterionType">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="find"></xs:element>
-      <xs:element name="or" type="criterion"></xs:element>
-      <xs:element name="and" type="criterion"></xs:element>
-      <xs:element name="not" type="negation"></xs:element>
+      <xs:element ref="find"/>
+      <xs:element name="or"  type="criterionType"/>
+      <xs:element name="and" type="criterionType"/>
+      <xs:element name="not" type="notType"/>
     </xs:choice>
-    <xs:attribute name="data-tag" type="xs:string"></xs:attribute>
+    <xs:attribute name="data-tag" type="xs:string"/>
   </xs:complexType>
 
-  <!-- not holds groups only, a find can not be put directly into not -->
-  <xs:complexType name="negation">
-    <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:element name="or" type="criterion"></xs:element>
-      <xs:element name="and" type="criterion"></xs:element>
+  <!-- not: wraps exactly one sub-expression (or, and, not, or a single find) -->
+  <xs:complexType name="notType">
+    <xs:choice minOccurs="1" maxOccurs="1">
+      <xs:element ref="find"/>
+      <xs:element name="or"  type="criterionType"/>
+      <xs:element name="and" type="criterionType"/>
+      <xs:element name="not" type="notType"/>
     </xs:choice>
-    <xs:attribute name="data-tag" type="xs:string"></xs:attribute>
   </xs:complexType>
 
   <xs:element name="filter">
     <xs:complexType>
       <xs:choice minOccurs="0">
-        <xs:element name="or" type="criterion"></xs:element>
-        <xs:element name="and" type="criterion"></xs:element>
+        <xs:element name="or"  type="criterionType"/>
+        <xs:element name="and" type="criterionType"/>
+        <xs:element name="not" type="notType"/>
       </xs:choice>
       <xs:attribute name="id" type="xs:integer" use="required"></xs:attribute>
       <xs:attribute name="name" type="xs:string"></xs:attribute>
@@ -753,6 +763,15 @@ description: GRISM XML Schema
               <xs:attribute name="weight" type="xs:string" default="20,80"></xs:attribute>
               <!--<xs:attribute name="backup" type="xs:string"></xs:attribute>-->
               <xs:attribute name="alt" type="xs:string"></xs:attribute>
+	      <xs:attribute name="vlantype" use="optional">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="tagging"></xs:enumeration>
+                    <xs:enumeration value="stripping"></xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleType>
+	      </xs:attribute>
+	      <xs:attribute name="vlanid" type="xs:integer" use="optional"></xs:attribute>
             </xs:extension>
           </xs:simpleContent>
         </xs:complexType>
@@ -781,6 +800,15 @@ description: GRISM XML Schema
               <xs:simpleContent>
                 <xs:extension base="xs:string">
                   <xs:attribute name="alt" type="xs:string"></xs:attribute>
+	          <xs:attribute name="vlantype" use="optional">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="tagging"></xs:enumeration>
+                        <xs:enumeration value="stripping"></xs:enumeration>
+                      </xs:restriction>
+                    </xs:simpleType>
+	          </xs:attribute>
+	          <xs:attribute name="vlanid" type="xs:integer" use="optional"></xs:attribute>
                 </xs:extension>
               </xs:simpleContent>
           </xs:complexType>
@@ -825,5 +853,3 @@ description: GRISM XML Schema
   </xs:element>
 
 </xs:schema>
-
-```
