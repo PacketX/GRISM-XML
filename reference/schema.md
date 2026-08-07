@@ -291,7 +291,7 @@
             <xs:complexType>
               <xs:simpleContent>
                 <xs:extension base="vlanidType">
-                  <xs:attribute name="type" type="vlanOpType" default="replace"></xs:attribute>
+                  <xs:attribute name="type" type="vlanOpType" default="add"></xs:attribute>
                 </xs:extension>
               </xs:simpleContent>
             </xs:complexType>
